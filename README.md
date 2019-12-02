@@ -1,7 +1,5 @@
 # react-soccer-lineup
 
-> 
-
 [![NPM](https://img.shields.io/npm/v/react-soccer-lineup.svg)](https://www.npmjs.com/package/react-soccer-lineup) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 ## Install
@@ -15,12 +13,12 @@ npm install --save react-soccer-lineup
 ```jsx
 import React, { Component } from 'react'
 
-import MyComponent from 'react-soccer-lineup'
+import SoccerLineUp from 'react-soccer-lineup'
 
 class Example extends Component {
   render () {
     return (
-      <MyComponent />
+      <SoccerLineUp />
     )
   }
 }
