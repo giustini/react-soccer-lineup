@@ -1,17 +1,17 @@
 {
-  "name": "react-soccer-lineup",
-  "version": "0.0.1",
-  "description": "",
-  "author": "giustini",
-  "license": "MIT",
-  "repository": "giustini/react-soccer-lineup",
-  "main": "dist/index.js",
-  "module": "dist/index.es.js",
-  "jsnext:main": "dist/index.es.js",
-  "engines": {
-    "node": ">=8",
-    "npm": ">=5"
-  },
+    "name": "react-soccer-lineup",
+    "version": "0.1.0",
+    "description": "",
+    "author": "giustini",
+    "license": "MIT",
+    "repository": "giustini/react-soccer-lineup",
+    "main": "dist/index.js",
+    "module": "dist/index.es.js",
+    "jsnext:main": "dist/index.es.js",
+    "engines": {
+        "node": ">=8",
+        "npm": ">=5"
+    },
     "scripts": {
         "test": "cross-env CI=1 react-scripts-ts test --env=jsdom",
         "test:watch": "react-scripts-ts test --env=jsdom",
@@ -28,12 +28,15 @@
         "react-dom": "^15.0.0 || ^16.0.0"
     },
     "devDependencies": {
+        "@rollup/plugin-image": "^2.0.4",
         "@svgr/rollup": "^2.4.1",
+        "@types/classnames": "^2.2.10",
         "@types/jest": "^23.1.5",
         "@types/react": "^16.3.13",
         "@types/react-dom": "^16.0.5",
         "babel-core": "^6.26.3",
         "babel-runtime": "^6.26.0",
+        "classnames": "^2.2.6",
         "cross-env": "^5.1.4",
         "gh-pages": "^1.2.0",
         "node-sass": "^4.13.1",
@@ -47,10 +50,9 @@
         "rollup-plugin-peer-deps-external": "^2.2.0",
         "rollup-plugin-postcss": "^1.6.2",
         "rollup-plugin-typescript2": "^0.17.0",
-        "rollup-plugin-url": "^1.4.0",
         "typescript": "^2.8.3"
     },
-  "files": [
-    "dist"
-  ]
+    "files": [
+        "dist"
+    ]
 }

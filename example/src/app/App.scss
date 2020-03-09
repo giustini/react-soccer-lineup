@@ -1,0 +1,54 @@
+.app {
+
+    .container {
+
+        text-align: center;
+
+        h1 {
+            margin: 1em 0 2em 0;
+            text-align: center;
+        }
+
+        .pitch {
+            margin: 0 auto;
+        }
+
+        .controls {
+
+            margin: 2em;
+            display: inline-flex;
+
+            & > * {
+                margin: 0 5em;
+            }
+
+            .pattern {
+
+                text-align: left;
+
+                .p-dropdown {
+                    width: 100px;
+                }
+            }
+
+            .color {
+
+                text-align: left;
+
+                .colorpicker {
+
+                    display: inline-flex;
+
+                    p {
+                        margin: 0 1em;
+                        width: 50px;
+                        line-height: 1.95em;
+                    }
+                }
+
+            }
+
+
+        }
+    }
+}

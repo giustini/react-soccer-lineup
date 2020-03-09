@@ -1,0 +1,24 @@
+.pitch {
+
+    background-repeat: round;
+
+    &.responsive {
+        height: 100%;
+        width: 100%;
+    }
+
+    &.small {
+        height: 350px;
+        width: 600px;
+    }
+
+    &.normal {
+        height: 525px;
+        width: 900px;
+    }
+
+    &.big {
+        height: 700px;
+        width: 1200px;
+    }
+}

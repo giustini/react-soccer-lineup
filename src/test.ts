@@ -1,9 +1,9 @@
-import ExampleComponent from './'
+import Pitch from './components/pitch/Pitch';
 
-describe('ExampleComponent', () => {
+describe('Pitch', () => {
 
     it('is truthy', () => {
-        expect(ExampleComponent).toBeTruthy()
+        expect(Pitch).toBeTruthy()
     })
 
 });
