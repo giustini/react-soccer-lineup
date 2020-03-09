@@ -1,8 +1,6 @@
 {
-    "name": "react-soccer-lineup-example",
-    "homepage": "https://giustini.github.io/react-soccer-lineup",
-    "version": "0.0.0",
-    "license": "MIT",
+    "name": "example",
+    "version": "0.1.0",
     "private": true,
     "dependencies": {
         "classnames": "^2.2.6",
