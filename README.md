@@ -4,11 +4,13 @@
 
 [![NPM](https://img.shields.io/npm/v/react-soccer-lineup.svg)](https://www.npmjs.com/package/react-soccer-lineup) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
+
 ## Install
 
 ```bash
 npm install --save react-soccer-lineup
 ```
+
 
 ## Usage
 
@@ -33,6 +35,7 @@ class Example extends Component {
 }
 ```
 
+
 ## API
 
  Prop | Type | Required | Default value | Description
@@ -42,6 +45,9 @@ class Example extends Component {
  `pattern` | `string` | No | - | The pattern applied to the pitch grass. Supported values: `lines`, `squares`, `circles`
 
 
+## Live
+
+Check a live example [here](https://rsl-example.netlify.com/).
 
 
 ## License
