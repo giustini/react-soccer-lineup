@@ -41,7 +41,7 @@ class Example extends Component {
  Prop | Type | Required | Default value | Description
  ---- | ---- | -------- | ------------- | -----------
  `color` | `string` | No | ![#588f58](https://placehold.it/15/588f58/000000?text=+) `#588f58` | The pitch background color
- `size` | `string` | No | `"normal"` | Pitch dimensions. Supported values: `small`, `normal`, `big`, `responsive`
+ `size` | `string` | No | `"normal"` | Pitch dimensions. Supported values: `small`, `normal`, `big`, `responsive`, `fill`
  `pattern` | `string` | No | - | The pattern applied to the pitch grass. Supported values: `lines`, `squares`, `circles`
 
 

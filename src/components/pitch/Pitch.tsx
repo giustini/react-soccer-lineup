@@ -10,7 +10,7 @@ import circles from "./img/circles.png";
 import "./Pitch.scss";
 
 
-type PitchSize = "small" | "normal" | "big" | "responsive";
+type PitchSize = "small" | "normal" | "big" | "responsive" | "fill";
 type PitchPattern = "lines" | "squares" | "circles";
 
 interface PitchProps {
@@ -27,7 +27,7 @@ class Pitch extends Component<PitchProps, PitchState> {
 
     static propTypes = {
         color: PropTypes.string,
-        size: PropTypes.oneOf([ "small", "normal", "big", "responsive" ]),
+        size: PropTypes.oneOf([ "small", "normal", "big", "responsive", "fill" ]),
         pattern: PropTypes.oneOf([ "lines", "squares", "circles" ])
     };
 

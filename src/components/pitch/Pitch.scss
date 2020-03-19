@@ -3,6 +3,11 @@
     background-repeat: round;
 
     &.responsive {
+        padding-bottom: 58.3%;
+        width: 100%;
+    }
+
+    &.fill {
         height: 100%;
         width: 100%;
     }

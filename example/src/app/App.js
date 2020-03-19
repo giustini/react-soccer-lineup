@@ -27,7 +27,7 @@ export default class App extends Component {
                     <h1>react-soccer-lineup example</h1>
 
                     <SoccerLineUp
-                        size="normal"
+                        size="responsive"
                         color={ `#${ this.state.color }` }
                         pattern={ this.state.pattern }
                     />

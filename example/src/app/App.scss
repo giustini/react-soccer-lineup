@@ -2,6 +2,7 @@
 
     .container {
 
+        width: 100%;
         text-align: center;
 
         h1 {
@@ -10,7 +11,14 @@
         }
 
         .pitch {
+
             margin: 0 auto;
+
+            @media (min-width: 960px) {
+                height: 525px;
+                width: 900px;
+                padding-bottom: unset;
+            }
         }
 
         .controls {
@@ -18,12 +26,9 @@
             margin: 2em;
             display: inline-flex;
 
-            & > * {
-                margin: 0 5em;
-            }
-
             .pattern {
 
+                margin: 0 5vw 0 0;
                 text-align: left;
 
                 .p-dropdown {
@@ -33,6 +38,7 @@
 
             .color {
 
+                margin: 0 0 0 5vw;
                 text-align: left;
 
                 .colorpicker {
@@ -47,7 +53,6 @@
                 }
 
             }
-
 
         }
     }
