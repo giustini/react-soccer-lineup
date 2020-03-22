@@ -24,12 +24,12 @@
         .controls {
 
             margin: 2em;
+            text-align: left;
             display: inline-flex;
 
             .pattern {
 
-                margin: 0 5vw 0 0;
-                text-align: left;
+                margin: 0 2.5vw 0 0;
 
                 .p-dropdown {
                     width: 100px;
@@ -38,8 +38,7 @@
 
             .color {
 
-                margin: 0 0 0 5vw;
-                text-align: left;
+                margin: 0 2.5vw;
 
                 .colorpicker {
 
@@ -50,6 +49,26 @@
                         width: 50px;
                         line-height: 1.95em;
                     }
+                }
+
+            }
+
+            .teams {
+
+                margin: 0 0 0 2.5vw;
+
+                .checkboxes {
+
+                    display: inline-flex;
+
+                    .home {
+                        margin: 0 1vw 0 0;
+                    }
+
+                    .away {
+                        margin: 0 0 0 1vw;
+                    }
+
                 }
 
             }

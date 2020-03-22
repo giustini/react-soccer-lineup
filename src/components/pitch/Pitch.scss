@@ -1,5 +1,6 @@
 .pitch {
 
+    position: relative;
     background-repeat: round;
 
     &.responsive {
@@ -25,5 +26,12 @@
     &.big {
         height: 700px;
         width: 1200px;
+    }
+
+    .teams {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        display: flex;
     }
 }

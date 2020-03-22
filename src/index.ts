@@ -1,3 +1,2 @@
-import Pitch from "./components/pitch/Pitch";
+export { default } from "./components/pitch/Pitch";
 
-export default Pitch;

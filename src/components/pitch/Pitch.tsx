@@ -7,6 +7,8 @@ import lines from "./img/lines.png";
 import squares from "./img/squares.png";
 import circles from "./img/circles.png";
 
+import TeamView, { Team } from "../team/Team";
+
 import "./Pitch.scss";
 
 
@@ -17,6 +19,9 @@ interface PitchProps {
     color?: string;
     size?: PitchSize;
     pattern?: PitchPattern;
+
+    homeTeam?: Team;
+    awayTeam?: Team;
 }
 
 interface PitchState {
@@ -28,12 +33,14 @@ class Pitch extends Component<PitchProps, PitchState> {
     static propTypes = {
         color: PropTypes.string,
         size: PropTypes.oneOf([ "small", "normal", "big", "responsive", "fill" ]),
-        pattern: PropTypes.oneOf([ "lines", "squares", "circles" ])
+        pattern: PropTypes.oneOf([ "lines", "squares", "circles" ]),
+        homeTeam: TeamView.teamShape,
+        awayTeam: TeamView.teamShape
     };
 
     render() {
 
-        const { color, size, pattern } = this.props;
+        const { color, size, pattern, homeTeam, awayTeam } = this.props;
 
         return (
             <div
@@ -42,7 +49,7 @@ class Pitch extends Component<PitchProps, PitchState> {
                     backgroundColor: color || "#588f58",
                     backgroundImage: this.getPitchBackground(pattern)
                 } }
-            />
+            >{ this.renderTeams(homeTeam, awayTeam) }</div>
         );
     }
 
@@ -68,6 +75,18 @@ class Pitch extends Component<PitchProps, PitchState> {
             case "circles":
                 return circles;
         }
+    };
+
+    renderTeams = (homeTeam?: Team, awayTeam?: Team) => {
+        return (
+            <div className="teams">
+
+                { homeTeam && <TeamView team={ homeTeam } /> }
+
+                { awayTeam && <TeamView away team={ awayTeam } /> }
+
+            </div>
+        );
     };
 
 }

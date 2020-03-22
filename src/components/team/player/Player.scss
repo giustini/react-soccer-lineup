@@ -1,0 +1,23 @@
+.player-view {
+
+    height: 20%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .player {
+
+        position: relative;
+        border-radius: 50%;
+        padding-top: 45px;
+        width: 45px;
+
+        .number {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+    }
+}

@@ -43,8 +43,34 @@ class Example extends Component {
  `color` | `string` | No | ![#588f58](https://placehold.it/15/588f58/000000?text=+) `#588f58` | The pitch background color
  `size` | `string` | No | `"normal"` | Pitch dimensions. Supported values: `small`, `normal`, `big`, `responsive`, `fill`
  `pattern` | `string` | No | - | The pattern applied to the pitch grass. Supported values: `lines`, `squares`, `circles`
+ `homeTeam` | `Team` | No | - | The left side team
+ `awayTeam` | `Team` | No | - | The right side team
 
+#### Team
 
+ Attribute | Type | Required | Default value | Description
+ ---- | ---- | -------- | ------------- | -----------
+ `color` | `string` | No | - | The team players color
+ `squad` | `Squad` | Yes | - | The team players by role
+
+#### Squad
+
+ Attribute | Type | Required | Default value | Description
+ ---- | ---- | -------- | ------------- | -----------
+ `gk` | `Player` | No | - | The squad goalkeeper
+ `df` | `Player[]` | No | - | The squad defenders
+ `cdm` | `Player[]` | No | - | The squad central defensive midfielders
+ `cm` | `Player[]` | No | - | The squad central midfielders
+ `cam` | `Player[]` | No | - | The squad central attack midfielders
+ `fw` | `Player[]` | No | - | The squad forwards
+
+#### Player
+
+ Attribute | Type | Required | Default value | Description
+ ---- | ---- | -------- | ------------- | -----------
+ `name` | `string` | No | - | The displayed player name
+ `number` | `number` | No | - | The displayed player number
+ 
 ## Live
 
 Check a live example [here](https://rsl-example.netlify.com/).
