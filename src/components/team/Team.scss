@@ -13,6 +13,42 @@
         }
     }
 
+    .playerYellow {
+
+        background-color: rgb(240, 248, 120);
+
+        .number {
+            color: #ffffff;
+        }
+    }
+
+    .playerGreen {
+
+        background-color: #76f3aa;
+
+        .number {
+            color: #ffffff;
+        }
+    }
+
+    .playerOrange {
+
+        background-color: #f3ad2c;
+
+        .number {
+            color: #ffffff;
+        }
+    }
+
+    .playerTransparent {
+
+        background-color: #76f3aa00;
+
+        .number {
+            color: #ffffff;
+        }
+    }
+
     &.wide {
         width: 80%;
     }
