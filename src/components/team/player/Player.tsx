@@ -7,6 +7,7 @@ import "./Player.scss";
 export type Player = {
     name?: string;
     number?: number;
+    color?: string;
 }
 
 interface PlayerViewProps {
@@ -21,7 +22,8 @@ class PlayerView extends Component<PlayerViewProps, PlayerViewState> {
 
     static playerShape = PropTypes.shape({
         name: PropTypes.string,
-        number: PropTypes.number
+        number: PropTypes.number,
+        color: PropTypes.string
     });
 
     render() {
@@ -30,7 +32,7 @@ class PlayerView extends Component<PlayerViewProps, PlayerViewState> {
 
         return (
             <div className="player-view">
-                <div className="player">
+                <div  className={player.color || "player"}>
                     <div className="number">{ player.number }</div>
                 </div>
             </div>
