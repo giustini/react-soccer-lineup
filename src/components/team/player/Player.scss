@@ -20,4 +20,64 @@
             transform: translate(-50%, -50%);
         }
     }
+
+    .playerYellow {
+
+        position: relative;
+        border-radius: 50%;
+        padding-top: 45px;
+        width: 45px;
+
+        .number {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+    }
+
+    .playerOrange {
+
+        position: relative;
+        border-radius: 50%;
+        padding-top: 35px;
+        width: 35px;
+
+        .number {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+    }
+
+    .playerGreen {
+
+        position: relative;
+        border-radius: 50%;
+        padding-top: 45px;
+        width: 45px;
+
+        .number {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+    }
+
+    .playerTransparent {
+
+        position: relative;
+        border-radius: 50%;
+        padding-top: 45px;
+        width: 45px;
+
+        .number {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+    }
 }
