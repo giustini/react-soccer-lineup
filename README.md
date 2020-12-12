@@ -70,6 +70,7 @@ class Example extends Component {
  ---- | ---- | -------- | ------------- | -----------
  `name` | `string` | No | - | The displayed player name
  `number` | `number` | No | - | The displayed player number
+ `color` | `string` | No | - | Gives a specific color to a player [playerOrange | playerGreen | playerYellow | playerTransparent ]
  
 ## Live
 
