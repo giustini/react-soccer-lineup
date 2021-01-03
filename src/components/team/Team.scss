@@ -4,15 +4,6 @@
     width: 80%;
     display: inline;
 
-    .player {
-
-        background-color: lightcoral;
-
-        .number {
-            color: #ffffff;
-        }
-    }
-
     &.wide {
         width: 80%;
     }
@@ -28,15 +19,6 @@
         .lines {
             float: left;
             flex-direction: row-reverse;
-        }
-
-        .player {
-
-            background-color: lightblue;
-
-            .number {
-                color: #333333;
-            }
         }
     }
 

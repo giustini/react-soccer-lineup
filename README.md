@@ -50,8 +50,8 @@ class Example extends Component {
 
  Attribute | Type | Required | Default value | Description
  ---- | ---- | -------- | ------------- | -----------
- `color` | `string` | No | - | The team players color
  `squad` | `Squad` | Yes | - | The team players by role
+ `style` | `Style` | No | - | The team style
 
 #### Squad
 
@@ -64,12 +64,22 @@ class Example extends Component {
  `cam` | `Player[]` | No | - | The squad central attack midfielders
  `fw` | `Player[]` | No | - | The squad forwards
 
+#### Style
+
+ Attribute | Type | Required | Default value | Description
+ ---- | ---- | -------- | ------------- | -----------
+ `color` | `string` | Yes | ![#f08080](https://placehold.it/15/f08080/000000?text=+) `#f08080` (home) / ![#add8e6](https://placehold.it/15/add8e6/000000?text=+) `#add8e6` (away) | The team color
+ `numberColor` | `string` | Yes | ![#ffffff](https://placehold.it/15/ffffff/000000?text=+) `#ffffff` (home) / ![#333333](https://placehold.it/15/333333/000000?text=+) `#333333` (away) | The team number color
+ 
 #### Player
 
  Attribute | Type | Required | Default value | Description
  ---- | ---- | -------- | ------------- | -----------
  `name` | `string` | No | - | The displayed player name
  `number` | `number` | No | - | The displayed player number
+ `color` | `string` | No | The team color | The player color
+ `numberColor` | `string` | No | The team number color | The player number color
+  
  
 ## Live
 

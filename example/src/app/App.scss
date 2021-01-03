@@ -4,6 +4,7 @@
 
         width: 100%;
         text-align: center;
+        padding-bottom: 50px;
 
         h1 {
             margin: 1em 0 2em 0;
@@ -23,9 +24,26 @@
 
         .controls {
 
-            margin: 2em;
+            display: flex;
+            flex-direction: column;
             text-align: left;
-            display: inline-flex;
+
+            margin: 1vw;
+
+            .controls-row {
+
+                display: inline-flex;
+                justify-content: center;
+                margin: 1vw;
+
+                &:first-child {
+                    margin-top: 0;
+                }
+
+                &:last-child {
+                    margin-bottom: 0;
+                }
+            }
 
             .pattern {
 
@@ -71,6 +89,29 @@
 
                 }
 
+            }
+
+            .team-colors {
+
+                margin: 0 2.5vw;
+
+                h3 {
+                    margin-top: 0;
+                }
+
+                .team-colors-content {
+
+                    display: flex;
+
+                    .color {
+
+                        margin: 0 1vw 0 0;
+
+                        h4 {
+                            margin-top: 0;
+                        }
+                    }
+                }
             }
 
         }

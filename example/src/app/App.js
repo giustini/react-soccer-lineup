@@ -17,13 +17,20 @@ export default class App extends Component {
             color: '588f58',
             pattern: 'lines',
             showHomeTeam: false,
-            showAwayTeam: false
+            showAwayTeam: false,
+
+            homeTeamColor: 'f08080',
+            homeTeamNumberColor: 'ffffff',
+
+            awayTeamColor: 'add8e6',
+            awayTeamNumberColor: '333333'
         }
     }
 
     render() {
 
         const { color, pattern, showHomeTeam, showAwayTeam } = this.state
+        const { homeTeamColor, homeTeamNumberColor, awayTeamColor, awayTeamNumberColor } = this.state
 
         return (
           <div className="app">
@@ -41,71 +48,160 @@ export default class App extends Component {
 
                   <div className="controls">
 
-                      <div className="pattern">
+                      <div className="controls-row">
 
-                          <h3>Pattern</h3>
+                          <div className="pattern">
 
-                          <Dropdown
-                            placeholder="Select a pattern"
-                            value={ pattern }
-                            options={ this.buildPatternsDropdownOptions() }
-                            onChange={ this.onChangePattern }
-                          />
+                              <h3>Pattern</h3>
 
-                      </div>
-
-                      <div className="color">
-
-                          <h3>Color</h3>
-
-                          <div className="colorpicker">
-                              <ColorPicker
-                                value={ color }
-                                onChange={ this.onChangeColor }
+                              <Dropdown
+                                placeholder="Select a pattern"
+                                value={ pattern }
+                                options={ this.buildPatternsDropdownOptions() }
+                                onChange={ this.onChangePattern }
                               />
-                              <p>{ `#${ color }` }</p>
+
+                          </div>
+
+                          <div className="color">
+
+                              <h3>Color</h3>
+
+                              <div className="colorpicker">
+                                  <ColorPicker
+                                    value={ color }
+                                    onChange={ this.onChangeColor }
+                                  />
+                                  <p>{ `#${ color }` }</p>
+                              </div>
+
+                          </div>
+
+                          <div className="teams">
+
+                              <h3>Show teams</h3>
+
+                              <div className="checkboxes">
+
+                                  <div className="home">
+
+                                      <Checkbox
+                                        inputId="home"
+                                        checked={ showHomeTeam }
+                                        onChange={ this.onChangeShowHomeTeam }
+                                      />
+
+                                      <label
+                                        htmlFor="home"
+                                        className="p-checkbox-label"
+                                      >Home</label>
+
+                                  </div>
+
+                                  <div className="away">
+
+                                      <Checkbox
+                                        inputId="away"
+                                        checked={ showAwayTeam }
+                                        onChange={ this.onChangeShowAwayTeam }
+                                      />
+
+                                      <label
+                                        htmlFor="away"
+                                        className="p-checkbox-label"
+                                      >Away</label>
+
+                                  </div>
+
+                              </div>
                           </div>
 
                       </div>
 
-                      <div className="teams">
+                      { (showHomeTeam || showAwayTeam) &&
 
-                          <h3>Show teams</h3>
+                      <div className="controls-row">
 
-                          <div className="checkboxes">
+                          { showHomeTeam &&
+                          <div className="team-colors">
 
-                              <div className="home">
+                              <h3>Home team colors</h3>
 
-                                  <Checkbox
-                                    inputId="home"
-                                    checked={ showHomeTeam }
-                                    onChange={ this.onChangeShowHomeTeam }
-                                  />
+                              <div className="team-colors-content">
 
-                                  <label
-                                    htmlFor="home"
-                                    className="p-checkbox-label"
-                                  >Home</label>
+                                  <div className="color">
+
+                                      <h4>Main color</h4>
+
+                                      <div className="colorpicker">
+                                          <ColorPicker
+                                            value={ homeTeamColor }
+                                            onChange={ this.onChangeHomeTeamColor }
+                                          />
+                                          <p>{ `#${ homeTeamColor }` }</p>
+                                      </div>
+
+                                  </div>
+
+                                  <div className="color">
+
+                                      <h4>Number color</h4>
+
+                                      <div className="colorpicker">
+                                          <ColorPicker
+                                            value={ homeTeamNumberColor }
+                                            onChange={ this.onChangeHomeTeamNumberColor }
+                                          />
+                                          <p>{ `#${ homeTeamNumberColor }` }</p>
+                                      </div>
+
+                                  </div>
 
                               </div>
 
-                              <div className="away">
+                          </div> }
 
-                                  <Checkbox
-                                    inputId="away"
-                                    checked={ showAwayTeam }
-                                    onChange={ this.onChangeShowAwayTeam }
-                                  />
+                          { showAwayTeam &&
 
-                                  <label
-                                    htmlFor="away"
-                                    className="p-checkbox-label"
-                                  >Away</label>
+                          <div className="team-colors">
+
+                              <h3>Away team colors</h3>
+
+                              <div className="team-colors-content">
+
+                                  <div className="color">
+
+                                      <h4>Main color</h4>
+
+                                      <div className="colorpicker">
+                                          <ColorPicker
+                                            value={ awayTeamColor }
+                                            onChange={ this.onChangeAwayTeamColor }
+                                          />
+                                          <p>{ `#${ awayTeamColor }` }</p>
+                                      </div>
+
+                                  </div>
+
+                                  <div className="color">
+
+                                      <h4>Number color</h4>
+
+                                      <div className="colorpicker">
+                                          <ColorPicker
+                                            value={ awayTeamNumberColor }
+                                            onChange={ this.onChangeAwayTeamNumberColor }
+                                          />
+                                          <p>{ `#${ awayTeamNumberColor }` }</p>
+                                      </div>
+
+                                  </div>
 
                               </div>
 
-                          </div>
-                      </div>
+                          </div> }
+
+                      </div> }
 
                   </div>
 
@@ -115,11 +211,15 @@ export default class App extends Component {
     }
 
     buildHomeTeam = () => {
+
+        const { homeTeamColor, homeTeamNumberColor } = this.state
+
         return {
-            color: 'lightcoral',
             squad: {
                 gk: {
-                    number: 1
+                    number: 1,
+                    color: '#d6cb65',
+                    numberColor: '#333333'
                 },
                 df: [ {
                     number: 2
@@ -145,16 +245,24 @@ export default class App extends Component {
                 fw: [ {
                     number: 9
                 } ]
+            },
+            style: {
+                color: `#${ homeTeamColor }`,
+                numberColor: `#${ homeTeamNumberColor }`
             }
         }
     }
 
     buildAwayTeam = () => {
+
+        const { awayTeamColor, awayTeamNumberColor } = this.state
+
         return {
-            color: 'lightblue',
             squad: {
                 gk: {
-                    number: 1
+                    number: 1,
+                    color: '#4f6c75',
+                    numberColor: '#ffffff'
                 },
                 df: [ {
                     number: 2
@@ -179,6 +287,10 @@ export default class App extends Component {
                 }, {
                     number: 11
                 } ]
+            },
+            style: {
+                color: `#${ awayTeamColor }`,
+                numberColor: `#${ awayTeamNumberColor }`
             }
         }
     }
@@ -217,5 +329,21 @@ export default class App extends Component {
 
     onChangeShowAwayTeam = () => {
         this.setState({ showAwayTeam: !this.state.showAwayTeam })
+    }
+
+    onChangeHomeTeamColor = (e) => {
+        this.setState({ homeTeamColor: e.value })
+    }
+
+    onChangeHomeTeamNumberColor = (e) => {
+        this.setState({ homeTeamNumberColor: e.value })
+    }
+
+    onChangeAwayTeamColor = (e) => {
+        this.setState({ awayTeamColor: e.value })
+    }
+
+    onChangeAwayTeamNumberColor = (e) => {
+        this.setState({ awayTeamNumberColor: e.value })
     }
 }

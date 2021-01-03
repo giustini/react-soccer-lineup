@@ -16,9 +16,14 @@ export type Squad = {
     fw?: Player[];
 };
 
+export type Style = {
+    color: string;
+    numberColor: string;
+}
+
 export type Team = {
-    color?: string;
     squad: Squad;
+    style?: Style;
 };
 
 export interface TeamViewProps {
@@ -32,8 +37,13 @@ interface TeamViewState {
 
 class TeamView extends Component<TeamViewProps, TeamViewState> {
 
+    readonly DEFAULT_HOME_COLOR = "lightcoral";
+    readonly DEFAULT_AWAY_COLOR = "lightblue";
+
+    readonly DEFAULT_HOME_NUMBER_COLOR = "#ffffff";
+    readonly DEFAULT_AWAY_NUMBER_COLOR = "#333333";
+
     static teamShape = PropTypes.shape({
-        color: PropTypes.string,
         squad: PropTypes.shape({
             gk: PlayerView.playerShape,
             df: PropTypes.arrayOf(PlayerView.playerShape),
@@ -41,7 +51,11 @@ class TeamView extends Component<TeamViewProps, TeamViewState> {
             cm: PropTypes.arrayOf(PlayerView.playerShape),
             cam: PropTypes.arrayOf(PlayerView.playerShape),
             fw: PropTypes.arrayOf(PlayerView.playerShape)
-        }).isRequired
+        }).isRequired,
+        style: PropTypes.shape({
+            color: PropTypes.string.isRequired,
+            numberColor: PropTypes.string.isRequired
+        })
     });
 
     render() {
@@ -54,7 +68,7 @@ class TeamView extends Component<TeamViewProps, TeamViewState> {
 
                 { gk && <div className="goalkeeper">
 
-                    <PlayerView player={ gk } />
+                    <PlayerView player={ this.buildPlayer(gk, away) } />
 
                 </div> }
 
@@ -62,31 +76,31 @@ class TeamView extends Component<TeamViewProps, TeamViewState> {
 
                     { df && <div className="line">
 
-                        { df.map((df, i) => <PlayerView player={ df } key={ i } />) }
+                        { df.map((df, i) => <PlayerView player={ this.buildPlayer(df, away) } key={ i } />) }
 
                     </div> }
 
                     { cdm && <div className="line">
 
-                        { cdm.map((cdm, i) => <PlayerView player={ cdm } key={ i } />) }
+                        { cdm.map((cdm, i) => <PlayerView player={ this.buildPlayer(cdm, away) } key={ i } />) }
 
                     </div> }
 
                     { cm && <div className="line">
 
-                        { cm.map((cm, i) => <PlayerView player={ cm } key={ i } />) }
+                        { cm.map((cm, i) => <PlayerView player={ this.buildPlayer(cm, away) } key={ i } />) }
 
                     </div> }
 
                     { cam && <div className="line">
 
-                        { cam.map((cam, i) => <PlayerView player={ cam } key={ i } />) }
+                        { cam.map((cam, i) => <PlayerView player={ this.buildPlayer(cam, away) } key={ i } />) }
 
                     </div> }
 
                     { fw && <div className="line">
 
-                        { fw.map((fw, i) => <PlayerView player={ fw } key={ i } />) }
+                        { fw.map((fw, i) => <PlayerView player={ this.buildPlayer(fw, away) } key={ i } />) }
 
                     </div> }
 
@@ -95,6 +109,36 @@ class TeamView extends Component<TeamViewProps, TeamViewState> {
             </div>
         );
     }
+
+    buildPlayer = (player: Player, away?: boolean) => {
+        return {
+            ...player,
+            color: this.getPlayerColor(player, away),
+            numberColor: this.getPlayerNumberColor(player, away)
+        };
+    };
+
+    getPlayerColor = (player: Player, away?: boolean) => {
+        return player.color || this.getTeamColor(away);
+    };
+
+    getTeamColor = (away?: boolean) => {
+
+        const { style } = this.props.team;
+
+        return style && style.color || (away ? this.DEFAULT_AWAY_COLOR : this.DEFAULT_HOME_COLOR);
+    };
+
+    getPlayerNumberColor = (player: Player, away?: boolean) => {
+        return player.numberColor || this.getTeamNumberColor(away);
+    };
+
+    getTeamNumberColor = (away?: boolean) => {
+
+        const { style } = this.props.team;
+
+        return style && style.numberColor || (away ? this.DEFAULT_AWAY_NUMBER_COLOR : this.DEFAULT_HOME_NUMBER_COLOR);
+    };
 }
 
 export default TeamView;
