@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+import classNames from "classnames";
 
 import "./Player.scss";
 
@@ -9,6 +10,8 @@ export type Player = {
     number?: number;
     color?: string;
     numberColor?: string;
+
+    onClick?(): void;
 }
 
 interface PlayerViewProps {
@@ -25,7 +28,8 @@ class PlayerView extends Component<PlayerViewProps, PlayerViewState> {
         name: PropTypes.string,
         number: PropTypes.number,
         color: PropTypes.string,
-        numberColor: PropTypes.string
+        numberColor: PropTypes.string,
+        onClick: PropTypes.func
     });
 
     render() {
@@ -35,8 +39,9 @@ class PlayerView extends Component<PlayerViewProps, PlayerViewState> {
         return (
             <div className="player-view">
                 <div
-                    className="player"
+                    className={ classNames("player", { "clickable": player.onClick }) }
                     style={ { backgroundColor: player.color } }
+                    onClick={ player.onClick }
                 >
 
                     <div

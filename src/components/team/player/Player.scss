@@ -13,6 +13,10 @@
         padding-top: 45px;
         width: 45px;
 
+        &.clickable {
+            cursor: pointer;
+        }
+
         .number {
             position: absolute;
             left: 50%;

@@ -79,6 +79,7 @@ class Example extends Component {
  `number` | `number` | No | - | The displayed player number
  `color` | `string` | No | The team color | The player color
  `numberColor` | `string` | No | The team number color | The player number color
+ `onCLick` | `Function` | No | - | Callback to invoke when clicking on the player
   
  
 ## Live
