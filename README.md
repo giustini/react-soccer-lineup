@@ -2,8 +2,7 @@
 
 ⚽ React Soccer Line up - A soccer pitch representation component for React ⚛️
 
-[![NPM](https://img.shields.io/npm/v/react-soccer-lineup.svg)](https://www.npmjs.com/package/react-soccer-lineup) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
-
+[![NPM](https://img.shields.io/npm/v/react-soccer-lineup.svg)](https://www.npmjs.com/package/react-soccer-lineup) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com) [![npm](https://img.shields.io/npm/dt/react-soccer-lineup)](https://www.npmjs.com/package/react-soccer-lineup)
 
 ## Install
 
@@ -11,6 +10,7 @@
 npm install --save react-soccer-lineup
 ```
 
+![](docs/img/sample-1.png)
 
 ## Usage
 
@@ -19,15 +19,16 @@ import React, { Component } from 'react'
 
 import SoccerLineUp from 'react-soccer-lineup'
 
+
 class Example extends Component {
 
     render () {
 
         return (
             <SoccerLineUp
-                size={ "small" }
-                color={ "lightseagreen" }
-                pattern={ "circles" }
+              size={ "small" }
+              color={ "lightseagreen" }
+              pattern={ "lines" }
             />
         )
 
