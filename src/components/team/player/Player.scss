@@ -8,10 +8,15 @@
 
     .player {
 
+        display: flex;
+        justify-content: center;
+
         position: absolute;
         border-radius: 50%;
         padding-top: 5%;
         width: 5%;
+
+        font-size: 14px;
 
         &.clickable {
             cursor: pointer;
@@ -22,7 +27,12 @@
             left: 50%;
             top: 50%;
             transform: translate(-50%, -50%);
-            font-size: 14px;
+        }
+
+        .name {
+            position: absolute;
+            bottom: -50%;
+            width: max-content;
         }
     }
 }

@@ -19,6 +19,7 @@ export type Squad = {
 export type Style = {
     color: string;
     numberColor: string;
+    nameColor: string;
 }
 
 export type Team = {
@@ -54,7 +55,8 @@ class TeamView extends Component<TeamViewProps, TeamViewState> {
         }).isRequired,
         style: PropTypes.shape({
             color: PropTypes.string.isRequired,
-            numberColor: PropTypes.string.isRequired
+            numberColor: PropTypes.string.isRequired,
+            nameColor: PropTypes.string
         })
     });
 
@@ -110,11 +112,12 @@ class TeamView extends Component<TeamViewProps, TeamViewState> {
         );
     }
 
-    buildPlayer = (player: Player, away?: boolean) => {
+    buildPlayer = (player: Player, away?: boolean): Player => {
         return {
             ...player,
             color: this.getPlayerColor(player, away),
-            numberColor: this.getPlayerNumberColor(player, away)
+            numberColor: this.getPlayerNumberColor(player, away),
+            nameColor: this.getPlayerNameColor(player, away)
         };
     };
 
@@ -138,6 +141,17 @@ class TeamView extends Component<TeamViewProps, TeamViewState> {
         const { style } = this.props.team;
 
         return style && style.numberColor || (away ? this.DEFAULT_AWAY_NUMBER_COLOR : this.DEFAULT_HOME_NUMBER_COLOR);
+    };
+
+    getPlayerNameColor = (player: Player, away?: boolean) => {
+        return player.nameColor || this.getTeamNameColor(away);
+    };
+
+    getTeamNameColor = (away?: boolean) => {
+
+        const { style } = this.props.team;
+
+        return style && style.nameColor || (away ? this.DEFAULT_AWAY_NUMBER_COLOR : this.DEFAULT_HOME_NUMBER_COLOR);
     };
 }
 

@@ -71,6 +71,7 @@ class Example extends Component {
  ---- | ---- | -------- | ------------- | -----------
  `color` | `string` | Yes | ![#f08080](https://placehold.it/15/f08080/000000?text=+) `#f08080` (home) / ![#add8e6](https://placehold.it/15/add8e6/000000?text=+) `#add8e6` (away) | The team color
  `numberColor` | `string` | Yes | ![#ffffff](https://placehold.it/15/ffffff/000000?text=+) `#ffffff` (home) / ![#333333](https://placehold.it/15/333333/000000?text=+) `#333333` (away) | The team number color
+ `nameColor` | `string` | No | ![#ffffff](https://placehold.it/15/ffffff/000000?text=+) `#ffffff` (home) / ![#333333](https://placehold.it/15/333333/000000?text=+) `#333333` (away) | The team players' name color
  
 #### Player
 
@@ -80,6 +81,7 @@ class Example extends Component {
  `number` | `number` | No | - | The displayed player number
  `color` | `string` | No | The team color | The player color
  `numberColor` | `string` | No | The team number color | The player number color
+ `nameColor` | `string` | No | The team players' name color | The player name color
  `onCLick` | `Function` | No | - | Callback to invoke when clicking on the player
   
  

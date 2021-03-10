@@ -10,6 +10,7 @@ export type Player = {
     number?: number;
     color?: string;
     numberColor?: string;
+    nameColor?: string;
 
     onClick?(): void;
 }
@@ -29,6 +30,7 @@ class PlayerView extends Component<PlayerViewProps, PlayerViewState> {
         number: PropTypes.number,
         color: PropTypes.string,
         numberColor: PropTypes.string,
+        nameColor: PropTypes.string,
         onClick: PropTypes.func
     });
 
@@ -48,6 +50,11 @@ class PlayerView extends Component<PlayerViewProps, PlayerViewState> {
                         className="number"
                         style={ { color: player.numberColor } }
                     >{ player.number }</div>
+
+                    <div
+                        className="name"
+                        style={ { color: player.nameColor } }
+                    >{ player.name }</div>
 
                 </div>
             </div>
