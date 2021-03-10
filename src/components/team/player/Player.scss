@@ -8,10 +8,10 @@
 
     .player {
 
-        position: relative;
+        position: absolute;
         border-radius: 50%;
-        padding-top: 45px;
-        width: 45px;
+        padding-top: 5%;
+        width: 5%;
 
         &.clickable {
             cursor: pointer;
@@ -22,6 +22,7 @@
             left: 50%;
             top: 50%;
             transform: translate(-50%, -50%);
+            font-size: 14px;
         }
     }
 }
