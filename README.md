@@ -41,7 +41,7 @@ class Example extends Component {
 
  Prop | Type | Required | Default value | Description
  ---- | ---- | -------- | ------------- | -----------
- `color` | `string` | No | ![#588f58](https://placehold.it/15/588f58/000000?text=+) `#588f58` | The pitch background color
+ `color` | `string` | No | ![#588f58](https://via.placeholder.com//15/588f58/000000?text=+) `#588f58` | The pitch background color
  `size` | `string` | No | `"normal"` | Pitch dimensions. Supported values: `small`, `normal`, `big`, `responsive`, `fill`
  `pattern` | `string` | No | - | The pattern applied to the pitch grass. Supported values: `lines`, `squares`, `circles`
  `homeTeam` | `Team` | No | - | The left side team
@@ -67,11 +67,11 @@ class Example extends Component {
 
 #### Style
 
- Attribute | Type | Required | Default value | Description
+Attribute | Type | Required | Default value | Description
  ---- | ---- | -------- | ------------- | -----------
- `color` | `string` | Yes | ![#f08080](https://placehold.it/15/f08080/000000?text=+) `#f08080` (home) / ![#add8e6](https://placehold.it/15/add8e6/000000?text=+) `#add8e6` (away) | The team color
- `numberColor` | `string` | Yes | ![#ffffff](https://placehold.it/15/ffffff/000000?text=+) `#ffffff` (home) / ![#333333](https://placehold.it/15/333333/000000?text=+) `#333333` (away) | The team number color
- `nameColor` | `string` | No | ![#ffffff](https://placehold.it/15/ffffff/000000?text=+) `#ffffff` (home) / ![#333333](https://placehold.it/15/333333/000000?text=+) `#333333` (away) | The team players' name color
+`color` | `string` | Yes | ![#f08080](https://via.placeholder.com//15/f08080/000000?text=+) `#f08080` (home) / ![#add8e6](https://via.placeholder.com//15/add8e6/000000?text=+) `#add8e6` (away) | The team color
+`numberColor` | `string` | Yes | ![#ffffff](https://via.placeholder.com//15/ffffff/000000?text=+) `#ffffff` (home) / ![#333333](https://via.placeholder.com//15/333333/000000?text=+) `#333333` (away) | The team number color
+`nameColor` | `string` | No | ![#ffffff](https://via.placeholder.com//15/ffffff/000000?text=+) `#ffffff` (home) / ![#333333](https://via.placeholder.com//15/333333/000000?text=+) `#333333` (away) | The team players' name color
  
 #### Player
 
