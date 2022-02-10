@@ -4,7 +4,7 @@
     "private": true,
     "dependencies": {
         "classnames": "^2.2.6",
-        "node-sass": "^4.13.1",
+        "node-sass": "^7.0.0",
         "primeicons": "^2.0.0",
         "primereact": "^4.0.0",
         "prop-types": "^15.6.2",
