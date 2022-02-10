@@ -34,7 +34,7 @@
         "babel-runtime": "^6.26.0",
         "classnames": "^2.2.6",
         "cross-env": "^5.1.4",
-        "node-sass": "^4.13.1",
+        "node-sass": "^7.0.0",
         "react": "^16.4.1",
         "react-dom": "^16.4.1",
         "react-scripts-ts": "^2.16.0",
