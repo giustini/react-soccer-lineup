@@ -10,7 +10,7 @@
         "prop-types": "^15.6.2",
         "react": "^16.13.0",
         "react-dom": "^16.13.0",
-        "react-scripts": "3.4.0",
+        "react-scripts": "5.0.1",
         "react-soccer-lineup": "^0.4.3",
         "react-transition-group": "^2.5.1"
     },
