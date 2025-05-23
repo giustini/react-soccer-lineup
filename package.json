@@ -2,9 +2,16 @@
     "name": "@chris-baur/react-soccer-lineup",
     "version": "1.0.0",
     "description": "React component for rendering a soccer lineup",
-    "author": "giustini",
+    "author": "Chris Baur",
     "license": "MIT",
-    "repository": "giustini/react-soccer-lineup",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/chris-baur/react-soccer-lineup"
+    },
+    "bugs": {
+        "url": "https://github.com/chris-baur/react-soccer-lineup/issues"
+    },
+    "homepage": "https://github.com/chris-baur/react-soccer-lineup#readme",
     "main": "dist/index.js",
     "module": "dist/index.es.js",
     "engines": {

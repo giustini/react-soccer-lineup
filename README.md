@@ -113,6 +113,6 @@ type Player = {
 * 📦 Scoped under @chris-baur namespace
 
 
-📄 License
-MIT © giustini
-Modernization by Chris Baur
+📄 License MIT © 
+
+Forked and modernized by [@chris-baur](https://github.com/chris-baur), originally by [@giustini](https://github.com/giustini)
