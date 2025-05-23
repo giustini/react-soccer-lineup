@@ -43,14 +43,19 @@ class Pitch extends Component<PitchProps, PitchState> {
         const { color, size, pattern, homeTeam, awayTeam } = this.props;
 
         return (
-            <div
-                className={ classNames("pitch", size || "normal") }
-                style={ {
-                    backgroundColor: color || "#588f58",
-                    backgroundImage: this.getPitchBackground(pattern)
-                } }
-            >{ this.renderTeams(homeTeam, awayTeam) }</div>
+            <div className="pitch-wrapper">
+                <div
+                    className={classNames("pitch", size || "normal")}
+                    style={{
+                        backgroundColor: color || "#588f58",
+                        backgroundImage: this.getPitchBackground(pattern),
+                    }}
+                >
+                    {this.renderTeams(homeTeam, awayTeam)}
+                </div>
+            </div>
         );
+          
     }
 
     getPitchBackground = (pattern?: PitchPattern): string => {

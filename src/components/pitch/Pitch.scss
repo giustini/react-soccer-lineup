@@ -1,37 +1,47 @@
 .pitch {
-
     position: relative;
     background-repeat: round;
-
+    margin: 0 auto; // <-- critical to center
+    width: 100%;
+    max-width: 900px; // or use media query
+    aspect-ratio: 16 / 10; // to keep responsive height if needed
+  
     &.responsive {
-        padding-bottom: 58.3%;
-        width: 100%;
+      width: 100%;
+      padding-bottom: 58.3%;
     }
-
+  
     &.fill {
-        height: 100%;
-        width: 100%;
+      height: 100%;
+      width: 100%;
     }
-
+  
     &.small {
-        height: 350px;
-        width: 600px;
+      height: 350px;
+      width: 600px;
     }
-
+  
     &.normal {
-        height: 525px;
-        width: 900px;
+      height: 525px;
+      width: 900px;
     }
-
+  
     &.big {
-        height: 700px;
-        width: 1200px;
+      height: 700px;
+      width: 1200px;
     }
-
+  
     .teams {
-        position: absolute;
-        height: 100%;
-        width: 100%;
-        display: flex;
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      display: flex;
     }
-}
+  }
+
+  /* ✅ Optional container-like style to give padding by default */
+.pitch-wrapper {
+    // padding: 2rem 1rem;
+    text-align: center;
+  }
+  

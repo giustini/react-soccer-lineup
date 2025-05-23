@@ -1,6 +1,6 @@
 {
-    "name": "react-soccer-lineup",
-    "version": "0.4.3",
+    "name": "@chris-baur/react-soccer-lineup",
+    "version": "1.0.0",
     "description": "React component for rendering a soccer lineup",
     "author": "giustini",
     "license": "MIT",

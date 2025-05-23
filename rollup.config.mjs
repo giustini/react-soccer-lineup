@@ -27,8 +27,9 @@ export default {
     plugins: [
         peerDepsExternal(),
         postcss({
-            extract: true,
-            modules: true,
+            inject: true,
+            // extract: true,
+            // modules: true,
             implementation: sass, // use Dart Sass and suppress deprecation warnings
         }),
         image(),

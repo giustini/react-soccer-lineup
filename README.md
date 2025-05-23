@@ -1,95 +1,118 @@
-# react-soccer-lineup
+# @chris-baur/react-soccer-lineup
 
-⚽ React Soccer Line up - A soccer pitch representation component for React ⚛️
+⚽ React Soccer Lineup — A responsive, customizable soccer pitch layout for React apps ⚛️  
+Modernized fork of [react-soccer-lineup](https://github.com/giustini/react-soccer-lineup), updated for React 19+, auto-injected CSS, and better DX.
 
-[![NPM](https://img.shields.io/npm/v/react-soccer-lineup.svg)](https://www.npmjs.com/package/react-soccer-lineup) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com) [![npm](https://img.shields.io/npm/dt/react-soccer-lineup)](https://www.npmjs.com/package/react-soccer-lineup)
+[![NPM](https://img.shields.io/npm/v/@chris-baur/react-soccer-lineup.svg)](https://www.npmjs.com/package/@chris-baur/react-soccer-lineup)  
+[![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
-## Install
+# Default view with no teams
+![Example image of basic soccer lineup](./docs/img/basic.png)
+# Both teams
+![Example image of basic soccer lineup](./docs/img/bothTeams.png)
+# Only Home team
+![Example image of basic soccer lineup](./docs/img/homeTeam.png)
+---
+
+## 🚀 Install
 
 ```bash
-npm install --save react-soccer-lineup
+npm install @chris-baur/react-soccer-lineup
 ```
+✅ No need to import any CSS — styling is auto-injected.
 
-![](docs/img/sample-1.png)
+## ⚡ Usage
 
-## Usage
+```javascript
+import React from 'react';
+import SoccerLineUp from '@chris-baur/react-soccer-lineup';
 
-```jsx
-import React, { Component } from 'react'
-
-import SoccerLineUp from 'react-soccer-lineup'
-
-
-class Example extends Component {
-
-    render () {
-
-        return (
-            <SoccerLineUp
-              size={ "small" }
-              color={ "lightseagreen" }
-              pattern={ "lines" }
-            />
-        )
-
-    }
+export default function Example() {
+  return (
+    <SoccerLineUp
+      size="normal"
+      color="#588f58"
+      pattern="lines"
+      homeTeam={{
+        squad: {
+          gk: { number: 1 },
+          df: [{ number: 2 }, { number: 3 }, { number: 4 }, { number: 5 }],
+          cm: [{ number: 6 }, { number: 8 }],
+          cam: [{ number: 7 }, { number: 10 }, { number: 11 }],
+          fw: [{ number: 9 }],
+        },
+        style: {
+          color: '#f08080',
+          numberColor: '#ffffff',
+        },
+      }}
+    />
+  );
 }
+
+```
+## 🎨 Props
+
+| Prop       | Type     | Required | Default    | Description                                            |
+| ---------- | -------- | -------- | ---------- | ------------------------------------------------------ |
+| `color`    | `string` | No       | `#588f58`  | Pitch background color                                 |
+| `size`     | `string` | No       | `"normal"` | One of: `small`, `normal`, `big`, `responsive`, `fill` |
+| `pattern`  | `string` | No       | -          | Pitch grass pattern: `lines`, `squares`, `circles`     |
+| `homeTeam` | `Team`   | No       | -          | Team displayed on the left                             |
+| `awayTeam` | `Team`   | No       | -          | Team displayed on the right                            |
+
+## 🧩 Team Format
+```javascript
+type Team = {
+  squad: {
+    gk?: Player;
+    df?: Player[];
+    cdm?: Player[];
+    cm?: Player[];
+    cam?: Player[];
+    fw?: Player[];
+  };
+  style?: {
+    color: string;
+    numberColor: string;
+    nameColor?: string;
+  };
+};
+
+type Player = {
+  name?: string;
+  number?: number;
+  color?: string;
+  numberColor?: string;
+  nameColor?: string;
+  onClick?: () => void;
+};
 ```
 
+## ✅ Features
+* ⚙️ Fully customizable formations
 
-## API
+* 🎨 Player and team color control
 
- Prop | Type | Required | Default value | Description
- ---- | ---- | -------- | ------------- | -----------
- `color` | `string` | No | ![#588f58](https://via.placeholder.com//15/588f58/000000?text=+) `#588f58` | The pitch background color
- `size` | `string` | No | `"normal"` | Pitch dimensions. Supported values: `small`, `normal`, `big`, `responsive`, `fill`
- `pattern` | `string` | No | - | The pattern applied to the pitch grass. Supported values: `lines`, `squares`, `circles`
- `homeTeam` | `Team` | No | - | The left side team
- `awayTeam` | `Team` | No | - | The right side team
+* 🧠 Clickable players (with onClick)
 
-#### Team
+* 📱 Responsive layout support
 
- Attribute | Type | Required | Default value | Description
- ---- | ---- | -------- | ------------- | -----------
- `squad` | `Squad` | Yes | - | The team players by role
- `style` | `Style` | No | - | The team style
+* 🧼 No external CSS import required
 
-#### Squad
-
- Attribute | Type | Required | Default value | Description
- ---- | ---- | -------- | ------------- | -----------
- `gk` | `Player` | No | - | The squad goalkeeper
- `df` | `Player[]` | No | - | The squad defenders
- `cdm` | `Player[]` | No | - | The squad central defensive midfielders
- `cm` | `Player[]` | No | - | The squad central midfielders
- `cam` | `Player[]` | No | - | The squad central attack midfielders
- `fw` | `Player[]` | No | - | The squad forwards
-
-#### Style
-
-Attribute | Type | Required | Default value | Description
- ---- | ---- | -------- | ------------- | -----------
-`color` | `string` | Yes | ![#f08080](https://via.placeholder.com//15/f08080/000000?text=+) `#f08080` (home) / ![#add8e6](https://via.placeholder.com//15/add8e6/000000?text=+) `#add8e6` (away) | The team color
-`numberColor` | `string` | Yes | ![#ffffff](https://via.placeholder.com//15/ffffff/000000?text=+) `#ffffff` (home) / ![#333333](https://via.placeholder.com//15/333333/000000?text=+) `#333333` (away) | The team number color
-`nameColor` | `string` | No | ![#ffffff](https://via.placeholder.com//15/ffffff/000000?text=+) `#ffffff` (home) / ![#333333](https://via.placeholder.com//15/333333/000000?text=+) `#333333` (away) | The team players' name color
- 
-#### Player
-
- Attribute | Type | Required | Default value | Description
- ---- | ---- | -------- | ------------- | -----------
- `name` | `string` | No | - | The displayed player name
- `number` | `number` | No | - | The displayed player number
- `color` | `string` | No | The team color | The player color
- `numberColor` | `string` | No | The team number color | The player number color
- `nameColor` | `string` | No | The team players' name color | The player name color
- `onCLick` | `Function` | No | - | Callback to invoke when clicking on the player
-  
- 
-## Live
-
-Check a live example [here](https://rsl-example.netlify.com/).
+# [🧪 Live Demo](https://codesandbox.io/p/sandbox/cs8r5g)
 
 
-## License
+## 📦 Differences from original
+* 🧩 TypeScript & type exports
 
-MIT © [giustini](https://github.com/giustini)
+* 💅 SCSS auto-injected (no need to import .css)
+
+* 🧱 Rollup 4 & React 19 compatible
+
+* 📦 Scoped under @chris-baur namespace
+
+
+📄 License
+MIT © giustini
+Modernization by Chris Baur
