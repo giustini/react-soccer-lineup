@@ -1,17 +1,17 @@
-.app {
+.example {
 
     .container {
 
         width: 100%;
         text-align: center;
-        padding-bottom: 50px;
+        padding: 1rem 12rem;
 
         h1 {
             margin: 1em 0 2em 0;
             text-align: center;
         }
 
-        .pitch {
+        & > div {
 
             margin: 0 auto;
 
@@ -83,13 +83,16 @@
                 .checkboxes {
 
                     display: inline-flex;
+                    gap: 1.5rem;
 
                     .home {
-                        margin: 0 1vw 0 0;
+                        display: flex;
+                        gap: .5rem;
                     }
 
                     .away {
-                        margin: 0 0 0 1vw;
+                        display: flex;
+                        gap: .5rem;
                     }
 
                 }

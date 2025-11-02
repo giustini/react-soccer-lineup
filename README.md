@@ -41,7 +41,7 @@ class Example extends Component {
 
  Prop | Type | Required | Default value | Description
  ---- | ---- | -------- | ------------- | -----------
- `color` | `string` | No | ![#588f58](https://via.placeholder.com//15/588f58/000000?text=+) `#588f58` | The pitch background color
+ `color` | `string` | No | ![#588f58](https://placehold.co/15x15/588f58/588f58.png) `#588f58` | The pitch background color
  `size` | `string` | No | `"normal"` | Pitch dimensions. Supported values: `small`, `normal`, `big`, `responsive`, `fill`
  `pattern` | `string` | No | - | The pattern applied to the pitch grass. Supported values: `lines`, `squares`, `circles`
  `homeTeam` | `Team` | No | - | The left side team
@@ -67,27 +67,26 @@ class Example extends Component {
 
 #### Style
 
-Attribute | Type | Required | Default value | Description
- ---- | ---- | -------- | ------------- | -----------
-`color` | `string` | Yes | ![#f08080](https://via.placeholder.com//15/f08080/000000?text=+) `#f08080` (home) / ![#add8e6](https://via.placeholder.com//15/add8e6/000000?text=+) `#add8e6` (away) | The team color
-`numberColor` | `string` | Yes | ![#ffffff](https://via.placeholder.com//15/ffffff/000000?text=+) `#ffffff` (home) / ![#333333](https://via.placeholder.com//15/333333/000000?text=+) `#333333` (away) | The team number color
-`nameColor` | `string` | No | ![#ffffff](https://via.placeholder.com//15/ffffff/000000?text=+) `#ffffff` (home) / ![#333333](https://via.placeholder.com//15/333333/000000?text=+) `#333333` (away) | The team players' name color
+Attribute | Type | Required | Default value                                                                                                                                         | Description
+ ---- | ---- | -------- |-------------------------------------------------------------------------------------------------------------------------------------------------------| -----------
+`color` | `string` | Yes | ![#ffffff](https://placehold.co/15x15/ffffff/ffffff.png) `#ffffff` (home) / ![#333333](https://placehold.co/15x15/333333/333333.png) `#333333` (away) | The team color
+`borderColor` | `string` | Yes | ![#ffffff](https://placehold.co/15x15/ffffff/ffffff.png) `#ffffff` (home) / ![#333333](https://placehold.co/15x15/333333/333333.png) `#333333` (away) | The team border color
+`numberColor` | `string` | Yes | ![#333333](https://placehold.co/15x15/333333/333333.png) `#333333` (home) / ![#ffffff](https://placehold.co/15x15/ffffff/ffffff.png) `#ffffff` (away) | The team number color
+`nameColor` | `string` | No | ![#333333](https://placehold.co/15x15/333333/333333.png) `#333333` (home) / ![#ffffff](https://placehold.co/15x15/ffffff/ffffff.png) `#ffffff` (away) | The team players' name color
  
 #### Player
 
- Attribute | Type | Required | Default value | Description
- ---- | ---- | -------- | ------------- | -----------
- `name` | `string` | No | - | The displayed player name
- `number` | `number` | No | - | The displayed player number
- `color` | `string` | No | The team color | The player color
- `numberColor` | `string` | No | The team number color | The player number color
- `nameColor` | `string` | No | The team players' name color | The player name color
- `onCLick` | `Function` | No | - | Callback to invoke when clicking on the player
+ Attribute | Type | Required | Default value  | Description
+ ---- | ---- | -------- |----------------| -----------
+ `name` | `string` | No | -              | The displayed player name
+ `number` | `number` | No | -              | The displayed player number
+ `style` | `Style` | No | The team style | The player style 
+ `onCLick` | `Function` | No | -              | Callback to invoke when clicking on the player
   
  
 ## Live
 
-Check a live example [here](https://rsl-example.netlify.com/).
+Check a live example [here](https://rsl-example.netlify.app/).
 
 
 ## License
