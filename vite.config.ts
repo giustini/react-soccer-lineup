@@ -11,7 +11,6 @@ export default defineConfig({
     react(),
     libInjectCss(),
     dts({
-      rollupTypes: true,
       tsconfigPath: 'tsconfig.app.json',
     }),
     wyw({

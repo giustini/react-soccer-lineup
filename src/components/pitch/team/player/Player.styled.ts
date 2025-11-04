@@ -43,9 +43,8 @@ const Number = styled.div<{ color: string }>`
 const Name = styled.div<{ color: string }>`
   position: absolute;
   bottom: -25px;
-  width: 300%;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  text-align: center;
+  width: max-content;
   color: ${(props) => props.color};
 `;
 

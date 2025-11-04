@@ -86,7 +86,7 @@ Attribute | Type | Required | Default value                                     
  
 ## Live
 
-Check a live example [here](https://rsl-example.netlify.app/).
+Check the playground [here](https://rsl-playground.netlify.app).
 
 
 ## License
