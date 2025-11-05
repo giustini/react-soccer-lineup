@@ -6,20 +6,25 @@ import { buildStyle } from './utils';
 import * as Player from './Player.styled';
 
 const PlayerView: React.FC<PlayerViewProps> = ({ player, away, teamStyle }) => {
-  const { name, number, style: playerStyle, onClick } = player;
+  if (!player) return <Player.Container />;
+
+  const { name, number, style: playerStyle, offset, onClick } = player;
   const style = buildStyle(playerStyle, away, teamStyle);
 
   return (
     <Player.Container>
-      <Player.Content
-        color={style.color}
-        colorBorder={style.borderColor}
-        clickable={!!onClick}
-        onClick={onClick}
-      >
-        {number && <Player.Number color={style.numberColor}>{number}</Player.Number>}
-        {name && <Player.Name color={style.nameColor}>{name}</Player.Name>}
-      </Player.Content>
+      {player && (
+        <Player.Content
+          color={style.color}
+          colorBorder={style.borderColor}
+          offset={offset}
+          clickable={!!onClick}
+          onClick={onClick}
+        >
+          {number && <Player.Number color={style.numberColor}>{number}</Player.Number>}
+          {name && <Player.Name color={style.nameColor}>{name}</Player.Name>}
+        </Player.Content>
+      )}
     </Player.Container>
   );
 };

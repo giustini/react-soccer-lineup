@@ -1,170 +1,112 @@
-import type { Team } from 'react-soccer-lineup'
+import type { Team } from 'react-soccer-lineup';
 
 export const teams: Record<number, Record<string, Team>> = {
   1: {
     '4-4-2': {
       squad: {
         gk: { number: 1 },
-        df: [
-          { number: 2 },
-          { number: 4 },
-          { number: 5 },
-          { number: 3 },
-        ],
-        cm: [
-          { number: 11 },
-          { number: 6 },
-          { number: 8 },
-          { number: 7 },
-        ],
-        fw: [
-          { number: 9 },
-          { number: 10 },
-        ],
+        df: [{ number: 2 }, { number: 4 }, { number: 5 }, { number: 3 }],
+        cm: [{ number: 11 }, { number: 6 }, { number: 8 }, { number: 7 }],
+        fw: [{ number: 9 }, { number: 10 }],
       },
     },
     '4-3-3': {
       squad: {
         gk: { number: 1 },
-        df: [
-          { number: 2 },
-          { number: 4 },
-          { number: 5 },
-          { number: 3 },
-        ],
-        cm: [
-          { number: 6 },
-          { number: 8 },
-          { number: 10 },
-        ],
-        fw: [
-          { number: 11 },
-          { number: 9 },
-          { number: 7 },
-        ],
+        df: [{ number: 2 }, { number: 4 }, { number: 5 }, { number: 3 }],
+        cm: [{ number: 6 }, { number: 8 }, { number: 10 }],
+        fw: [{ number: 11 }, { number: 9 }, { number: 7 }],
       },
     },
     '3-5-2': {
       squad: {
         gk: { number: 1 },
-        df: [
-          { number: 2 },
-          { number: 4 },
-          { number: 3 },
-        ],
-        cm: [
-          { number: 6 },
-          { number: 5 },
-          { number: 10 },
-          { number: 8 },
-          { number: 7 },
-        ],
-        fw: [
-          { number: 11 },
-          { number: 9 },
-        ],
+        df: [{ number: 2 }, { number: 4 }, { number: 3 }],
+        cm: [{ number: 6 }, { number: 5 }, { number: 10 }, { number: 8 }, { number: 7 }],
+        fw: [{ number: 11 }, { number: 9 }],
       },
     },
     '4-2-3-1': {
       squad: {
-        gk: {number: 1},
-        df: [
-          {number: 2},
-          {number: 4},
-          {number: 5},
-          {number: 3},
-        ],
-        cdm: [
-          {number: 6},
-          {number: 8},
-        ],
-        cm: [
-          {number: 11},
-          {number: 10},
-          {number: 7},
-        ],
-        fw: [
-          {number: 9},
-        ],
+        gk: { number: 1 },
+        df: [{ number: 2 }, { number: 4 }, { number: 5 }, { number: 3 }],
+        cdm: [{ number: 6 }, { number: 8 }],
+        cm: [{ number: 11 }, { number: 10 }, { number: 7 }],
+        fw: [{ number: 9 }],
       },
-    }
+    },
   },
   2: {
     home: {
       squad: {
         gk: { number: 1 },
         df: [
-          { number: 2 },
+          { number: 2, offset: { x: 20 } },
           { number: 4 },
-          { number: 5 },
-          { number: 3 },
+          { number: 5, offset: { x: -10 } },
+          { number: 3, offset: { x: 5 } },
         ],
         cm: [
-          { number: 6 },
+          { number: 6, offset: { x: 30 } },
           { number: 8 },
-          { number: 7 },
-          { number: 11 },
+          { number: 7, offset: { x: -5 } },
+          { number: 11, offset: { x: 5 } },
         ],
         fw: [
-          { number: 9 },
-          { number: 10 },
+          { number: 9, offset: { x: 5 } },
+          { number: 10, offset: { x: -5 } },
         ],
       },
       style: {
-        color: "#ffa17a",
-        borderColor: "#333333",
-        numberColor: "#333333",
-      }
+        color: '#ffa17a',
+        borderColor: '#333333',
+        numberColor: '#333333',
+      },
     },
     away: {
       squad: {
-        gk: {number: 1},
+        gk: { number: 1 },
         df: [
-          {number: 2},
-          {number: 4},
-          {number: 5},
-          {number: 3},
+          { number: 2, offset: { x: -25 } },
+          { number: 4 },
+          { number: 5, offset: { x: 10 } },
+          { number: 3 },
         ],
-        cdm: [
-          {number: 6},
-          {number: 8},
-        ],
+        cdm: [{ number: 6, offset: { y: 10 } }, { number: 8 }],
         cm: [
-          {number: 11},
-          {number: 10},
-          {number: 7},
+          { number: 11, offset: { x: -10 } },
+          { number: 10, offset: { y: 10 } },
+          { number: 7, offset: { y: 10 } },
         ],
-        fw: [
-          {number: 9},
-        ],
+        fw: [{ number: 9 }],
       },
     },
   },
   3: {
     home: {
       squad: {
-        gk: {number: 1},
-        df: [{number: 2}],
-        cm: [{number: 3}, {number: 4}],
-        fw: [{number: 5}]
+        gk: { number: 1 },
+        df: [{ number: 2 }],
+        cm: [{ number: 3 }, { number: 4 }],
+        fw: [{ number: 5 }],
       },
       style: {
-        color: "#ede9d0",
-        borderColor: "#712230",
-        numberColor: "#712230",
-      }
+        color: '#ede9d0',
+        borderColor: '#712230',
+        numberColor: '#712230',
+      },
     },
     away: {
       squad: {
-        gk: {number: 1},
-        df: [{number: 2}, {number: 3}, {number: 4}],
-        cm: [{number: 5}]
+        gk: { number: 1 },
+        df: [{ number: 2 }, { number: 3 }, { number: 4 }],
+        cm: [{ number: 5 }],
       },
       style: {
-        color: "#712230",
-        borderColor: "#efefdc",
-        numberColor: "#efefdc",
-      }
+        color: '#712230',
+        borderColor: '#efefdc',
+        numberColor: '#efefdc',
+      },
     },
   },
   4: {
@@ -177,9 +119,7 @@ export const teams: Record<number, Record<string, Team>> = {
           { number: 4, name: 'Van Dijk' },
           { number: 26, name: 'Robertson' },
         ],
-        cdm: [
-          { number: 38, name: 'Gravenberch' },
-        ],
+        cdm: [{ number: 38, name: 'Gravenberch' }],
         cm: [
           { number: 8, name: 'Szoboszlai' },
           { number: 10, name: 'Mac Allister' },
@@ -191,11 +131,11 @@ export const teams: Record<number, Record<string, Team>> = {
         ],
       },
       style: {
-        color: "#a71f28",
-        borderColor: "#ffffff",
-        numberColor: "#ffffff",
-        nameColor: "#ffffff",
-      }
+        color: '#a71f28',
+        borderColor: '#ffffff',
+        numberColor: '#ffffff',
+        nameColor: '#ffffff',
+      },
     },
     away: {
       squad: {
@@ -211,21 +151,18 @@ export const teams: Record<number, Record<string, Team>> = {
           { number: 14, name: 'Tchouameni' },
           { number: 15, name: 'A. Güler' },
         ],
-        cam: [
-          { number: 5, name: 'Bellingham' },
-        ],
+        cam: [{ number: 5, name: 'Bellingham' }],
         fw: [
-          { number: 11, name: 'Mbappe' },
+          { number: 10, name: 'Mbappe' },
           { number: 7, name: 'Vinicius' },
         ],
       },
       style: {
-        color: "#ffffff",
-        borderColor: "#333333",
-        numberColor: "#333333",
-        nameColor: "#ffffff",
-      }
+        color: '#ffffff',
+        borderColor: '#333333',
+        numberColor: '#333333',
+        nameColor: '#ffffff',
+      },
     },
   },
-}
-
+};

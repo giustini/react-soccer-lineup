@@ -9,18 +9,21 @@ export type Team = {
 };
 
 export type Squad = {
-  gk?: Player;
-  df?: Player[];
-  cdm?: Player[];
-  cm?: Player[];
-  cam?: Player[];
-  fw?: Player[];
+  gk?: NullablePlayer;
+  df?: NullablePlayer[];
+  cdm?: NullablePlayer[];
+  cm?: NullablePlayer[];
+  cam?: NullablePlayer[];
+  fw?: NullablePlayer[];
 };
+
+export type NullablePlayer = Player | null | undefined;
 
 export type Player = {
   name?: string;
   number?: number;
   style?: PlayerStyle;
+  offset?: PlayerOffset;
 
   onClick?(): void;
 };
@@ -32,4 +35,9 @@ export type TeamStyle = {
   borderColor?: string;
   numberColor?: string;
   nameColor?: string;
+};
+
+export type PlayerOffset = {
+  x?: number;
+  y?: number;
 };

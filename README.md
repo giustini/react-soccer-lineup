@@ -73,16 +73,23 @@ Attribute | Type | Required | Default value                                     
 `borderColor` | `string` | Yes | ![#ffffff](https://placehold.co/15x15/ffffff/ffffff.png) `#ffffff` (home) / ![#333333](https://placehold.co/15x15/333333/333333.png) `#333333` (away) | The team border color
 `numberColor` | `string` | Yes | ![#333333](https://placehold.co/15x15/333333/333333.png) `#333333` (home) / ![#ffffff](https://placehold.co/15x15/ffffff/ffffff.png) `#ffffff` (away) | The team number color
 `nameColor` | `string` | No | ![#333333](https://placehold.co/15x15/333333/333333.png) `#333333` (home) / ![#ffffff](https://placehold.co/15x15/ffffff/ffffff.png) `#ffffff` (away) | The team players' name color
- 
+
 #### Player
 
- Attribute | Type | Required | Default value  | Description
- ---- | ---- | -------- |----------------| -----------
- `name` | `string` | No | -              | The displayed player name
- `number` | `number` | No | -              | The displayed player number
- `style` | `Style` | No | The team style | The player style 
- `onCLick` | `Function` | No | -              | Callback to invoke when clicking on the player
-  
+ Attribute | Type           | Required | Default value  | Description
+ ---- |----------------| -------- |----------------| -----------
+ `name` | `string`       | No | -              | The displayed player name
+ `number` | `number`       | No | -              | The displayed player number
+ `style` | `Style`        | No | The team style | The player style 
+ `offset` | `PlayerOffset` | No | -              | The player position offset 
+ `onCLick` | `Function`     | No | -              | Callback to invoke when clicking on the player
+
+#### PlayerOffset
+
+ Attribute | Type           | Required | Default value | Description
+ ---- |----------------| -------- |---------------| -----------
+ `x` | `number`       | No | 0             | The horizontal offset
+ `y` | `number`       | No | 0             | The vertical offset
  
 ## Live
 

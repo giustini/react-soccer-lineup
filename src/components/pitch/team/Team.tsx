@@ -15,7 +15,7 @@ const TeamView: React.FC<TeamViewProps> = ({ team, away }) => {
     <Team.Container away={away}>
       <Team.Squad away={away}>
         <Team.Goalkeeper>
-          {gk && <PlayerView player={gk} away={away} teamStyle={style} />}
+          <PlayerView player={gk} away={away} teamStyle={style} />
         </Team.Goalkeeper>
 
         {df && (
