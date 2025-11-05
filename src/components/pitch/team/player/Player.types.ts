@@ -1,7 +1,7 @@
-import type { NullablePlayer, TeamStyle } from '../Team.types.ts';
+import type { Player, TeamStyle } from '../Team.types.ts';
 
 export interface PlayerViewProps {
-  player: NullablePlayer;
+  player: Player | null | undefined;
   away?: boolean;
   teamStyle?: TeamStyle;
 }

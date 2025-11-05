@@ -9,15 +9,13 @@ export type Team = {
 };
 
 export type Squad = {
-  gk?: NullablePlayer;
-  df?: NullablePlayer[];
-  cdm?: NullablePlayer[];
-  cm?: NullablePlayer[];
-  cam?: NullablePlayer[];
-  fw?: NullablePlayer[];
+  gk?: Player | null | undefined;
+  df?: (Player | null | undefined)[];
+  cdm?: (Player | null | undefined)[];
+  cm?: (Player | null | undefined)[];
+  cam?: (Player | null | undefined)[];
+  fw?: (Player | null | undefined)[];
 };
-
-export type NullablePlayer = Player | null | undefined;
 
 export type Player = {
   name?: string;
