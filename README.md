@@ -1,13 +1,13 @@
-<div style="text-align: center; margin-top: 20px">
+<div align="center">
     <img alt="React Soccer Lineup" width="32px" height="32px" src="/playground/public/favicon.png">
 </div>
 
-<div style="text-align: center">
+<div align="center">
     <h3 style="margin: 0">React Soccer Lineup </h3>
     <p>⚽ A soccer pitch representation component for React ⚛️</p>
 </div>
 
-<div style="text-align: center">
+<div align="center">
 
 [![NPM](https://img.shields.io/npm/v/react-soccer-lineup.svg)](https://www.npmjs.com/package/react-soccer-lineup) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com) [![npm](https://img.shields.io/npm/dt/react-soccer-lineup)](https://www.npmjs.com/package/react-soccer-lineup)
 
