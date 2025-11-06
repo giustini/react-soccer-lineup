@@ -1,9 +1,9 @@
 <div align="center">
-    <img alt="React Soccer Lineup" width="32px" height="32px" src="/playground/public/favicon.png">
+    <img alt="React Soccer Lineup" width="64px" height="64px" src="/playground/public/favicon.png">
 </div>
 
 <div align="center">
-    <h3 style="margin: 0">React Soccer Lineup </h3>
+    <h3>React Soccer Lineup </h3>
     <p>⚽ A soccer pitch representation component for React ⚛️</p>
 </div>
 
