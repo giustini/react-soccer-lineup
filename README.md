@@ -1,5 +1,5 @@
 <div align="center">
-    <img alt="React Soccer Lineup" width="64px" height="64px" src="/playground/public/favicon.png">
+    <img alt="React Soccer Lineup" width="72px" height="72px" src="/playground/public/favicon.png">
 </div>
 
 <div align="center">
@@ -55,7 +55,7 @@ function App () {
         <SoccerLineUp
           size='responsive'
           color='#327D61'
-          pattern='lines'
+          pattern='squares'
           homeTeam={homeTeam}
           awayTeam={awayTeam}
         />
