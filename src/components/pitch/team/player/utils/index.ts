@@ -12,6 +12,7 @@ export const buildStyle = (
     borderColor: getPlayerBorderColor(playerStyle, away, teamStyle),
     numberColor: getPlayerNumberColor(playerStyle, away, teamStyle),
     nameColor: getPlayerNameColor(playerStyle, away, teamStyle),
+    nameBackgroundColor: getPlayerNameBackgroundColor(playerStyle, teamStyle),
   };
 };
 
@@ -53,4 +54,8 @@ const getTeamNameColor = (away?: boolean, style?: TeamStyle) => {
     (style && style.nameColor) ||
     (away ? Constants.DEFAULT_AWAY_NUMBER_COLOR : Constants.DEFAULT_HOME_NUMBER_COLOR)
   );
+};
+
+const getPlayerNameBackgroundColor = (playerStyle?: PlayerStyle, style?: TeamStyle) => {
+  return playerStyle?.nameBackgroundColor || style?.nameBackgroundColor || 'transparent';
 };

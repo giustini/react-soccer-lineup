@@ -106,12 +106,13 @@ function App () {
 
 #### Style
 
-| Attribute     | Type     | Required | Default value                                                                                                                                         | Description                  |
-|---------------|----------|----------|-------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------|
-| `color`       | `string` | No       | ![#ffffff](https://placehold.co/15x15/ffffff/ffffff.png) `#ffffff` (home) / ![#333333](https://placehold.co/15x15/333333/333333.png) `#333333` (away) | The team color               |
-| `borderColor` | `string` | No       | ![#ffffff](https://placehold.co/15x15/ffffff/ffffff.png) `#ffffff` (home) / ![#333333](https://placehold.co/15x15/333333/333333.png) `#333333` (away) | The team border color        |
-| `numberColor` | `string` | No       | ![#333333](https://placehold.co/15x15/333333/333333.png) `#333333` (home) / ![#ffffff](https://placehold.co/15x15/ffffff/ffffff.png) `#ffffff` (away) | The team number color        |
-| `nameColor`   | `string` | No       | ![#333333](https://placehold.co/15x15/333333/333333.png) `#333333` (home) / ![#ffffff](https://placehold.co/15x15/ffffff/ffffff.png) `#ffffff` (away) | The team players' name color |
+| Attribute             | Type     | Required | Default value                                                                                                                                         | Description                             |
+|-----------------------|----------|----------|-------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------|
+| `color`               | `string` | No       | ![#ffffff](https://placehold.co/15x15/ffffff/ffffff.png) `#ffffff` (home) / ![#333333](https://placehold.co/15x15/333333/333333.png) `#333333` (away) | The team color                          |
+| `borderColor`         | `string` | No       | ![#ffffff](https://placehold.co/15x15/ffffff/ffffff.png) `#ffffff` (home) / ![#333333](https://placehold.co/15x15/333333/333333.png) `#333333` (away) | The team border color                   |
+| `numberColor`         | `string` | No       | ![#333333](https://placehold.co/15x15/333333/333333.png) `#333333` (home) / ![#ffffff](https://placehold.co/15x15/ffffff/ffffff.png) `#ffffff` (away) | The team number color                   |
+| `nameColor`           | `string` | No       | ![#333333](https://placehold.co/15x15/333333/333333.png) `#333333` (home) / ![#ffffff](https://placehold.co/15x15/ffffff/ffffff.png) `#ffffff` (away) | The team players' name color            |
+| `nameBackgroundColor` | `string` | No       | -                                                                                                                                                     | The team players' name background color |
 
 #### Player
 

@@ -33,6 +33,7 @@ export type TeamStyle = {
   borderColor?: string;
   numberColor?: string;
   nameColor?: string;
+  nameBackgroundColor?: string;
 };
 
 export type PlayerOffset = {

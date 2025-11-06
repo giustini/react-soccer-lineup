@@ -22,7 +22,11 @@ const PlayerView: React.FC<PlayerViewProps> = ({ player, away, teamStyle }) => {
           onClick={onClick}
         >
           {number && <Player.Number color={style.numberColor}>{number}</Player.Number>}
-          {name && <Player.Name color={style.nameColor}>{name}</Player.Name>}
+          {name && (
+            <Player.Name color={style.nameColor} backgroundColor={style.nameBackgroundColor}>
+              {name}
+            </Player.Name>
+          )}
         </Player.Content>
       )}
     </Player.Container>

@@ -48,12 +48,15 @@ const Number = styled.div<{ color: string }>`
   color: ${(props) => props.color};
 `;
 
-const Name = styled.div<{ color: string }>`
+const Name = styled.div<{ color: string; backgroundColor: string }>`
   position: absolute;
-  bottom: -25px;
+  bottom: -28px;
   text-align: center;
   width: max-content;
+  padding: 0 6px;
   color: ${(props) => props.color};
+  background-color: ${(props) => props.backgroundColor};
+  border-radius: 8px;
 `;
 
 export { Container, Content, Number, Name };
