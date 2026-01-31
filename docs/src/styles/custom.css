@@ -75,6 +75,13 @@
 .soccer-lineup-wrapper {
   border-radius: 8px;
   overflow: hidden;
+
+  @media (max-width: 40rem) {
+
+    * {
+      font-size: 10px !important;
+    }
+  }
 }
 
 .soccer-lineup-wrapper div {
