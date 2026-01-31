@@ -1,0 +1,142 @@
+---
+title: Responsive design
+description: Learn how to make soccer lineups responsive across different screen sizes
+---
+
+import LiveDemo from '../../../components/LiveDemo';
+
+## Size options
+
+The `size` prop controls pitch dimensions:
+
+| Value | Width | Height | Use Case |
+|-------|-------|--------|----------|
+| `"small"` | 600px | 350px | Small widgets, sidebars |
+| `"normal"` | 900px | 525px | Default, standard views |
+| `"big"` | 1200px | 700px | Full-page displays |
+| `"responsive"` | 100% | Auto | Fluid layouts (recommended) |
+| `"fill"` | 100% | 100% | Container-controlled sizing |
+
+## Fluid sizes
+
+### `responsive` (recommended)
+
+Use `size="responsive"` for fluid layouts that adapt to container width:
+
+```tsx
+<SoccerLineUp size="responsive" />
+```
+
+<LiveDemo client:visible />
+
+The pitch maintains a **12:7 aspect ratio** and scales proportionally with its container.
+
+### `fill` (100% x 100%)
+
+Use `fill` for custom sizes and aspect ratios. The pitch will fill its container completely:
+
+```tsx
+<div style={{ width: '100%', height: '400px' }}>
+  <SoccerLineUp size="fill" />
+</div>
+```
+
+The pitch will stretch to fill both width and height of its parent container.
+
+## Fixed sizes
+
+For consistent layouts, use fixed sizes:
+
+### `small` (600 x 350)
+
+```tsx
+<SoccerLineUp size="small" />
+```
+
+### `normal` (900 x 525)
+
+```tsx
+<SoccerLineUp size="normal" />
+```
+
+### `big` (1200 x 700)
+
+```tsx
+<SoccerLineUp size="big" />
+```
+
+## Best Practices
+
+### 1. Use `responsive` for most cases
+
+```tsx
+function MatchView() {
+  return (
+    <div className="match-container">
+      <SoccerLineUp size="responsive" homeTeam={team} />
+    </div>
+  );
+}
+```
+
+### 2. Constrain with container
+
+```tsx
+// Limit maximum width while staying responsive
+<div style={{ maxWidth: '1000px', margin: '0 auto' }}>
+  <SoccerLineUp size="responsive" />
+</div>
+```
+
+### 3. Use `fill` for custom containers
+
+```tsx
+// Custom aspect ratio container
+<div style={{ width: '100%', paddingBottom: '60%', position: 'relative' }}>
+  <div style={{ position: 'absolute', inset: 0 }}>
+    <SoccerLineUp size="fill" />
+  </div>
+</div>
+```
+
+## CSS considerations
+
+The component uses `box-sizing: border-box` internally. When using `fill` or `responsive` modes, ensure the parent container has defined dimensions:
+
+```tsx
+<div className="soccer-lineup-wrapper">
+  <SoccerLineUp
+    size="responsive"
+    color={color}
+    pattern={pattern}
+    homeTeam={homeTeam}
+    awayTeam={awayTeam}
+  />
+</div>
+```
+
+```css
+.soccer-lineup-wrapper {
+  width: 100%;
+  /* For responsive mode, height is automatic */
+  /* For fill mode, specify height */
+}
+
+.soccer-lineup-wrapper {
+  width: 100%;
+  height: 500px; /* Required for fill mode */
+}
+```
+
+Freely override the font size/style to fit your field size and be consistent with your application's style:
+
+```css
+.soccer-lineup-wrapper {
+  .soccer-lineup-wrapper {
+    * {
+      font-family: 'Roboto';
+      font-size: 14px;
+    }
+  }
+}
+```

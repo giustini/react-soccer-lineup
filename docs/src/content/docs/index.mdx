@@ -1,0 +1,83 @@
+---
+title: React Soccer Lineup
+description: A soccer pitch representation component for React
+template: splash
+hero:
+  tagline: Display beautiful soccer formations and lineups in your React applications
+  image:
+    file: ../../assets/logo.png
+  actions:
+    - text: Get started
+      link: /getting-started/
+      icon: right-arrow
+      variant: primary
+    - text: Try the Playground
+      link: https://rsl-playground.netlify.app
+      icon: external
+      variant: minimal
+      attrs:
+        target: _blank
+---
+
+import { Card, CardGrid, LinkButton, Tabs, TabItem } from '@astrojs/starlight/components';
+import HeroDemo from '../../components/HeroDemo';
+
+<div class="hero-demo">
+  <HeroDemo client:visible />
+</div>
+
+
+```tsx
+import SoccerLineUp from 'react-soccer-lineup';
+
+import { homeTeam, awayTeam } from '../data/teams.ts';
+
+function App() {
+  return (
+    <SoccerLineUp
+      color="#327d61"
+      pattern="lines"
+      homeTeam={homeTeam}
+      awayTeam={awayTeam}
+    />
+  );
+}
+```
+
+<CardGrid>
+  <Card title="Easy to use" icon="rocket">
+    No configuration, just import the component and use it in your React applications.
+  </Card>
+  <Card title="Flexible sizing" icon="laptop">
+    Choose from small, normal, big, responsive, or fill modes. Perfect for any layout from widgets to full-screen displays.
+  </Card>
+  <Card title="All formations" icon="list-format">
+    Support for all common soccer formations: 4-4-2, 4-3-3, 3-5-2, 4-2-3-1, etc., and any custom setup you need.
+  </Card>
+  <Card title="Full customization" icon="setting">
+    Customize pitch colors, team styles, player markers, and add grass patterns.
+  </Card>
+  <Card title="TypeScript ready" icon="seti:typescript">
+    Complete type definitions included. Get full IntelliSense and type safety in your IDE.
+  </Card>
+  <Card title="Interactive players" icon="puzzle">
+    Add click handlers to players, display names and numbers, and create interactive tactical boards.
+  </Card>
+</CardGrid>
+
+<Card>
+  <div class="cta-section">
+    <h2>Ready to build?</h2>
+    <div class="cta-buttons">
+      <LinkButton href="/basic-usage/">
+        Read the Docs
+      </LinkButton>
+      <LinkButton
+        href="https://github.com/giustini/react-soccer-lineup"
+        variant="secondary"
+        icon="external"
+        target="_blank"
+      >View on GitHub</LinkButton>
+    </div>
+  </div>
+</Card>

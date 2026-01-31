@@ -1,0 +1,108 @@
+---
+title: Props Reference
+description: Complete props documentation for SoccerLineUp component
+---
+
+import LiveDemo from '../../../components/LiveDemo';
+
+## Main Component Props
+
+### color
+
+**Type:** `string`
+
+**Default:** `#588f58`
+
+The background color of the soccer pitch.
+
+```tsx
+<SoccerLineUp color="#327d61" />
+```
+
+<LiveDemo client:visible color="#327d61" />
+
+### size
+
+**Type:** `"small" | "normal" | "big" | "responsive" | "fill"`
+
+**Default:** `"normal"`
+
+Controls the dimensions of the pitch.
+
+| Value | Width | Height | Notes |
+|-------|-------|--------|-------|
+| `"small"` | 600px | 350px | Fixed dimensions |
+| `"normal"` | 900px | 525px | Fixed dimensions |
+| `"big"` | 1200px | 700px | Fixed dimensions |
+| `"responsive"` | 100% | Auto | Maintains 12:7 aspect ratio |
+| `"fill"` | 100% | 100% | Fills container |
+
+```tsx
+<SoccerLineUp size="responsive" />
+```
+<LiveDemo client:visible size="responsive" />
+
+### pattern
+
+**Type:** `"lines" | "squares" | "circles" | undefined`
+
+**Default:** `undefined`
+
+Adds a visual pattern overlay on the pitch grass.
+
+```tsx
+<SoccerLineUp pattern="lines" />
+```
+
+<LiveDemo client:visible pattern="lines" />
+
+### homeTeam
+
+**Type:** `Team | undefined`
+
+**Default:** `undefined`
+
+Configuration for the left side team. See [Team Configuration](/guides/teams) for details.
+
+```tsx
+const homeTeam: Team = {
+  squad: {
+    gk: { number: 1 },
+    df: [{ number: 2 }, { number: 3 }, { number: 4 }, { number: 5 }],
+    cm: [{ number: 6 }, { number: 8 }, { number: 10 }],
+    fw: [{ number: 7 }, { number: 9 }, { number: 11 }]
+  },
+  style: {
+    color: '#ffffff',
+    borderColor: '#c8102e'
+  }
+};
+
+<SoccerLineUp homeTeam={homeTeam} />
+```
+
+### awayTeam
+
+**Type:** `Team | undefined`
+
+**Default:** `undefined`
+
+Configuration for the right side team. Works identically to `homeTeam` but positions players on the right side of the pitch.
+
+```tsx
+const awayTeam: Team = {
+  squad: {
+    gk: { number: 1 },
+    df: [{ number: 2 }, { number: 3 }, { number: 4 }, { number: 5 }],
+    cm: [{ number: 6 }, { number: 8 }],
+    cam: [{ number: 10 }],
+    fw: [{ number: 9 }, { number: 11 }]
+  },
+  style: {
+    color: '#333333',
+    borderColor: '#ffffff'
+  }
+};
+
+<SoccerLineUp awayTeam={awayTeam} />
+```

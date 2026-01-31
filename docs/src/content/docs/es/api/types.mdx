@@ -1,0 +1,217 @@
+---
+title: Referencia de Tipos
+description: Definiciones completas de tipos TypeScript para react-soccer-lineup
+---
+
+## Exportaciones
+
+La librería exporta un componente por defecto y varios tipos de TypeScript:
+
+```tsx
+// Componente por defecto
+import SoccerLineUp from 'react-soccer-lineup';
+
+// Importación de tipos
+import type {
+  PitchViewProps,
+  PitchSize,
+  PitchPattern,
+  Team,
+  Squad,
+  Player,
+  PlayerStyle,
+  TeamStyle,
+  PlayerOffset
+} from 'react-soccer-lineup';
+```
+
+## PitchViewProps
+
+Interfaz de props del componente principal.
+
+```typescript
+interface PitchViewProps {
+  color?: string;
+  size?: PitchSize;
+  pattern?: PitchPattern;
+  homeTeam?: Team;
+  awayTeam?: Team;
+}
+```
+
+### PitchSize
+
+Opciones de dimensión del campo.
+
+```typescript
+type PitchSize = 'small' | 'normal' | 'big' | 'responsive' | 'fill';
+```
+
+### PitchPattern
+
+Patrones de césped disponibles.
+
+```typescript
+type PitchPattern = 'lines' | 'squares' | 'circles';
+```
+
+## Team
+
+Objeto de configuración del equipo.
+
+```typescript
+type Team = {
+  squad: Squad;
+  style?: TeamStyle;
+};
+```
+
+### Squad
+
+Posiciones de jugadores dentro de un equipo. Todas las posiciones son opcionales.
+
+```typescript
+type Squad = {
+  gk?: Player | null | undefined;
+  df?: (Player | null | undefined)[];
+  cdm?: (Player | null | undefined)[];
+  cm?: (Player | null | undefined)[];
+  cam?: (Player | null | undefined)[];
+  fw?: (Player | null | undefined)[];
+};
+```
+
+### Posiciones
+
+| Clave | Nombre Completo | Descripción |
+|-------|-----------------|-------------|
+| `gk` | Portero | Jugador en la portería |
+| `df` | Defensas | Jugadores de la línea defensiva |
+| `cdm` | Mediocampistas Defensivos | Línea de mediocampo defensivo |
+| `cm` | Mediocampistas | Línea principal de mediocampo |
+| `cam` | Mediocampistas Ofensivos | Línea de mediocampo ofensivo |
+| `fw` | Delanteros | Línea de ataque |
+
+### TeamStyle
+
+Opciones de estilo para el equipo.
+
+```typescript
+type TeamStyle = {
+  color?: string;
+  borderColor?: string;
+  numberColor?: string;
+  nameColor?: string;
+  nameBackgroundColor?: string;
+};
+```
+
+## Player
+
+Configuración individual del jugador.
+
+```typescript
+type Player = {
+  name?: string;
+  number?: number;
+  style?: PlayerStyle;
+  offset?: PlayerOffset;
+  onClick?(): void;
+};
+```
+
+| Propiedad | Tipo | Descripción |
+|-----------|------|-------------|
+| `name` | `string` | Nombre del jugador mostrado debajo del marcador |
+| `number` | `number` | Número de camiseta mostrado en el marcador |
+| `style` | `PlayerStyle` | Estilo individual del jugador (sobrescribe el estilo del equipo) |
+| `offset` | `PlayerOffset` | Ajuste de posición en píxeles |
+| `onClick` | `() => void` | Callback cuando se hace clic en el marcador |
+
+### PlayerStyle
+
+Opciones de estilo para jugadores individuales. El estilo del jugador tiene prioridad sobre el estilo del equipo.
+
+```typescript
+type PlayerStyle = {
+  color?: string;
+  borderColor?: string;
+  numberColor?: string;
+  nameColor?: string;
+  nameBackgroundColor?: string;
+};
+```
+
+| Propiedad | Descripción | Por defecto Local | Por defecto Visitante |
+|-----------|-------------|-------------------|----------------------|
+| `color` | Color de relleno del marcador | `#ffffff` | `#333333` |
+| `borderColor` | Color del borde del marcador | `#ffffff` | `#333333` |
+| `numberColor` | Color del texto del número | `#333333` | `#ffffff` |
+| `nameColor` | Color del texto del nombre | `#333333` | `#ffffff` |
+| `nameBackgroundColor` | Fondo de la etiqueta del nombre | `transparent` | `transparent` |
+
+### PlayerOffset
+
+Ajuste de posición para afinar la ubicación del jugador.
+
+```typescript
+type PlayerOffset = {
+  x?: number;
+  y?: number;
+};
+```
+
+| Propiedad | Tipo | Por defecto | Descripción |
+|-----------|------|-------------|-------------|
+| `x` | `number` | `0` | Desplazamiento horizontal en píxeles (negativo = izquierda, positivo = derecha) |
+| `y` | `number` | `0` | Desplazamiento vertical en píxeles (negativo = arriba, positivo = abajo) |
+
+## Ejemplo de Uso
+
+```typescript
+import SoccerLineUp, {
+  type Team,
+  type Squad,
+  type Player,
+  type TeamStyle,
+  type PlayerOffset
+} from 'react-soccer-lineup';
+
+function App() {
+
+  const playerStyle: TeamStyle = {
+    color: '#c8102e',
+    borderColor: '#ffffff',
+    numberColor: '#ffffff'
+  };
+
+  const capitan: Player = {
+    name: 'Capitán',
+    number: 10,
+    style: playerStyle,
+    offset: { x: 10, y: -5 },
+    onClick: () => console.log('¡Capitán seleccionado!')
+  };
+
+  const squad: Squad = {
+    gk: { number: 1 },
+    df: [{ number: 2 }, { number: 4 }, { number: 5 }, { number: 3 }],
+    cm: [{ number: 6 }, { number: 8 }, capitan, { number: 7 }],
+    fw: [{ number: 9 }, { number: 11 }]
+  };
+
+  const team: Team = {
+    squad,
+    style: { borderColor: '#c8102e' }
+  };
+
+  return (
+    <SoccerLineUp
+        color="#327d61"
+        pattern="lines"
+        homeTeam={homeTeam}
+        awayTeam={awayTeam}
+    />
+  );
+}
+```

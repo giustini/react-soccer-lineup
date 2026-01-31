@@ -1,0 +1,248 @@
+---
+title: Getting Started
+description: Learn how to install and start using react-soccer-lineup
+---
+
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+import LiveDemo from '../../components/LiveDemo';
+
+## Installation
+
+<Tabs>
+  <TabItem label="npm">
+    ```bash
+    npm install react-soccer-lineup
+    ```
+  </TabItem>
+  <TabItem label="yarn">
+    ```bash
+    yarn add react-soccer-lineup
+    ```
+  </TabItem>
+  <TabItem label="pnpm">
+    ```bash
+    pnpm add react-soccer-lineup
+    ```
+  </TabItem>
+</Tabs>
+
+## Quick start
+
+Import the component and use it in your React application:
+
+```tsx
+import SoccerLineUp from 'react-soccer-lineup';
+
+function App() {
+  return <SoccerLineUp />;
+}
+```
+
+This renders an empty soccer pitch:
+
+<LiveDemo client:visible />
+
+### Customizing the Pitch
+
+Add colors and patterns to enhance the visual appearance:
+
+```tsx
+import SoccerLineUp from 'react-soccer-lineup';
+
+function App() {
+  return <SoccerLineUp color="#327d61" pattern="squares" />;
+}
+```
+
+<LiveDemo
+  client:visible
+  color="#327D61"
+  pattern="squares"
+/>
+
+### Adding teams
+
+Using the props `homeTeam` and `awayTeam`, each team will be rendered in its part of the field:
+
+```tsx
+import SoccerLineUp, { type Team } from 'react-soccer-lineup';
+
+function App() {
+  const homeTeam: Team = {
+    squad: {
+      gk: { number: 1 },
+      df: [{ number: 2 }, { number: 4 }, { number: 5 }, { number: 3 }],
+      cm: [{ number: 11 }, { number: 6 }, { number: 8 }, { number: 7 }],
+      fw: [{ number: 9 }, { number: 10 }]
+    }
+  };
+
+  const awayTeam: Team = {
+    squad: {
+      gk: { number: 1 },
+      df: [{ number: 2 }, { number: 4 }, { number: 5 }, { number: 3 }],
+      cm: [{ number: 6 }, { number: 8 }, { number: 10 }],
+      fw: [{ number: 11 }, { number: 9 }, { number: 7 }]
+    }
+  };
+
+  return (
+    <SoccerLineUp
+      color="#327d61"
+      pattern="squares"
+      homeTeam={homeTeam}
+      awayTeam={awayTeam}
+    />
+  );
+}
+```
+
+<LiveDemo
+  client:visible
+  color="#327d61"
+  pattern="squares"
+  homeTeam={{
+    squad: {
+      gk: { number: 1 },
+      df: [{ number: 2 }, { number: 4 }, { number: 5 }, { number: 3 }],
+      cm: [{ number: 11 }, { number: 6 }, { number: 8 }, { number: 7 }],
+      fw: [{ number: 9 }, { number: 10 }]
+    }
+  }}
+  awayTeam={{
+    squad: {
+      gk: { number: 1 },
+      df: [{ number: 2 }, { number: 4 }, { number: 5 }, { number: 3 }],
+      cm: [{ number: 6 }, { number: 8 }, { number: 10 }],
+      fw: [{ number: 11 }, { number: 9 }, { number: 7 }]
+    }
+  }}
+/>
+
+### Styling teams
+
+You can fully customize the colors of each team
+
+```tsx
+import SoccerLineUp, { type Team } from 'react-soccer-lineup';
+
+function App() {
+  const homeTeam: Team = {
+    squad: {
+      gk: {
+        number: 1,
+        style: {
+          color: '#d4cea7',
+          numberColor: '#712230',
+          borderColor: '#712230'
+        }
+      },
+      df: [{ number: 2 }, { number: 4 }, { number: 5 }, { number: 3 }],
+      cm: [{ number: 11 }, { number: 6 }, { number: 8 }, { number: 7 }],
+      fw: [{ number: 9 }, { number: 10 }]
+    },
+    style: {
+      color: '#712230',
+      numberColor: '#ede9d0',
+      borderColor: '#ede9d0'
+    }
+  };
+
+  const awayTeam: Team = {
+    squad: {
+      gk: {
+        number: 1,
+        style: {
+          color: '#124d61',
+          numberColor: '#daea91',
+          borderColor: '#daea91'
+        }
+      },
+      df: [{ number: 2 }, { number: 4 }, { number: 5 }, { number: 3 }],
+      cm: [{ number: 6 }, { number: 8 }, { number: 10 }],
+      fw: [{ number: 11 }, { number: 9 }, { number: 7 }]
+    },
+    style: {
+      color: '#daea91',
+      numberColor: '#0a3a4b',
+      borderColor: '#0a3a4b'
+    }
+  };
+
+  return (
+    <SoccerLineUp
+      color="#327d61"
+      pattern="squares"
+      homeTeam={homeTeam}
+      awayTeam={awayTeam}
+    />
+  );
+}
+```
+
+<LiveDemo
+  client:visible
+  color="#327D61"
+  pattern="squares"
+  homeTeam={{
+    squad: {
+      gk: { number: 1, style: {
+        color: '#d4cea7',
+        numberColor: '#712230',
+        borderColor: '#712230'
+        }
+      },
+      df: [{ number: 2 }, { number: 4 }, { number: 5 }, { number: 3 }],
+      cm: [{ number: 11 }, { number: 6 }, { number: 8 }, { number: 7 }],
+      fw: [{ number: 9 }, { number: 10 }]
+    },
+    style: {
+      color: '#712230',
+      numberColor: '#ede9d0',
+      borderColor: '#ede9d0'
+    }
+  }}
+  awayTeam={{
+    squad: {
+      gk: { number: 1, style: {
+        color: '#124d61',
+        numberColor: '#daea91',
+        borderColor: '#daea91'
+        }
+      },
+      df: [{ number: 2 }, { number: 4 }, { number: 5 }, { number: 3 }],
+      cm: [{ number: 6 }, { number: 8 }, { number: 10 }],
+      fw: [{ number: 11 }, { number: 9 }, { number: 7 }]
+    },
+    style: {
+      color: '#daea91',
+      numberColor: '#0a3a4b',
+      borderColor: '#0a3a4b'
+    }
+  }}
+/>
+
+## TypeScript support
+
+The library includes full TypeScript definitions. Import the types you need directly:
+
+```tsx
+import SoccerLineUp, {
+  type Team,
+  type TeamStyle,
+  type Squad,
+  type Player,
+  type PlayerStyle,
+  type PlayerOffset,
+  type PitchSize,
+  type PitchPattern,
+  type PitchViewProps
+} from 'react-soccer-lineup';
+```
+
+## Next steps
+
+- [Basic Usage](/basic-usage) - Learn about both teams and patterns
+- [API Reference](/api) - Explore all available props
+- [Team Configuration](/guides/teams) - Deep dive into team setup
+- [Formations](/guides/formations) - See common formation examples

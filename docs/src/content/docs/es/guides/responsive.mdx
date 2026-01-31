@@ -1,0 +1,142 @@
+---
+title: Diseño responsive
+description: Aprende a hacer las alineaciones responsive en diferentes tamaños de pantalla
+---
+
+import LiveDemo from '../../../../components/LiveDemo';
+
+## Opciones de Tamaño
+
+El prop `size` controla las dimensiones del campo:
+
+| Valor | Ancho | Alto | Caso de Uso |
+|-------|-------|------|-------------|
+| `"small"` | 600px | 350px | Widgets pequeños, barras laterales |
+| `"normal"` | 900px | 525px | Por defecto, vistas estándar |
+| `"big"` | 1200px | 700px | Pantallas completas |
+| `"responsive"` | 100% | Auto | Layouts fluidos (recomendado) |
+| `"fill"` | 100% | 100% | Tamaño controlado por contenedor |
+
+## Tamaños variables
+
+### `responsive` (recomendado)
+
+Usa `size="responsive"` para layouts fluidos que se adaptan al ancho del contenedor:
+
+```tsx
+<SoccerLineUp size="responsive" />
+```
+
+<LiveDemo client:visible />
+
+El campo mantiene una **relación de aspecto 12:7** y escala proporcionalmente con su contenedor.
+
+### `fill` (100% x 100%)
+
+Usa `size="fill"` cuando quieras que el campo llene completamente su contenedor:
+
+```tsx
+<div style={{ width: '100%', height: '400px' }}>
+  <SoccerLineUp size="fill" />
+</div>
+```
+
+El campo se estirará para llenar tanto el ancho como el alto de su contenedor padre.
+
+## Tamaños Fijos
+
+Para layouts consistentes, usa tamaños fijos:
+
+### `small` (600 x 350)
+
+```tsx
+<SoccerLineUp size="small" />
+```
+
+### `normal` (900 x 525)
+
+```tsx
+<SoccerLineUp size="normal" />
+```
+
+### `big` (1200 x 700)
+
+```tsx
+<SoccerLineUp size="big" />
+```
+
+## Buenas prácticas
+
+### 1. Usa `responsive` para la mayoría de los casos
+
+```tsx
+function MatchView() {
+  return (
+    <div className="match-container">
+      <SoccerLineUp size="responsive" homeTeam={team} />
+    </div>
+  );
+}
+```
+
+### 2. Limita con el contenedor
+
+```tsx
+// Limitar ancho máximo mientras se mantiene responsive
+<div style={{ maxWidth: '1000px', margin: '0 auto' }}>
+  <SoccerLineUp size="responsive" />
+</div>
+```
+
+### 3. Usa `fill` para contenedores personalizados
+
+```tsx
+// Contenedor con relación de aspecto personalizada
+<div style={{ width: '100%', paddingBottom: '60%', position: 'relative' }}>
+  <div style={{ position: 'absolute', inset: 0 }}>
+    <SoccerLineUp size="fill" />
+  </div>
+</div>
+```
+
+## Consideraciones de CSS
+
+El componente usa `box-sizing: border-box` internamente. Al usar modos `fill` o `responsive`, asegúrate de que el contenedor padre tenga dimensiones definidas:
+
+```tsx
+<div className="soccer-lineup-wrapper">
+  <SoccerLineUp
+    size="responsive"
+    color={color}
+    pattern={pattern}
+    homeTeam={homeTeam}
+    awayTeam={awayTeam}
+  />
+</div>
+```
+
+```css
+.soccer-lineup-wrapper {
+  width: 100%;
+  /* Para modo responsive, la altura es automática */
+  /* Para modo fill, especifica la altura */
+}
+
+.soccer-lineup-wrapper {
+  width: 100%;
+  height: 500px; /* Requerido para modo fill */
+}
+```
+
+Sobreescribe el tamaño/estilo de fuente libremente para que se ajuste al tamaño de tu campo y sea coherente con el estilo de tu aplicación:
+
+```css
+.soccer-lineup-wrapper {
+  .soccer-lineup-wrapper {
+    * {
+      font-family: 'Roboto';
+      font-size: 14px;
+    }
+  }
+}
+```

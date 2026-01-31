@@ -1,0 +1,389 @@
+---
+title: Formaciones
+description: Cómo implementar cualquier formación deseada
+---
+
+import LiveDemo from '../../../../components/LiveDemo';
+
+En esta página se describe el comportamiento interno del componente principal, y cómo se pueden implementar las formaciones más comunes de fútbol, así como cualquier formación deseada con cualquier número de jugadores.
+
+## Entendiendo las formaciones
+
+Las formaciones se definen distribuyendo jugadores a través de líneas de posición:
+
+- `gk` - Portero (1 jugador)
+- `df` - Defensas (línea trasera)
+- `cdm` - Mediocampistas Defensivos Centrales
+- `cm` - Mediocampistas Centrales
+- `cam` - Mediocampistas Ofensivos Centrales
+- `fw` - Delanteros (línea delantera)
+
+### Posicionamiento de las líneas
+
+Todas las líneas de posición son opcionales; se pueden proporcionar, o no. Y el número de jugadores de cada línea es totalmente libre, excepto en la línea del portero que sólo puede contener un jugador.
+
+Esto significa que si una línea no se proporciona no se tendra en cuenta para renderizar el equipo. Pero, si se proporciona como un array vacío (o como `null` en el caso del portero), la línea se renderizará sin jugadores.
+
+Por ejemplo, es posible renderizar un equipo sin portero:
+
+```tsx
+const squad: Squad = {
+  gk: null,
+  df: [{ number: 2 }, { number: 4 }, { number: 5 }, { number: 3 }],
+  cm: [{ number: 7 }, { number: 6 }, { number: 8 }, { number: 11 }],
+  fw: [{ number: 9 }, { number: 10 }]
+};
+```
+
+<LiveDemo
+  client:visible
+  homeTeam={{
+    squad: {
+      gk: null,
+      df: [{ number: 2 }, { number: 4 }, { number: 5 }, { number: 3 }],
+      cm: [{ number: 7 }, { number: 6 }, { number: 8 }, { number: 11 }],
+      fw: [{ number: 9 }, { number: 10 }]
+    },
+    style: { borderColor: '#333' }
+  }}
+/>
+
+O sin línea defensiva:
+
+```tsx
+const squad: Squad = {
+  gk: { number: 1 },
+  df: [],
+  cm: [{ number: 7 }, { number: 6 }, { number: 8 }, { number: 11 }],
+  fw: [{ number: 9 }, { number: 10 }]
+};
+```
+
+<LiveDemo
+  client:visible
+  homeTeam={{
+    squad: {
+      gk: { number: 1 },
+      df: [],
+      cm: [{ number: 7 }, { number: 6 }, { number: 8 }, { number: 11 }],
+      fw: [{ number: 9 }, { number: 10 }]
+    },
+    style: { borderColor: '#333' }
+  }}
+/>
+
+También se puede seguir esta estrategia para generar más separación entre líneas:
+
+```tsx
+const squad: Squad = {
+  gk: { number: 1 },
+  df: [{ number: 2 }, { number: 4 }, { number: 5 }, { number: 3 }],
+  cdm: [],
+  cm: [{ number: 7 }, { number: 6 }, { number: 8 }, { number: 11 }],
+  cam: [],
+  fw: [{ number: 9 }, { number: 10 }]
+};
+```
+
+<LiveDemo
+  client:visible
+  homeTeam={{
+    squad: {
+      gk: { number: 1 },
+      df: [{ number: 2 }, { number: 4 }, { number: 5 }, { number: 3 }],
+      cdm: [],
+      cm: [{ number: 7 }, { number: 6 }, { number: 8 }, { number: 11 }],
+      cam: [],
+      fw: [{ number: 9 }, { number: 10 }]
+    },
+    style: { borderColor: '#333' }
+  }}
+/>
+
+### Posicionamiento de los jugadores
+
+Los jugadores de cada línea se distribuyen de manera uniforme sobre ella. Además, se puede utilizar `null` para ocupar el espacio de un jugador sin que se renderice nada, lo que añade mucha flexibilidad a la hora de configurar las formaciones.
+
+Por ejemplo, una formación con laterales adelantados, mediapunta caído a una banda y delanteros separados:
+
+```tsx
+const squad: Squad = {
+  gk: { number: 1 },
+  df: [null, { number: 4 }, { number: 5 }, null],
+  cdm: [{ number: 2 }, null, null, null, { number: 3 }],
+  cm: [{ number: 6 }, { number: 8 }, { number: 10 }],
+  cam: [null, null, { number: 11 }, null],
+  fw: [{ number: 9 },  null, { number: 7 }]
+};
+```
+
+<LiveDemo
+  client:visible
+  homeTeam={{
+    squad: {
+      gk: { number: 1 },
+      df: [null, { number: 4 }, { number: 5 }, null],
+      cdm: [{ number: 2 }, null, null, null, { number: 3 }],
+      cm: [{ number: 6 }, { number: 8 }, { number: 10 }],
+      cam: [null, null, { number: 11 }, null],
+      fw: [{ number: 9 },  null, { number: 7 }]
+    },
+    style: { borderColor: '#333' }
+  }}
+/>
+
+Para afinar todavía más las formaciones, se puede añadir un desplazamiento adicional mediante la propiedad [`offset`](/es/guides/players/#desplazamiento-de-posición) del jugador.
+
+```tsx
+const squad: Squad = {
+  gk: { number: 1 },
+  df: [{ number: 2, offset: { x: 40 } }, { number: 4 }, { number: 5 }, null],
+  cdm: [null, null, null, null, { number: 3 }],
+  cm: [{ number: 6, offset: { x: 40 } }, { number: 8, offset: { x: -40 } }, { number: 10 }],
+  cam: [null, null, { number: 11 }, null],
+  fw: [{ number: 9, offset: { x: 30, y: -60 } },  null, { number: 7 }]
+};
+```
+
+<LiveDemo
+  client:visible
+  homeTeam={{
+    squad: {
+      gk: { number: 1 },
+      df: [{ number: 2, offset: { x: 40 } }, { number: 4 }, { number: 5 }, null],
+      cdm: [null, null, null, null, { number: 3 }],
+      cm: [{ number: 6, offset: { x: 40 } }, { number: 8, offset: { x: -40 } }, { number: 10 }],
+      cam: [null, null, { number: 11 }, null],
+      fw: [{ number: 9, offset: { x: 30, y: -60 } },  null, { number: 7 }]
+    },
+    style: { borderColor: '#333' }
+  }}
+/>
+
+## Formaciones típicas
+
+### 4-4-2
+
+Formación clásica con 4 defensas, 4 mediocampistas y 2 delanteros.
+
+```tsx
+const squad: Squad = {
+  gk: { number: 1 },
+  df: [{ number: 2, offset: { x: 30 } }, { number: 4 }, { number: 5 }, { number: 3, offset: { x: 30 } }],
+  cdm: [],
+  cm: [{ number: 7, offset: { x: 30 } }, { number: 6 }, { number: 8 }, { number: 11, offset: { x: 30 } }],
+  cam: [],
+  fw: [{ number: 9 }, { number: 10, offset: { x: -20 } }]
+};
+```
+
+<LiveDemo
+  client:visible
+  homeTeam={{
+    squad: {
+      gk: { number: 1 },
+      df: [{ number: 2, offset: { x: 30 } }, { number: 4 }, { number: 5 }, { number: 3, offset: { x: 30 } }],
+      cdm: [],
+      cm: [{ number: 7, offset: { x: 30 } }, { number: 6 }, { number: 8 }, { number: 11, offset: { x: 30 } }],
+      cam: [],
+      fw: [{ number: 9 }, { number: 10, offset: { x: -20 } }]
+    },
+    style: { borderColor: '#333' }
+  }}
+/>
+
+### 4-3-3
+
+Formación típica con 4 defensas, 3 mediocampistas y 3 delanteros.
+
+```tsx
+const squad: Squad = {
+  gk: { number: 1 },
+  df: [{ number: 2 , offset: { x: 40 }}, { number: 4 }, { number: 5 }, { number: 3, offset: { x: 40 } }],
+  cdm: [null, { number: 8 }, null],
+  cm: [null, { number: 6 }, null, { number: 10 }, null],
+  cam: [{ number: 7 }, null, { number: 11 }],
+  fw: [{ number: 9 }]
+};
+```
+
+<LiveDemo
+  client:visible
+  homeTeam={{
+    squad: {
+      gk: { number: 1 },
+      df: [{ number: 2 , offset: { x: 40 }}, { number: 4 }, { number: 5 }, { number: 3, offset: { x: 40 } }],
+      cdm: [null, { number: 8 }, null],
+      cm: [null, { number: 6 }, null, { number: 10 }, null],
+      cam: [{ number: 7 }, null, { number: 11 }],
+      fw: [{ number: 9 }]
+    },
+    style: { borderColor: '#333' }
+  }}
+/>
+
+### 4-2-3-1
+
+Formación moderna con doble pivote y mediocampistas ofensivos.
+
+```tsx
+const squad: Squad = {
+  gk: { number: 1 },
+  df: [{ number: 2 }, { number: 4 }, { number: 5 }, { number: 3 }],
+  cdm: [{ number: 6 }, { number: 8 }],
+  cam: [{ number: 7 }, { number: 10 }, { number: 11 }],
+  fw: [{ number: 9 }]
+};
+```
+
+<LiveDemo
+  client:visible
+  homeTeam={{
+    squad: {
+      gk: { number: 1 },
+      df: [{ number: 2 }, { number: 4 }, { number: 5 }, { number: 3 }],
+      cdm: [{ number: 6 }, { number: 8 }],
+      cam: [{ number: 7 }, { number: 10 }, { number: 11 }],
+      fw: [{ number: 9 }]
+    },
+    style: { borderColor: '#333' }
+  }}
+/>
+
+### 5-3-2
+
+Formación defensiva con carrileros.
+
+```tsx
+const squad: Squad = {
+  gk: { number: 1 },
+  df: [{ number: 2 }, { number: 4 }, { number: 5 }, { number: 6 }, { number: 3 }],
+  cm: [{ number: 8 }, { number: 10 }, { number: 7 }],
+  fw: [{ number: 9 }, { number: 11 }]
+};
+```
+
+<LiveDemo
+  client:visible
+  homeTeam={{
+    squad: {
+      gk: { number: 1 },
+      df: [{ number: 2 }, { number: 4 }, { number: 5 }, { number: 6 }, { number: 3 }],
+      cm: [{ number: 8 }, { number: 10 }, { number: 7 }],
+      fw: [{ number: 9 }, { number: 11 }]
+    },
+    style: { borderColor: '#333' }
+  }}
+/>
+
+### 4-1-4-1
+
+Formación defensiva con pivote único.
+
+```tsx
+const squad: Squad = {
+  gk: { number: 1 },
+  df: [{ number: 2 }, { number: 4 }, { number: 5 }, { number: 3 }],
+  cdm: [{ number: 6 }],
+  cm: [{ number: 7 }, { number: 8 }, { number: 10 }, { number: 11 }],
+  fw: [{ number: 9 }]
+};
+```
+
+<LiveDemo
+  client:visible
+  homeTeam={{
+    squad: {
+      gk: { number: 1 },
+      df: [{ number: 2 }, { number: 4 }, { number: 5 }, { number: 3 }],
+      cdm: [{ number: 6 }],
+      cm: [{ number: 7 }, { number: 8 }, { number: 10 }, { number: 11 }],
+      fw: [{ number: 9 }]
+    },
+    style: { borderColor: '#333' }
+  }}
+/>
+
+### 3-5-2
+
+Tres en la defensa con mediocampo poblado.
+
+```tsx
+const squad: Squad = {
+  gk: { number: 1 },
+  df: [{ number: 4 }, { number: 5 }, { number: 6 }],
+  cm: [{ number: 2 }, { number: 8 }, { number: 10 }, { number: 7 }, { number: 3 }],
+  fw: [{ number: 9 }, { number: 11 }]
+};
+```
+
+<LiveDemo
+  client:visible
+  homeTeam={{
+    squad: {
+      gk: { number: 1 },
+      df: [{ number: 4 }, { number: 5 }, { number: 6 }],
+      cm: [{ number: 2 }, { number: 8 }, { number: 10 }, { number: 7 }, { number: 3 }],
+      fw: [{ number: 9 }, { number: 11 }]
+    },
+    style: { borderColor: '#333' }
+  }}
+/>
+
+## Formaciones de otros deportes
+
+La cantidad de jugadores por línea es libre, por lo que se pueden crear formaciones de cualquier número de jugadores. Por ejemplo, formaciones de fútbol-7 o fútbol sala:
+
+### 3-1-2
+
+```tsx
+const squad: Squad = {
+  gk: { number: 1 },
+  df: [{ number: 2 }, { number: 4 }, { number: 3 }],
+  cm: [{ number: 5 }],
+  fw: [{ number: 6 }, { number: 7 }]
+};
+```
+
+<LiveDemo
+  client:visible
+  pattern='lines'
+  homeTeam={{
+    squad: {
+      gk: { number: 1 },
+      df: [{ number: 2 }, { number: 4 }, { number: 3 }],
+      cm: [{ number: 5 }],
+      fw: [{ number: 6 }, { number: 7 }]
+    },
+    style: { borderColor: '#333' }
+  }}
+/>
+
+### 2-1-1
+
+```tsx
+const squad: Squad = {
+  gk: { number: 1 },
+  df: [{ number: 2 }, { number: 3 }],
+  cm: [{ number: 4 }],
+  fw: [{ number: 5 }]
+};
+```
+
+<LiveDemo
+  client:visible
+  color='#03a6a1'
+  homeTeam={{
+    squad: {
+      gk: { number: 1 },
+      df: [{ number: 2 }, { number: 3 }],
+      cm: [{ number: 4 }],
+      fw: [{ number: 5 }]
+    },
+    style: { borderColor: '#333' }
+  }}
+/>
+
+## Otras formaciones
+
+Puedes ver más ejemplos de formaciones en [Ejemplos / Equipos reales](/es/examples/teams)

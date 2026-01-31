@@ -1,0 +1,203 @@
+---
+title: Configuración de jugadores
+description: Aprende a configurar jugadores individuales
+---
+
+import LiveDemo from '../../../../components/LiveDemo';
+
+## Propiedades del jugador
+
+Cada jugador puede tener las siguientes propiedades:
+
+```typescript
+type Player = {
+  name?: string;
+  number?: number;
+  style?: PlayerStyle;
+  offset?: PlayerOffset;
+  onClick?(): void;
+};
+```
+
+### Jugador básico
+
+Como mínimo, proporciona un número de camiseta:
+
+```tsx
+const player: Player = { number: 10 };
+```
+
+### Jugador con nombre
+
+Añade un nombre para mostrar debajo del marcador:
+
+```tsx
+const player: Player = {
+  name: 'C. Ronaldo',
+  number: 7
+};
+```
+
+<LiveDemo
+  client:visible
+  homeTeam={{
+    squad: {
+      gk: { number: 1 },
+      df: [
+        { number: 2 },
+        { number: 5 },
+        { number: 4 },
+        { number: 3 }
+      ],
+      cdm: [
+        { number: 6 },
+      ],
+      cm: [
+        { number: 10 }, { number: 8 }
+      ],
+      cam: [
+        { number: 11 },
+        null, null,
+        { number: 7, name: 'C. Ronaldo' }
+      ],
+      fw: [
+        { number: 9 }
+      ]
+    },
+    style: {
+      color: "#84171d",
+      numberColor: '#ffd967',
+      borderColor: '#275534',
+      nameBackgroundColor: '#84171daa',
+      nameColor: '#ffd967'
+    }
+  }}
+/>
+
+## Estilo individual del jugador
+
+Sobrescribe los estilos del equipo para jugadores específicos:
+
+```tsx
+const captain: Player = {
+  name: 'Captain',
+  number: 7,
+  style: {
+    color: '#ffd700', // Gold background
+    numberColor: '#333',
+    nameColor: '#333',
+    nameBackgroundColor: '#ffd700'
+  }
+};
+```
+
+<LiveDemo
+  client:visible
+  homeTeam={{
+    squad: {
+      gk: { number: 1 },
+      df: [
+        { number: 2 },
+        { number: 5 },
+        { number: 4 },
+        { number: 3 }
+      ],
+      cdm: [
+        { number: 6 },
+      ],
+      cm: [
+        { number: 10 }, { number: 8 }
+      ],
+      cam: [
+        { number: 11 },
+        null, null,
+        { number: 7, name: 'Captain', style: { color: '#ffd700', numberColor: '#333', nameBackgroundColor: '#ffd700', nameColor: '#333' } }
+      ],
+      fw: [
+        { number: 9 }
+      ]
+    },
+    style: {
+      color: "#84171d",
+      numberColor: '#ffd967',
+      borderColor: '#275534',
+      nameBackgroundColor: '#84171daa',
+      nameColor: '#ffd967'
+    }
+  }}
+/>
+
+## Desplazamiento de Posición
+
+Ajusta las posiciones de los jugadores con `offset`:
+
+| Offset | Direction |
+|--------|-----------|
+| `x` positive | Right |
+| `x` negative | Left |
+| `y` positive | Down |
+| `y` negative | Up |
+
+```tsx
+const player: Player = {
+  name: 'C. Ronaldo',
+  number: 7
+  offset: {
+    x: 55,   // Move 20px right
+    y: 40   // Move 10px down
+  }
+};
+```
+
+<LiveDemo
+  client:visible
+  homeTeam={{
+    squad: {
+      gk: { number: 1 },
+      df: [
+        { number: 2 },
+        { number: 5 },
+        { number: 4 },
+        { number: 3 }
+      ],
+      cdm: [
+        { number: 6 },
+      ],
+      cm: [
+        { number: 10 }, { number: 8 }
+      ],
+      cam: [
+        { number: 11 },
+        null, null,
+        { number: 7, name: 'C. Ronaldo', offset: { x: 55, y: 40 } }
+      ],
+      fw: [
+        { number: 9 }
+      ]
+    },
+    style: {
+      color: "#84171d",
+      numberColor: '#ffd967',
+      borderColor: '#275534',
+      nameBackgroundColor: '#84171daa',
+      nameColor: '#ffd967'
+    }
+  }}
+/>
+
+## Click handler
+
+Añade interactividad con `onClick`:
+
+```tsx
+const player: Player = {
+  name: 'C. Ronaldo',
+  number: 7
+  onClick: () => {
+    console.log('Player clicked!');
+    // Show player stats, open modal, etc.
+  }
+};
+```
+
+Cuando se proporciona `onClick`, el jugador muestra un cursor de puntero al pasar el mouse.

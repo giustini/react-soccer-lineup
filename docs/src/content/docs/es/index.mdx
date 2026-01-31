@@ -1,0 +1,84 @@
+---
+title: React Soccer Lineup
+description: Un componente de campo de fútbol para React
+template: splash
+hero:
+  tagline: Muestra formaciones de fútbol totalmente configurables en tus aplicaciones React
+  image:
+    file: ../../../assets/logo.png
+  actions:
+    - text: Comenzar
+      link: /es/getting-started/
+      icon: right-arrow
+      variant: primary
+    - text: Probar el Playground
+      link: https://rsl-playground.netlify.app
+      icon: external
+      variant: minimal
+      attrs:
+        target: _blank
+---
+
+import { Card, CardGrid, LinkButton, Tabs, TabItem } from '@astrojs/starlight/components';
+import HeroDemo from '../../../components/HeroDemo';
+
+<div class="hero-demo">
+  <HeroDemo client:visible />
+</div>
+
+## Inicio Rápido
+
+```tsx
+import SoccerLineUp from 'react-soccer-lineup';
+
+import { homeTeam, awayTeam } from '../data/teams.ts';
+
+function App() {
+  return (
+    <SoccerLineUp
+        color="#327d61"
+        pattern="lines"
+        homeTeam={homeTeam}
+        awayTeam={awayTeam}
+    />
+  );
+}
+```
+
+<CardGrid>
+  <Card title="Fácil de utilizar" icon="rocket">
+    Sin configuración, simplemente importa el componente y úsalo en tus aplicaciones React.
+  </Card>
+  <Card title="Tamaños flexibles" icon="laptop">
+    Elige entre modos pequeño, normal, grande, responsive o fill. Perfecto para cualquier diseño, desde widgets hasta pantallas completas.
+  </Card>
+  <Card title="Todas las formaciones" icon="list-format">
+    Soporte para todas las formaciones comunes: 4-4-2, 4-3-3, 3-5-2, 4-2-3-1, etc., y cualquier configuración personalizada.
+  </Card>
+  <Card title="Personalización total" icon="setting">
+    Personaliza colores del campo, estilos de los equipos, marcadores de jugadores y añade patrones de césped.
+  </Card>
+  <Card title="Listo para TypeScript" icon="seti:typescript">
+    Definiciones de tipos completas incluidas. Obtén IntelliSense completo y seguridad de tipos en tu IDE.
+  </Card>
+  <Card title="Jugadores interactivos" icon="puzzle">
+    Añade eventos de clic a jugadores, muestra nombres y números, y crea pizarras tácticas interactivas.
+  </Card>
+</CardGrid>
+
+<Card>
+  <div class="cta-section">
+    <h2>¿Listo para empezar?</h2>
+    <div class="cta-buttons">
+      <LinkButton href="/basic-usage/">
+        Leer la Documentación
+      </LinkButton>
+      <LinkButton
+        href="https://rsl-playground.netlify.app"
+        variant="secondary"
+        icon="external"
+        target="_blank"
+      >Ver en GitHub</LinkButton>
+    </div>
+  </div>
+</Card>

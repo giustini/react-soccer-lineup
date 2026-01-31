@@ -1,0 +1,290 @@
+---
+title: Formaciones
+description: Colección de configuraciones de partidos reales
+---
+
+import LiveDemo from '../../../../components/LiveDemo';
+
+Colección de configuraciones de partidos reales.
+
+## Alemania - Brasil 2002
+
+<LiveDemo
+  client:visible
+  pattern="squares"
+  homeTeam={{
+    squad: {
+      gk: { number: 1, name: 'Kahn', style: { color: '#6680bd' } },
+      df: [
+        { number: 2, name: 'Linke' },
+        { number: 5, name: 'Ramelow' },
+        { number: 21, name: 'Metzelder' }
+      ],
+      cdm: [
+        { number: 22, name: 'Frings' },
+        { number: 8, name: 'Hamann' },
+        { number: 16, name: 'Jeremies' },
+        { number: 17, name: 'Bode' }
+      ],
+      cam : [
+        { number: 19, name: 'Schneider' },
+      ],
+      fw: [
+        { number: 11, name: 'Klose' },
+        { number: 7, name: 'Neuville' }
+      ]
+    },
+    style: {
+      color: '#fff',
+      borderColor: '#333',
+      numberColor: '#333',
+      nameColor: '#fff',
+    },
+  }}
+  awayTeam={{
+    squad: {
+      gk: { number: 1, name: 'Marcos', style: { color: '#ccc', borderColor: '#fedd00' } },
+      df: [
+        { number: 2, name: 'Cafú', offset: { x: -20 } },
+        { number: 3, name: 'Lúcio' },
+        { number: 4, name: 'Edmílson' },
+        { number: 5, name: 'Roque Júnior' },
+        { number: 6, name: 'Roberto Carlos', offset: { x: -20 } }
+      ],
+      cm: [
+        null,
+        { number: 8, name: 'Gilberto Silva' },
+        { number: 11, name: 'Ronaldinho', offset: { x: -20 } },
+        { number: 15, name: 'Kléberson' },
+        null
+      ],
+      fw: [
+        { number: 10, name: 'Rivaldo' },
+        { number: 9, name: 'Ronaldo' }
+      ]
+    },
+    style: {
+      color: '#fedd00',
+      borderColor: '#009739',
+      numberColor: '#009739',
+      nameColor: '#fff',
+    },
+  }}
+/>
+
+```tsx
+import SoccerLineUp, { type Team } from 'react-soccer-lineup';
+
+function App() {
+  const homeTeam: Team = {
+    squad: {
+      gk: { number: 1, name: 'Kahn', style: { color: '#6680bd' } },
+      df: [
+        { number: 2, name: 'Linke' },
+        { number: 5, name: 'Ramelow' },
+        { number: 21, name: 'Metzelder' }
+      ],
+      cdm: [
+        { number: 22, name: 'Frings' },
+        { number: 8, name: 'Hamann' },
+        { number: 16, name: 'Jeremies' },
+        { number: 17, name: 'Bode' }
+      ],
+      cam : [
+        { number: 19, name: 'Schneider' },
+      ],
+      fw: [
+        { number: 11, name: 'Klose' },
+        { number: 7, name: 'Neuville' }
+      ]
+    },
+    style: {
+      color: '#fff',
+      borderColor: '#333',
+      numberColor: '#333',
+      nameColor: '#fff',
+    }
+  };
+
+  const awayTeam: Team = {
+    squad: {
+      gk: { number: 1, name: 'Marcos', style: { color: '#ccc', borderColor: '#fedd00' } },
+      df: [
+        { number: 2, name: 'Cafú', offset: { x: -20 } },
+        { number: 3, name: 'Lúcio' },
+        { number: 4, name: 'Edmílson' },
+        { number: 5, name: 'Roque Júnior' },
+        { number: 6, name: 'Roberto Carlos', offset: { x: -20 } }
+      ],
+      cm: [
+        null,
+        { number: 8, name: 'Gilberto Silva' },
+        { number: 11, name: 'Ronaldinho', offset: { x: -20 } },
+        { number: 15, name: 'Kléberson' },
+        null
+      ],
+      fw: [
+        { number: 10, name: 'Rivaldo' },
+        { number: 9, name: 'Ronaldo' }
+      ]
+    },
+    style: {
+      color: '#fedd00',
+      borderColor: '#009739',
+      numberColor: '#009739',
+      nameColor: '#fff',
+    }
+  };
+
+  return (
+    <SoccerLineUp
+      pattern="squares"
+      homeTeam={homeTeam}
+      awayTeam={awayTeam}
+    />
+  );
+}
+```
+
+## Borussia Dortmund - Real Madrid 2024
+
+<LiveDemo
+  client:visible
+  pattern="squares"
+  homeTeam={{
+    squad: {
+      gk: { number: 1, name: 'Kobel' },
+      df: [
+        { number: 26, name: 'Ryerson', offset: { x: 30 } },
+        { number: 15, name: 'Hummels' },
+        { number: 4, name: 'Schlotterbeck' },
+        { number: 22, name: 'Maatsen', offset: { x: 30 } },
+      ],
+      cm: [
+        { number: 23, name: 'Can' },
+        { number: 20, name: 'Sabitzer' },
+      ],
+      cam: [
+        { number: 19, name: 'Brandt', offset: { x: -20 } },
+      ],
+      fw: [
+        { number: 10, name: 'Sancho', offset: { x: -20 } },
+        { number: 27, name: 'Füllkrug' },
+        { number: 14, name: 'Adeyemi', offset: { x: -20 } },
+      ],
+    },
+    style: {
+      color: '#ffd900',
+      borderColor: '#000',
+      numberColor: '#000',
+      nameColor: '#ffffff',
+      nameBackgroundColor: '#00000033',
+    }
+  }}
+  awayTeam={{
+    squad: {
+      gk: { number: 1, name: 'Courtois' },
+      df: [
+        { number: 2, name: 'Carvajal', offset: { x: -30 } },
+        { number: 22, name: 'Rüdiger' },
+        { number: 6, name: 'Nacho' },
+        { number: 23, name: 'Mendy', offset: { x: -30 } },
+      ],
+      cdm: [
+        { number: 12, name: 'Camavinga' },
+      ],
+      cm: [
+        { number: 15, name: 'Valverde', offset: { x: -10 } },
+        { number: 8, name: 'Kroos', offset: { x: 20 } },
+      ],
+      cam: [{ number: 5, name: 'Bellingham' }],
+      fw: [
+        { number: 11, name: 'Rodrygo' },
+        { number: 7, name: 'Vinicius' },
+      ],
+    },
+    style: {
+      color: '#ffffff',
+      borderColor: '#daa530',
+      numberColor: '#222a4f',
+      nameColor: '#ffffff',
+      nameBackgroundColor: '#222a4f44',
+    }
+  }}
+/>
+
+```tsx
+import SoccerLineUp, { type Team } from 'react-soccer-lineup';
+
+function App() {
+  const homeTeam: Team = {
+    squad: {
+      gk: { number: 1, name: 'Kobel' },
+      df: [
+        { number: 26, name: 'Ryerson', offset: { x: 30 } },
+        { number: 15, name: 'Hummels' },
+        { number: 4, name: 'Schlotterbeck' },
+        { number: 22, name: 'Maatsen', offset: { x: 30 } },
+      ],
+      cm: [
+        { number: 23, name: 'Can' },
+        { number: 20, name: 'Sabitzer' },
+      ],
+      cam: [
+        { number: 19, name: 'Brandt', offset: { x: -20 } },
+      ],
+      fw: [
+        { number: 10, name: 'Sancho', offset: { x: -20 } },
+        { number: 27, name: 'Füllkrug' },
+        { number: 14, name: 'Adeyemi', offset: { x: -20 } },
+      ],
+    },
+    style: {
+      color: '#ffd900',
+      borderColor: '#000',
+      numberColor: '#000',
+      nameColor: '#ffffff',
+      nameBackgroundColor: '#00000033',
+    }
+  };
+
+  const awayTeam: Team = {
+    squad: {
+      gk: { number: 1, name: 'Courtois' },
+      df: [
+        { number: 2, name: 'Carvajal', offset: { x: -30 } },
+        { number: 22, name: 'Rüdiger' },
+        { number: 6, name: 'Nacho' },
+        { number: 23, name: 'Mendy', offset: { x: -30 } },
+      ],
+      cdm: [
+        { number: 12, name: 'Camavinga' },
+      ],
+      cm: [
+        { number: 15, name: 'Valverde', offset: { x: -10 } },
+        { number: 8, name: 'Kroos', offset: { x: 20 } },
+      ],
+      cam: [{ number: 5, name: 'Bellingham' }],
+      fw: [
+        { number: 11, name: 'Rodrygo' },
+        { number: 7, name: 'Vinicius' },
+      ],
+    },
+    style: {
+      color: '#ffffff',
+      borderColor: '#daa530',
+      numberColor: '#222a4f',
+      nameColor: '#ffffff',
+      nameBackgroundColor: '#222a4f44',
+    }
+  };
+
+  return (
+    <SoccerLineUp
+      pattern="squares"
+      homeTeam={homeTeam}
+      awayTeam={awayTeam}
+    />
+  );
+}
+```

@@ -1,0 +1,215 @@
+---
+title: Guía de estilos
+description: Aprende a personalizar la apariencia de campos, equipos y jugadores
+---
+
+import LiveDemo from '../../../../components/LiveDemo';
+
+## Estilos del campo
+
+### Patrones
+
+Añade patrones visuales al campo:
+
+#### Líneas
+
+```tsx
+import SoccerLineUp from 'react-soccer-lineup';
+
+function App() {
+  return <SoccerLineUp pattern="lines" />;
+}
+```
+
+<LiveDemo client:visible pattern="lines" />
+
+#### Cuadros
+
+```tsx
+import SoccerLineUp from 'react-soccer-lineup';
+
+function App() {
+  return <SoccerLineUp pattern="squares" />;
+}
+```
+
+<LiveDemo client:visible pattern="squares" />
+
+#### Círculos
+
+```tsx
+import SoccerLineUp from 'react-soccer-lineup';
+
+function App() {
+  return <SoccerLineUp pattern="circles" />;
+}
+```
+
+<LiveDemo client:visible pattern="circles" />
+
+### Colores
+
+Cambia el color del césped con la prop `color`:
+
+<LiveDemo client:visible color="#03a6A1" pattern="circles" />
+
+```tsx
+<SoccerLineUp color="#03a6A1" pattern="lines" />
+```
+
+## Estilos del equipo
+
+### Propiedades de TeamStyle
+
+```typescript
+type TeamStyle = {
+  color?: string;               // Color de relleno del marcador
+  borderColor?: string;         // Color del borde del marcador
+  numberColor?: string;         // Color del número de camiseta
+  nameColor?: string;           // Color del texto del nombre
+  nameBackgroundColor?: string; // Fondo de la etiqueta del nombre
+};
+```
+
+### Colores por defecto
+
+| Propiedad | Equipo Local | Equipo Visitante |
+|-----------|--------------|------------------|
+| `color` | `#ffffff` | `#333333` |
+| `borderColor` | `#ffffff` | `#333333` |
+| `numberColor` | `#333333` | `#ffffff` |
+| `nameColor` | `#333333` | `#ffffff` |
+| `nameBackgroundColor` | transparente | transparente |
+
+### Colores personalizados del equipo
+
+```tsx
+const team: Team = {
+  squad: { /* ... */ },
+  style: {
+    color: '#a71f28',
+    borderColor: '#ffffff',
+    numberColor: '#ffffff',
+    nameColor: '#ffffff',
+    nameBackgroundColor: '#33333cc'
+  }
+};
+```
+
+<LiveDemo
+  client:visible
+  homeTeam={{
+    squad: {
+      gk: { number: 1, name: 'Alisson' },
+      df: [
+        { number: 12, name: 'Bradley' },
+        { number: 5, name: 'Konate' },
+        { number: 4, name: 'Van Dijk' },
+        { number: 26, name: 'Robertson' },
+      ],
+      cdm: [{ number: 38, name: 'Gravenberch' }],
+      cm: [
+        { number: 8, name: 'Szoboszlai' },
+        { number: 10, name: 'Mac Allister' },
+      ],
+      fw: [
+        { number: 11, name: 'Salah' },
+        { number: 22, name: 'Ekitike' },
+        { number: 7, name: 'Wirtz' },
+      ],
+    },
+    style: {
+      color: '#a71f28',
+      borderColor: '#ffffff',
+      numberColor: '#ffffff',
+      nameColor: '#ffffff',
+      nameBackgroundColor: '#333333cc'
+    }
+  }}
+/>
+
+## Estilos del jugador
+
+### Sobrescritura Individual de Jugadores
+
+Sobrescribe los estilos del equipo para jugadores específicos:
+
+```tsx
+const captain: Player = {
+  number: 10,
+  name: 'Captain',
+  style: {
+    color: '#ffd700',
+    borderColor: '#333',
+    numberColor: '#333',
+    nameBackgroundColor: '#ffd700cc',
+    nameColor: '#000000'
+  }
+};
+```
+
+<LiveDemo
+  client:visible
+  homeTeam={{
+    squad: {
+      gk: { number: 1, name: 'Alisson' },
+      df: [
+        { number: 12, name: 'Bradley' },
+        { number: 5, name: 'Konate' },
+        { number: 4, name: 'Van Dijk', style: {
+          color: '#ffd700',
+          borderColor: '#333',
+          numberColor: '#333',
+          nameBackgroundColor: '#ffd700cc',
+          nameColor: '#000000'
+        } },
+        { number: 26, name: 'Robertson' },
+      ],
+      cdm: [{ number: 38, name: 'Gravenberch' }],
+      cm: [
+        { number: 8, name: 'Szoboszlai' },
+        { number: 10, name: 'Mac Allister' },
+      ],
+      fw: [
+        { number: 11, name: 'Salah' },
+        { number: 22, name: 'Ekitike' },
+        { number: 7, name: 'Wirtz' },
+      ],
+    },
+    style: {
+      color: '#a71f28',
+      borderColor: '#ffffff',
+      numberColor: '#ffffff',
+      nameColor: '#ffffff',
+      nameBackgroundColor: '#333333cc'
+    }
+  }}
+/>
+
+## Herencia de Estilos
+
+Los estilos se aplican en cascada en este orden (los posteriores sobrescriben a los anteriores):
+
+1. **Colores por defecto** (local: blanco, visitante: oscuro)
+2. **Estilo del equipo** (`team.style`)
+3. **Estilo del jugador** (`player.style`)
+
+```tsx
+// El jugador hereda el estilo del equipo, pero sobrescribe el color
+const team: Team = {
+  squad: {
+    gk: { number: 1 },
+    df: [
+      { number: 2 },  // Usa estilo del equipo
+      { number: 4, style: { color: '#ffd700' } },  // Dorado, el resto del equipo
+      { number: 5 },  // Usa estilo del equipo
+      { number: 3 }   // Usa estilo del equipo
+    ],
+    // ...
+  },
+  style: {
+    color: '#c8102e',
+    borderColor: '#ffffff'
+  }
+};
+```

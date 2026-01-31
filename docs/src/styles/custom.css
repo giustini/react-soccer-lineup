@@ -1,0 +1,83 @@
+.hero {
+  display: flex !important;
+  flex-direction: column;
+  gap: 2rem;
+
+  padding: 2rem;
+
+  img {
+    max-width: 120px !important;
+  }
+
+  * {
+    text-align: center;
+    align-items: center !important;
+  }
+
+  @media (min-width: 50rem) {
+    flex-direction: column-reverse;
+
+    padding: 4rem 2rem;
+
+    img {
+      max-width: 160px !important;
+    }
+  }
+}
+
+.hero-demo {
+  margin: 0 auto;
+  border-radius: 0;
+}
+
+.hero-demo > div {
+  border: none !important;
+  margin: 0 !important;
+}
+
+.cta-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  text-align: center;
+
+  .cta-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 1.5rem;
+
+    > a {
+      border-radius: 8px;
+      justify-content: center;
+      width: 250px;
+    }
+  }
+}
+
+@media (max-width: 50rem) {
+  .cta-section {
+    gap: 0;
+
+    .cta-buttons {
+      gap: 0.5rem;
+
+      > a {
+        margin: 0;
+        height: 40px;
+        width: 250px;
+      }
+    }
+  }
+}
+
+.soccer-lineup-wrapper {
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.soccer-lineup-wrapper div {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}

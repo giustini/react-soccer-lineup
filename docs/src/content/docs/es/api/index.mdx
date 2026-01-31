@@ -1,0 +1,85 @@
+---
+title: Resumen de la API
+description: Vista general de la API de react-soccer-lineup
+---
+
+## Firma del Componente
+
+```tsx
+const SoccerLineUp: React.FC<PitchViewProps>;
+```
+
+## API
+
+El componente acepta props definidos en `PitchViewProps`:
+
+| Prop       | Tipo           | Obligatorio | Valor por defecto | Descripción                            |
+| ---------- | -------------- | ----------- | ----------------- | -------------------------------------- |
+| `color`    | `string`       | No          | `#588f58`         | El color de fondo del campo            |
+| `size`     | `PitchSize`    | No          | `"normal"`        | Dimensiones del campo                  |
+| `pattern`  | `PitchPattern` | No          | -                 | El patrón aplicado al césped del campo |
+| `homeTeam` | `Team`         | No          | -                 | El equipo de la izquierda              |
+| `awayTeam` | `Team`         | No          | -                 | El equipo de la derecha                |
+
+### PitchSize
+
+| Valor          | Ancho  | Alto              |
+| -------------- | ------ | ----------------- |
+| `"small"`      | 600px  | 350px             |
+| `"normal"`     | 900px  | 525px             |
+| `"big"`        | 1200px | 700px             |
+| `"responsive"` | 100%   | Auto (ratio 12:7) |
+| `"fill"`       | 100%   | 100%              |
+
+### PitchPattern
+
+| Valor       | Descripción                     |
+| ----------- | ------------------------------- |
+| `"lines"`   | Patrón de líneas horizontales   |
+| `"squares"` | Patrón de cuadros               |
+| `"circles"` | Patrón de círculos concéntricos |
+
+### Team
+
+| Atributo | Tipo    | Obligatorio | Valor por defecto | Descripción                      |
+| -------- | ------- | ----------- | ----------------- | -------------------------------- |
+| `squad`  | `Squad` | Yes         | -                 | Los jugadores del equipo por rol |
+| `style`  | `Style` | No          | -                 | El estilo del equipo             |
+
+### Squad
+
+| Atributo | Tipo       | Obligatorio | Valor por defecto | Descripción                            |
+| -------- | ---------- | ----------- | ----------------- | -------------------------------------- |
+| `gk`     | `Player`   | No          | -                 | El portero del equipo                  |
+| `df`     | `Player[]` | No          | -                 | Los defensas del equipo                |
+| `cdm`    | `Player[]` | No          | -                 | Los mediocentros defensivos del equipo |
+| `cm`     | `Player[]` | No          | -                 | Los mediocentros del equipo            |
+| `cam`    | `Player[]` | No          | -                 | Los mediocentros ofensivos del equipo  |
+| `fw`     | `Player[]` | No          | -                 | Los delanteros del equipo              |
+
+### Style
+
+| Atributo              | Tipo     | Obligatorio | Valor por defecto                   | Descripción                  |
+| --------------------- | -------- | ----------- | ----------------------------------- | ---------------------------- |
+| `color`               | `string` | No          | `#ffffff` (home) / `#333333` (away) | El color de fondo            |
+| `borderColor`         | `string` | No          | `#ffffff` (home) / `#333333` (away) | El color del borde           |
+| `numberColor`         | `string` | No          | `#333333` (home) / `#ffffff` (away) | El color del número          |
+| `nameColor`           | `string` | No          | `#333333` (home) / `#ffffff` (away) | El color del nombre          |
+| `nameBackgroundColor` | `string` | No          | -                                   | El color de fondo del nombre |
+
+### Player
+
+| Atributo  | Tipo           | Obligatorio | Valor por defecto | Descripción                                              |
+| --------- | -------------- | ----------- | ----------------- | -------------------------------------------------------- |
+| `name`    | `string`       | No          | -                 | El nombre                                                |
+| `number`  | `number`       | No          | -                 | El número                                                |
+| `style`   | `Style`        | No          | The team style    | El estilo del jugador                                    |
+| `offset`  | `PlayerOffset` | No          | -                 | El offset del jugador                                    |
+| `onCLick` | `Function`     | No          | -                 | Callback que se invocará al hacer click sobre el jugador |
+
+### PlayerOffset
+
+| Atributo | Tipo     | Obligatorio | Valor por defecto | Descripción          |
+| -------- | -------- | ----------- | ----------------- | -------------------- |
+| `x`      | `number` | No          | 0                 | El offset horizontal |
+| `y`      | `number` | No          | 0                 | El offset vertical   |

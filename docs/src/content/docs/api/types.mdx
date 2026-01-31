@@ -1,0 +1,217 @@
+---
+title: Types Reference
+description: Complete TypeScript type definitions for react-soccer-lineup
+---
+
+## Exports
+
+The library exports a default component and several TypeScript types:
+
+```tsx
+// Default component
+import SoccerLineUp from 'react-soccer-lineup';
+
+// Type imports
+import SoccerLineUp, {
+  type Team,
+  type TeamStyle,
+  type Squad,
+  type Player,
+  type PlayerStyle,
+  type PlayerOffset,
+  type PitchSize,
+  type PitchPattern,
+  type PitchViewProps
+} from 'react-soccer-lineup';
+```
+
+## PitchViewProps
+
+Main component props interface.
+
+```typescript
+interface PitchViewProps {
+  color?: string;
+  size?: PitchSize;
+  pattern?: PitchPattern;
+  homeTeam?: Team;
+  awayTeam?: Team;
+}
+```
+
+### PitchSize
+
+Pitch dimension options.
+
+```typescript
+type PitchSize = 'small' | 'normal' | 'big' | 'responsive' | 'fill';
+```
+
+### PitchPattern
+
+Available grass patterns.
+
+```typescript
+type PitchPattern = 'lines' | 'squares' | 'circles';
+```
+
+## Team
+
+Team configuration object.
+
+```typescript
+type Team = {
+  squad: Squad;
+  style?: TeamStyle;
+};
+```
+
+### Squad
+
+Player positions within a team. All positions are optional.
+
+```typescript
+type Squad = {
+  gk?: Player | null | undefined;
+  df?: (Player | null | undefined)[];
+  cdm?: (Player | null | undefined)[];
+  cm?: (Player | null | undefined)[];
+  cam?: (Player | null | undefined)[];
+  fw?: (Player | null | undefined)[];
+};
+```
+
+### Positions
+
+| Key | Full Name | Description |
+|-----|-----------|-------------|
+| `gk` | Goalkeeper | Single player in goal |
+| `df` | Defenders | Back line players |
+| `cdm` | Central Defensive Midfielders | Defensive midfield line |
+| `cm` | Central Midfielders | Main midfield line |
+| `cam` | Central Attacking Midfielders | Attacking midfield line |
+| `fw` | Forwards | Attacking line |
+
+### TeamStyle
+
+Styling options for teams.
+
+```typescript
+type TeamStyle = {
+  color?: string;
+  borderColor?: string;
+  numberColor?: string;
+  nameColor?: string;
+  nameBackgroundColor?: string;
+};
+```
+
+## Player
+
+Individual player configuration.
+
+```typescript
+type Player = {
+  name?: string;
+  number?: number;
+  style?: PlayerStyle;
+  offset?: PlayerOffset;
+  onClick?(): void;
+};
+```
+
+| Property | Type | Description |
+|----------|------|-------------|
+| `name` | `string` | Player name displayed below the marker |
+| `number` | `number` | Jersey number displayed on the marker |
+| `style` | `PlayerStyle` | Individual player styling (overrides team style) |
+| `offset` | `PlayerOffset` | Position adjustment in pixels |
+| `onClick` | `() => void` | Callback when player marker is clicked |
+
+### PlayerStyle
+
+Styling options for individual players. The player's style takes precedence over the team's style.
+
+```typescript
+type PlayerStyle = {
+  color?: string;
+  borderColor?: string;
+  numberColor?: string;
+  nameColor?: string;
+  nameBackgroundColor?: string;
+};
+```
+
+| Property | Description | Home Default | Away Default |
+|----------|-------------|--------------|--------------|
+| `color` | Marker fill color | `#ffffff` | `#333333` |
+| `borderColor` | Marker border color | `#ffffff` | `#333333` |
+| `numberColor` | Jersey number text color | `#333333` | `#ffffff` |
+| `nameColor` | Player name text color | `#333333` | `#ffffff` |
+| `nameBackgroundColor` | Name label background | `transparent` | `transparent` |
+
+### PlayerOffset
+
+Position adjustment for fine-tuning player placement.
+
+```typescript
+type PlayerOffset = {
+  x?: number;
+  y?: number;
+};
+```
+
+| Property | Type | Default | Description |
+|----------|------|---------|-------------|
+| `x` | `number` | `0` | Horizontal offset in pixels (negative = left, positive = right) |
+| `y` | `number` | `0` | Vertical offset in pixels (negative = up, positive = down) |
+
+## Usage Example
+
+```typescript
+import SoccerLineUp, {
+  type Team,
+  type Squad,
+  type Player,
+  type TeamStyle,
+  type PlayerOffset
+} from 'react-soccer-lineup';
+
+function App() {
+
+  const playerStyle: TeamStyle = {
+    color: '#c8102e',
+    borderColor: '#ffffff',
+    numberColor: '#ffffff'
+  };
+
+  const captain: Player = {
+    name: 'Captain',
+    number: 10,
+    style: playerStyle,
+    offset: { x: 10, y: -5 },
+    onClick: () => console.log('Captain clicked!')
+  };
+
+  const squad: Squad = {
+    gk: { number: 1 },
+    df: [{ number: 2 }, { number: 4 }, { number: 5 }, { number: 3 }],
+    cm: [{ number: 6 }, { number: 8 }, captain, { number: 7 }],
+    fw: [{ number: 9 }, { number: 11 }]
+  };
+
+  const team: Team = {
+    squad,
+    style: { borderColor: '#c8102e' }
+  };
+
+  return (
+    <SoccerLineUp
+        color="#327d61"
+        pattern="lines"
+        homeTeam={homeTeam}
+        awayTeam={awayTeam}
+    />
+  );
+}
+```

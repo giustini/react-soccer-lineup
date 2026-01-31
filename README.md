@@ -9,7 +9,7 @@
 
 <div align="center">
 
-[![NPM](https://img.shields.io/npm/v/react-soccer-lineup.svg)](https://www.npmjs.com/package/react-soccer-lineup) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com) [![npm](https://img.shields.io/npm/dt/react-soccer-lineup)](https://www.npmjs.com/package/react-soccer-lineup)
+[![NPM](https://img.shields.io/npm/v/react-soccer-lineup.svg)](https://www.npmjs.com/package/react-soccer-lineup) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com) [![npm](https://img.shields.io/badge/downloads-89.7k-4fc52a)](https://npm-stat.com/charts.html?package=react-soccer-lineup&from=2020-01-01&to=2027-01-01)
 
 </div>
 

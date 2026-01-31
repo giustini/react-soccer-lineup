@@ -1,0 +1,180 @@
+---
+title: Basic Usage
+description: Learn how to render teams on a soccer pitch
+---
+
+import LiveDemo from '../../components/LiveDemo';
+
+## Rendering teams
+
+To display teams on the pitch, pass `homeTeam` and/or `awayTeam` props. Each team requires a `squad` object defining player positions.
+
+### Home
+
+With the `homeTeam` prop, the home team is rendered attacking from the left side of the field:
+
+```tsx
+import SoccerLineUp, { type Team } from 'react-soccer-lineup';
+
+function App() {
+  const homeTeam: Team = {
+    squad: {
+      gk: { number: 1 },
+      df: [{ number: 2 }, { number: 4 }, { number: 5 }, { number: 3 }],
+      cm: [{ number: 11 }, { number: 6 }, { number: 8 }, { number: 7 }],
+      fw: [{ number: 9 }, { number: 10 }]
+    }
+  };
+
+  return <SoccerLineUp homeTeam={homeTeam} />;
+}
+```
+
+<LiveDemo
+  client:visible
+  homeTeam={{
+    squad: {
+      gk: { number: 1 },
+      df: [{ number: 2 }, { number: 4 }, { number: 5 }, { number: 3 }],
+      cm: [{ number: 11 }, { number: 6 }, { number: 8 }, { number: 7 }],
+      fw: [{ number: 9 }, { number: 10 }]
+    }
+  }}
+/>
+
+### Away
+
+With the `awayTeam` prop, the home team is rendered attacking from the right side of the field:
+
+```tsx
+import SoccerLineUp, { type Team } from 'react-soccer-lineup';
+
+function App() {
+  const awayTeam: Team = {
+    squad: {
+      gk: { number: 1 },
+      df: [{ number: 2 }, { number: 4 }, { number: 5 }, { number: 3 }],
+      cdm: [{ number: 6 }],
+      cm: [{ number: 10 }, { number: 8 }],
+      fw: [{ number: 11 }, { number: 9 }, { number: 7 }]
+    }
+  };
+
+  return <SoccerLineUp awayTeam={awayTeam} />;
+}
+```
+
+<LiveDemo
+  client:visible
+  awayTeam={{
+    squad: {
+      gk: { number: 1 },
+      df: [{ number: 2 }, { number: 4 }, { number: 5 }, { number: 3 }],
+      cdm: [{ number: 6 }],
+      cm: [{ number: 10 }, { number: 8 }],
+      fw: [{ number: 11 }, { number: 9 }, { number: 7 }]
+    }
+  }}
+/>
+
+### Both teams
+
+Using both props, each team will be rendered on its part of the field.
+
+```tsx
+import SoccerLineUp, { type Team } from 'react-soccer-lineup';
+
+function App() {
+  const homeTeam: Team = {
+    squad: {
+      gk: { number: 1 },
+      df: [{ number: 2 }, { number: 4 }, { number: 5 }, { number: 3 }],
+      cm: [{ number: 11 }, { number: 6 }, { number: 8 }, { number: 7 }],
+      fw: [{ number: 9 }, { number: 10 }]
+    }
+  };
+
+  const awayTeam: Team = {
+      squad: {
+        gk: { number: 1 },
+        df: [{ number: 2 }, { number: 4 }, { number: 5 }, { number: 3 }],
+        cdm: [{ number: 6 }],
+        cm: [{ number: 10 }, { number: 8 }],
+        fw: [{ number: 11 }, { number: 9 }, { number: 7 }]
+      }
+    };
+
+  return <SoccerLineUp homeTeam={homeTeam} awayTeam={awayTeam} />;
+}
+```
+
+<LiveDemo
+  client:visible
+  homeTeam={{
+    squad: {
+      gk: { number: 1 },
+      df: [{ number: 2 }, { number: 4 }, { number: 5 }, { number: 3 }],
+      cm: [{ number: 11 }, { number: 6 }, { number: 8 }, { number: 7 }],
+      fw: [{ number: 9 }, { number: 10 }]
+    }
+  }}
+    awayTeam={{
+      squad: {
+        gk: { number: 1 },
+        df: [{ number: 2 }, { number: 4 }, { number: 5 }, { number: 3 }],
+        cdm: [{ number: 6 }],
+        cm: [{ number: 10 }, { number: 8 }],
+        fw: [{ number: 11 }, { number: 9 }, { number: 7 }]
+      }
+    }}
+/>
+
+## Pitch patterns
+
+The `pattern` prop adds a visual overlay to the pitch:
+
+### Lines
+
+```tsx
+import SoccerLineUp from 'react-soccer-lineup';
+
+function App() {
+  return <SoccerLineUp pattern="lines" />;
+}
+```
+
+<LiveDemo client:visible pattern="lines" />
+
+### Squares
+
+```tsx
+import SoccerLineUp from 'react-soccer-lineup';
+
+function App() {
+  return <SoccerLineUp pattern="squares" />;
+}
+```
+
+<LiveDemo client:visible pattern="squares" />
+
+### Circles
+
+```tsx
+import SoccerLineUp from 'react-soccer-lineup';
+
+function App() {
+  return <SoccerLineUp pattern="circles" />;
+}
+```
+
+<LiveDemo client:visible pattern="circles" />
+
+## Pitch colors
+
+Customize the pitch background color with the `color` prop:
+
+<LiveDemo client:visible color="#03a6A1" pattern="circles" />
+
+```tsx
+<SoccerLineUp color="#03a6A1" pattern="lines" />
+```

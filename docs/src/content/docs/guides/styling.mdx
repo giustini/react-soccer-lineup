@@ -1,0 +1,215 @@
+---
+title: Styling guide
+description: Learn how to customize the appearance of pitches, teams and playes
+---
+
+import LiveDemo from '../../../components/LiveDemo';
+
+## Pitch styling
+
+### Patterns
+
+Add visual patterns to the pitch:
+
+#### Lines
+
+```tsx
+import SoccerLineUp from 'react-soccer-lineup';
+
+function App() {
+  return <SoccerLineUp pattern="lines" />;
+}
+```
+
+<LiveDemo client:visible pattern="lines" />
+
+#### Squares
+
+```tsx
+import SoccerLineUp from 'react-soccer-lineup';
+
+function App() {
+  return <SoccerLineUp pattern="squares" />;
+}
+```
+
+<LiveDemo client:visible pattern="squares" />
+
+#### Circles
+
+```tsx
+import SoccerLineUp from 'react-soccer-lineup';
+
+function App() {
+  return <SoccerLineUp pattern="circles" />;
+}
+```
+
+<LiveDemo client:visible pattern="circles" />
+
+### Colors
+
+Customize the pitch background color with the `color` prop:
+
+<LiveDemo client:visible color="#03a6A1" pattern="circles" />
+
+```tsx
+<SoccerLineUp color="#03a6A1" pattern="lines" />
+```
+
+## Team styling
+
+### TeamStyle properties
+
+```typescript
+type TeamStyle = {
+  color?: string;               // Players fill color
+  borderColor?: string;         // Players border color
+  numberColor?: string;         // Jersey number text color
+  nameColor?: string;           // Player name text color
+  nameBackgroundColor?: string; // Name label background
+};
+```
+
+### Default colors
+
+| Property | Home Team | Away Team |
+|----------|-----------|-----------|
+| `color` | `#ffffff` | `#333333` |
+| `borderColor` | `#ffffff` | `#333333` |
+| `numberColor` | `#333333` | `#ffffff` |
+| `nameColor` | `#333333` | `#ffffff` |
+| `nameBackgroundColor` | transparent | transparent |
+
+### Custom team colors
+
+```tsx
+const team: Team = {
+  squad: { /* ... */ },
+  style: {
+    color: '#a71f28',
+    borderColor: '#ffffff',
+    numberColor: '#ffffff',
+    nameColor: '#ffffff',
+    nameBackgroundColor: '#33333cc'
+  }
+};
+```
+
+<LiveDemo
+  client:visible
+  homeTeam={{
+    squad: {
+      gk: { number: 1, name: 'Alisson' },
+      df: [
+        { number: 12, name: 'Bradley' },
+        { number: 5, name: 'Konate' },
+        { number: 4, name: 'Van Dijk' },
+        { number: 26, name: 'Robertson' },
+      ],
+      cdm: [{ number: 38, name: 'Gravenberch' }],
+      cm: [
+        { number: 8, name: 'Szoboszlai' },
+        { number: 10, name: 'Mac Allister' },
+      ],
+      fw: [
+        { number: 11, name: 'Salah' },
+        { number: 22, name: 'Ekitike' },
+        { number: 7, name: 'Wirtz' },
+      ],
+    },
+    style: {
+      color: '#a71f28',
+      borderColor: '#ffffff',
+      numberColor: '#ffffff',
+      nameColor: '#ffffff',
+      nameBackgroundColor: '#333333cc'
+    }
+  }}
+/>
+
+## Player styling
+
+### Individual player overriding
+
+Override team styles for specific players:
+
+```tsx
+const captain: Player = {
+  number: 10,
+  name: 'Captain',
+  style: {
+    color: '#ffd700',
+    borderColor: '#333',
+    numberColor: '#333',
+    nameBackgroundColor: '#ffd700cc',
+    nameColor: '#000000'
+  }
+};
+```
+
+<LiveDemo
+  client:visible
+  homeTeam={{
+    squad: {
+      gk: { number: 1, name: 'Alisson' },
+      df: [
+        { number: 12, name: 'Bradley' },
+        { number: 5, name: 'Konate' },
+        { number: 4, name: 'Van Dijk', style: {
+          color: '#ffd700',
+          borderColor: '#333',
+          numberColor: '#333',
+          nameBackgroundColor: '#ffd700cc',
+          nameColor: '#000000'
+        } },
+        { number: 26, name: 'Robertson' },
+      ],
+      cdm: [{ number: 38, name: 'Gravenberch' }],
+      cm: [
+        { number: 8, name: 'Szoboszlai' },
+        { number: 10, name: 'Mac Allister' },
+      ],
+      fw: [
+        { number: 11, name: 'Salah' },
+        { number: 22, name: 'Ekitike' },
+        { number: 7, name: 'Wirtz' },
+      ],
+    },
+    style: {
+      color: '#a71f28',
+      borderColor: '#ffffff',
+      numberColor: '#ffffff',
+      nameColor: '#ffffff',
+      nameBackgroundColor: '#333333cc'
+    }
+  }}
+/>
+
+## Style Inheritance
+
+Styles cascade in this order (later overrides earlier):
+
+1. **Default colors** (home: white, away: dark)
+2. **Team style** (`team.style`)
+3. **Player style** (`player.style`)
+
+```tsx
+// Player inherits team style, but overrides color
+const team: Team = {
+  squad: {
+    gk: { number: 1 },
+    df: [
+      { number: 2 },  // Uses team style
+      { number: 4, style: { color: '#ffd700' } },  // Gold, rest from team
+      { number: 5 },  // Uses team style
+      { number: 3 }   // Uses team style
+    ],
+    // ...
+  },
+  style: {
+    color: '#c8102e',
+    borderColor: '#ffffff'
+  }
+};
+```

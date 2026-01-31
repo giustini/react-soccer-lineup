@@ -1,0 +1,427 @@
+---
+title: Formations
+description: Collection of team formation configurations
+---
+
+import LiveDemo from '../../../components/LiveDemo';
+
+Collection of real teams formation configurations.
+
+## Italy 2005 / 2006
+
+<LiveDemo
+  client:visible
+  color="#327d61"
+  pattern="circles"
+  homeTeam={{
+    squad: {
+      gk: { number: 1, name: 'Buffon', style: { color: '#b2a557' } },
+      df: [
+        { number: 19, name: 'Zambrotta' },
+        { number: 5, name: 'Cannavaro' },
+        { number: 23, name: 'Materazzi' },
+        { number: 3, name: 'Grosso' }
+      ],
+      cdm: [
+        null,
+        { number: 8, name: 'Gattuso' },
+        null,
+        null
+      ],
+      cm: [
+        { number: 16, name: 'Camoranesi' },
+        null,
+        { number: 21, name: 'Pirlo', offset: { x: -50 } },
+        { number: 20, name: 'Perrotta' }
+      ],
+      fw: [
+        { number: 10, name: 'Totti', offset: { x: -40, y: -20 } },
+        { number: 9, name: 'Toni' }
+      ]
+    },
+    style: {
+      color: '#1d32b5',
+      borderColor: '#fff',
+      numberColor: '#fff',
+      nameColor: '#fff',
+      nameBackgroundColor: '#1d32b566',
+    }
+  }}
+/>
+
+```tsx
+import SoccerLineUp, { type Team } from 'react-soccer-lineup';
+
+function App() {
+  const team: Team = {
+    squad: {
+      gk: { number: 1, name: 'Buffon', style: { color: '#b2a557' } },
+      df: [
+        { number: 19, name: 'Zambrotta' },
+        { number: 5, name: 'Cannavaro' },
+        { number: 23, name: 'Materazzi' },
+        { number: 3, name: 'Grosso' }
+      ],
+      cdm: [
+        null,
+        { number: 8, name: 'Gattuso' },
+        null,
+        null
+      ],
+      cm: [
+        { number: 16, name: 'Camoranesi' },
+        null,
+        { number: 21, name: 'Pirlo', offset: { x: -50 } },
+        { number: 20, name: 'Perrotta' }
+      ],
+      fw: [
+        { number: 10, name: 'Totti', offset: { x: -40, y: -20 } },
+        { number: 9, name: 'Toni' }
+      ]
+    },
+    style: {
+      color: '#1d32b5',
+      borderColor: '#fff',
+      numberColor: '#fff',
+      nameColor: '#fff',
+      nameBackgroundColor: '#1d32b566',
+    }
+  };
+
+  return (
+    <SoccerLineUp
+      color="#327d61"
+      pattern="circles"
+      homeTeam={team}
+    />
+  );
+}
+```
+
+## Real Madrid 2025 / 2026
+
+<LiveDemo
+  client:visible
+  color="#3b754c"
+  pattern="squares"
+  homeTeam={{
+    squad: {
+      gk: { number: 1, name: 'Courtois' },
+      df: [
+        { number: 8, name: 'Valverde' },
+        { number: 3, name: 'Militao' },
+        { number: 24, name: 'Huijsen' },
+        { number: 18, name: 'Carreras' },
+      ],
+      cdm: [
+        { number: 14, name: 'Tchouameni' },
+      ],
+      cm: [
+        { number: 6, name: 'Camavinga' },
+        { number: 15, name: 'A. Güler' },
+      ],
+      cam: [{ number: 5, name: 'Bellingham' }],
+      fw: [
+        { number: 10, name: 'Mbappé' },
+        { number: 7, name: 'Vinicius' },
+      ],
+    },
+    style: {
+      color: '#ffffff',
+      borderColor: '#333333',
+      numberColor: '#333333',
+      nameColor: '#ffffff',
+      nameBackgroundColor: '#333333aa'
+    }
+  }}
+/>
+
+```tsx
+import SoccerLineUp, { type Team } from 'react-soccer-lineup';
+
+function App() {
+  const team: Team = {
+    squad: {
+      gk: { number: 1, name: 'Courtois' },
+      df: [
+        { number: 8, name: 'Valverde' },
+        { number: 3, name: 'Militao' },
+        { number: 24, name: 'Huijsen' },
+        { number: 18, name: 'Carreras' },
+      ],
+      cdm: [
+        { number: 14, name: 'Tchouameni' },
+      ],
+      cm: [
+        { number: 6, name: 'Camavinga' },
+        { number: 15, name: 'A. Güler' },
+      ],
+      cam: [{ number: 5, name: 'Bellingham' }],
+      fw: [
+        { number: 10, name: 'Mbappé' },
+        { number: 7, name: 'Vinicius' },
+      ],
+    },
+    style: {
+      color: '#ffffff',
+      borderColor: '#333333',
+      numberColor: '#333333',
+      nameColor: '#ffffff',
+      nameBackgroundColor: '#333333aa'
+    }
+  };
+
+  return (
+    <SoccerLineUp
+      color="#3b754c"
+      pattern="squares"
+      homeTeam={team}
+    />
+  );
+}
+```
+
+## Manchester United 2007 / 2008
+
+<LiveDemo
+  client:visible
+  color="#4a7d32"
+  pattern="squares"
+  homeTeam={{
+    squad: {
+      gk: { number: 1, name: 'Van der Sar' },
+      df: [
+        { number: 6, name: 'Brown', offset: { x: 50 } },
+        { number: 5, name: 'Ferdinand' },
+        { number: 15, name: 'Vidić' },
+        { number: 3, name: 'Evra', offset: { x: 50 } },
+      ],
+      cdm: [
+        { number: 16, name: 'Carrick' },
+      ],
+      cm: [
+        { number: 18, name: 'Scholes', offset: { y: -20 } },
+        { number: 4, name: 'Hargreaves', offset: { x: -40 } },
+      ],
+      fw: [
+        { number: 32, name: 'Tévez', offset: { y: -30 } },
+        { number: 10, name: 'Rooney', offset: { x: 30 } },
+        { number: 7, name: 'Cristiano Ronaldo' }
+      ],
+    },
+    style: {
+      color: '#b80102',
+      borderColor: '#fff',
+      numberColor: '#fff',
+      nameColor: '#ffffff',
+      nameBackgroundColor: '#11111166',
+    }
+  }}
+/>
+
+```tsx
+import SoccerLineUp, { type Team } from 'react-soccer-lineup';
+
+function App() {
+  const team: Team = {
+    squad: {
+      gk: { number: 1, name: 'Van der Sar' },
+      df: [
+        { number: 6, name: 'Brown', offset: { x: 50 } },
+        { number: 5, name: 'Ferdinand' },
+        { number: 15, name: 'Vidić' },
+        { number: 3, name: 'Evra', offset: { x: 50 } },
+      ],
+      cdm: [
+        { number: 16, name: 'Carrick' },
+      ],
+      cm: [
+        { number: 18, name: 'Scholes', offset: { y: -20 } },
+        { number: 4, name: 'Hargreaves', offset: { x: -40 } },
+      ],
+      fw: [
+        { number: 32, name: 'Tévez', offset: { y: -30 } },
+        { number: 10, name: 'Rooney', offset: { x: 30 } },
+        { number: 7, name: 'Cristiano Ronaldo' }
+      ],
+    },
+    style: {
+      color: '#b80102',
+      borderColor: '#fff',
+      numberColor: '#fff',
+      nameColor: '#ffffff',
+      nameBackgroundColor: '#11111166',
+    }
+  };
+
+  return (
+    <SoccerLineUp
+      color="#4a7d32"
+      pattern="squares"
+      homeTeam={team}
+    />
+  );
+}
+```
+
+## Manchester City 2022 / 2023
+
+<LiveDemo
+  client:visible
+  color="#225c92"
+  homeTeam={{
+    squad: {
+      gk: { number: 31, name: 'Ederson' },
+      df: [
+        { number: 25, name: 'Akanji' },
+        { number: 3, name: 'Rúben Dias' },
+        { number: 6, name: 'Aké' },
+      ],
+      cdm: [
+        { number: 5, name: 'Stones' },
+        { number: 16, name: 'Rodri' },
+      ],
+      cm: [
+        { number: 20, name: 'Bernardo Silva', offset: { x: 20 } },
+        { number: 17, name: 'De Bruyne' },
+        { number: 8, name: 'Gündogan' },
+        { number: 10, name: 'Grealish', offset: { x: 20 } },
+      ],
+      fw: [
+        { number: 9, name: 'Haaland' }
+      ],
+    },
+    style: {
+      color: '#225c92',
+      borderColor: '#fff',
+      numberColor: '#fff',
+      nameColor: '#ffffff',
+      nameBackgroundColor: '#33333366',
+    }
+  }}
+/>
+
+```tsx
+import SoccerLineUp, { type Team } from 'react-soccer-lineup';
+
+function App() {
+  const team: Team = {
+    squad: {
+      gk: { number: 31, name: 'Ederson' },
+      df: [
+        { number: 25, name: 'Akanji' },
+        { number: 3, name: 'Rúben Dias' },
+        { number: 6, name: 'Aké' },
+      ],
+      cdm: [
+        { number: 5, name: 'Stones' },
+        { number: 16, name: 'Rodri' },
+      ],
+      cm: [
+        { number: 20, name: 'Bernardo Silva', offset: { x: 20 } },
+        { number: 17, name: 'De Bruyne' },
+        { number: 8, name: 'Gündogan' },
+        { number: 10, name: 'Grealish', offset: { x: 20 } },
+      ],
+      fw: [
+        { number: 9, name: 'Haaland' }
+      ],
+    },
+    style: {
+      color: '#7ab2e1',
+      borderColor: '#fff',
+      numberColor: '#fff',
+      nameColor: '#ffffff',
+      nameBackgroundColor: '#33333366',
+    }
+  };
+
+  return (
+    <SoccerLineUp
+      color="#327d61"
+      homeTeam={team}
+    />
+  );
+}
+```
+
+## Real Madrid 2016 / 2017
+
+<LiveDemo
+  client:visible
+  pattern="lines"
+  homeTeam={{
+    squad: {
+      gk: { number: 1, name: 'Navas' },
+      df: [
+        { number: 2, name: 'Carvajal', offset: { x: 30 } },
+        { number: 5, name: 'Varane' },
+        { number: 4, name: 'Sergio Ramos' },
+        { number: 12, name: 'Marcelo', offset: { x: 30 } }
+      ],
+      cdm: [
+        { number: 14, name: 'Casemiro' },
+      ],
+      cm: [
+        { number: 8, name: 'Kroos', offset: { x: -30 } },
+        { number: 19, name: 'Modric', offset: { x: -10 } }
+      ],
+      fw: [
+        { number: 11, name: 'Bale', offset: { x: -20 } },
+        { number: 9, name: 'Benzema', offset: { x: 20 } },
+        { number: 7, name: 'C. Ronaldo', offset: { x: 10, y: 10 } }
+      ],
+    },
+    style: {
+      color: '#6b3497',
+      borderColor: '#fff',
+      numberColor: '#fff',
+      nameColor: '#ffffff',
+      nameBackgroundColor: '#33333388',
+    }
+  }}
+/>
+
+```tsx
+import SoccerLineUp, { type Team } from 'react-soccer-lineup';
+
+function App() {
+  const team: Team = {
+    squad: {
+      gk: { number: 1, name: 'Navas' },
+      df: [
+        { number: 2, name: 'Carvajal', offset: { x: 30 } },
+        { number: 5, name: 'Varane' },
+        { number: 4, name: 'Sergio Ramos' },
+        { number: 12, name: 'Marcelo', offset: { x: 30 } }
+      ],
+      cdm: [
+        { number: 14, name: 'Casemiro' },
+      ],
+      cm: [
+        { number: 8, name: 'Kroos', offset: { x: -30 } },
+        { number: 19, name: 'Modric', offset: { x: -10 } }
+      ],
+      fw: [
+        { number: 11, name: 'Bale', offset: { x: -20 } },
+        { number: 9, name: 'Benzema', offset: { x: 20 } },
+        { number: 7, name: 'C. Ronaldo', offset: { x: 10, y: 10 } }
+      ],
+    },
+    style: {
+      color: '#6b3497',
+      borderColor: '#fff',
+      numberColor: '#fff',
+      nameColor: '#ffffff',
+      nameBackgroundColor: '#33333388',
+    }
+  };
+
+  return (
+    <SoccerLineUp
+      pattern="lines"
+      homeTeam={team}
+    />
+  );
+}
+```

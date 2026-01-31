@@ -1,0 +1,177 @@
+---
+title: Team configuration
+description: Learn how to configure teams and formations
+---
+
+import LiveDemo from '../../../components/LiveDemo';
+
+## Team properties
+
+A team consists of a `squad` (player positions) and optional `style` (visual appearance).
+
+```typescript
+type Team = {
+  squad: Squad;
+  style?: TeamStyle;
+};
+```
+
+### Squad positions
+
+The squad object defines players at different positions on the pitch:
+
+```typescript
+type Squad = {
+  gk?: Player;        // Goalkeeper
+  df?: Player[];      // Defenders
+  cdm?: Player[];     // Central Defensive Midfielders
+  cm?: Player[];      // Central Midfielders
+  cam?: Player[];     // Central Attacking Midfielders
+  fw?: Player[];      // Forwards
+};
+```
+
+Each position (except goalkeeper) accepts an array of players that will be distributed evenly across that line.
+
+#### Basic team example
+
+```tsx
+const team: Team = {
+  squad: {
+    gk: { number: 1 },
+    df: [{ number: 2 }, { number: 4 }, { number: 5 }, { number: 3 }],
+    cm: [{ number: 6 }, { number: 8 }, { number: 10 }],
+    fw: [{ number: 9 }, { number: 11 }, { number: 7 }]
+  }
+};
+```
+
+<LiveDemo
+  client:visible
+  homeTeam={{
+    squad: {
+      gk: { number: 1 },
+      df: [{ number: 2 }, { number: 4 }, { number: 5 }, { number: 3 }],
+      cm: [{ number: 6 }, { number: 8 }, { number: 10 }],
+      fw: [{ number: 9 }, { number: 11 }, { number: 7 }]
+    }, style: { borderColor: "#333" }
+  }}
+/>
+
+### Empty slots
+
+Use `null` in arrays to create gaps in formation lines. For example, representing a player who has been sent off:
+
+```tsx
+const squad: Squad = {
+  gk: { number: 1 },
+  df: [{ number: 2 }, null, { number: 5 }, { number: 3 }],
+  cm: [{ number: 6 }, { number: 8 }],
+  cam: [{ number: 11 }, { number: 10 }, { number: 7 }],
+  fw: [{ number: 9 }]
+};
+```
+
+<LiveDemo
+  client:visible
+  homeTeam={{
+    squad: {
+      gk: { number: 1 },
+      df: [{ number: 2 }, null, { number: 5 }, { number: 3 }],
+      cm: [{ number: 6 }, { number: 8 }],
+      cam: [{ number: 11 }, { number: 10 }, { number: 7 }],
+      fw: [{ number: 9 }]
+    }, style: { borderColor: "#333" }
+  }}
+/>
+
+Or use gaps intentionally to create your perfect formation:
+
+```tsx
+const squad: Squad = {
+  gk: { number: 1 },
+  df: [null, { number: 5 }, { number: 4 }, { number: 6 }, null],
+  cdm: [{ number: 2 }, null, null, null, { number: 3 }],
+  cm: [{ number: 10 }, { number: 8 }],
+  cam: [{ number: 11 }, null, null, { number: 7 }],
+  fw: [{ number: 9 }]
+};
+```
+
+<LiveDemo
+  client:visible
+  homeTeam={{
+    squad: {
+      gk: { number: 1 },
+      df: [null, { number: 5 }, { number: 4 }, { number: 6 }, null],
+      cdm: [{ number: 2 }, null, null, null, { number: 3 }],
+      cm: [{ number: 10 }, { number: 8 }],
+      cam: [{ number: 11 }, null, null, { number: 7 }],
+      fw: [{ number: 9 }]
+    }, style: { borderColor: "#333" }
+  }}
+/>
+
+## Team styling
+
+Customize team appearance with the `style` property:
+
+```tsx
+const team: Team = {
+  squad: {
+    gk: { number: 1, name: "Goalkeeper" },
+    df: [
+      { number: 2, name: "Right Defender" },
+      { number: 4, name: "Defender" },
+      { number: 5, name: "Defender" },
+      { number: 3, name: "Left Defender" }
+    ],
+    cm: [
+      { number: 6, name: "Right Midfielder" },
+      { number: 8, name: "Central Midfielder" },
+      { number: 10, name: "Left Midfielder" }
+    ],
+    fw: [
+      { number: 9, name: "Right Forward" },
+      { number: 11, name: "Forward" },
+      { number: 7, name: "Left Forward" }
+    ]
+  },
+  style: {
+    color: '#eed49f',
+    borderColor: '#333',
+    numberColor: '#333',
+    nameColor: '#333',
+    nameBackgroundColor: '#eed49fdd'
+  }
+};
+```
+
+<LiveDemo
+  client:visible
+  homeTeam={{
+    squad: {
+      gk: { number: 1, name: "Goalkeeper" },
+      df: [{ number: 2, name: "Right Defender" }, { number: 4, name: "Defender" }, { number: 5, name: "Defender" }, { number: 3, name: "Left Defender" }],
+      cm: [{ number: 6, name: "Right Midfielder" }, { number: 8, name: "Central Midfielder" }, { number: 10, name: "Left Midfielder" }],
+      fw: [{ number: 9, name: "Right Forward" }, { number: 11, name: "Forward" }, { number: 7, name: "Left Forward" }]
+    },
+    style: {
+      color: '#eed49f',
+      borderColor: '#333',
+      numberColor: '#333',
+      nameColor: '#333',
+      nameBackgroundColor: '#eed49fdd'
+    }
+  }}
+/>
+
+### Default colors
+
+| Property | Home Team | Away Team |
+|----------|-----------|-----------|
+| `color` | `#ffffff` | `#333333` |
+| `borderColor` | `#ffffff` | `#333333` |
+| `numberColor` | `#333333` | `#ffffff` |
+| `nameColor` | `#333333` | `#ffffff` |
+| `nameBackgroundColor` | transparent | transparent |

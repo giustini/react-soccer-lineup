@@ -1,0 +1,177 @@
+---
+title: Configuración de Equipos
+description: Aprende a configurar equipos y formaciones
+---
+
+import LiveDemo from '../../../../components/LiveDemo';
+
+## Propiedades del equipo
+
+Un equipo consiste en una `squad` (posiciones de jugadores) y un `style` opcional (apariencia visual).
+
+```typescript
+type Team = {
+  squad: Squad;
+  style?: TeamStyle;
+};
+```
+
+### Posiciones del Squad
+
+El objeto squad define jugadores en diferentes posiciones del campo:
+
+```typescript
+type Squad = {
+  gk?: Player;        // Portero
+  df?: Player[];      // Defensas
+  cdm?: Player[];     // Mediocampistas Defensivos
+  cm?: Player[];      // Mediocampistas
+  cam?: Player[];     // Mediocampistas Ofensivos
+  fw?: Player[];      // Delanteros
+};
+```
+
+Cada posición (excepto el portero) acepta un array de jugadores que se distribuirán uniformemente a lo largo de esa línea.
+
+#### Ejemplo básico de equipo
+
+```tsx
+const team: Team = {
+  squad: {
+    gk: { number: 1 },
+    df: [{ number: 2 }, { number: 4 }, { number: 5 }, { number: 3 }],
+    cm: [{ number: 6 }, { number: 8 }, { number: 10 }],
+    fw: [{ number: 9 }, { number: 11 }, { number: 7 }]
+  }
+};
+```
+
+<LiveDemo
+  client:visible
+  homeTeam={{
+    squad: {
+      gk: { number: 1 },
+      df: [{ number: 2 }, { number: 4 }, { number: 5 }, { number: 3 }],
+      cm: [{ number: 6 }, { number: 8 }, { number: 10 }],
+      fw: [{ number: 9 }, { number: 11 }, { number: 7 }]
+    }, style: { borderColor: "#333" }
+  }}
+/>
+
+### Espacios vacíos
+
+Usa `null` en los arrays para crear huecos en las líneas de formación. Por ejemplo, para representar a un jugador expulsado:
+
+```tsx
+const squad: Squad = {
+  gk: { number: 1 },
+  df: [{ number: 2 }, null, { number: 5 }, { number: 3 }],
+  cm: [{ number: 6 }, { number: 8 }],
+  cam: [{ number: 11 }, { number: 10 }, { number: 7 }],
+  fw: [{ number: 9 }]
+};
+```
+
+<LiveDemo
+  client:visible
+  homeTeam={{
+    squad: {
+      gk: { number: 1 },
+      df: [{ number: 2 }, null, { number: 5 }, { number: 3 }],
+      cm: [{ number: 6 }, { number: 8 }],
+      cam: [{ number: 11 }, { number: 10 }, { number: 7 }],
+      fw: [{ number: 9 }]
+    }, style: { borderColor: "#333" }
+  }}
+/>
+
+Or usa espacios intencionadamente para crear tu formación perfecta:
+
+```tsx
+const squad: Squad = {
+  gk: { number: 1 },
+  df: [null, { number: 5 }, { number: 4 }, { number: 6 }, null],
+  cdm: [{ number: 2 }, null, null, null, { number: 3 }],
+  cm: [{ number: 10 }, { number: 8 }],
+  cam: [{ number: 11 }, null, null, { number: 7 }],
+  fw: [{ number: 9 }]
+};
+```
+
+<LiveDemo
+  client:visible
+  homeTeam={{
+    squad: {
+      gk: { number: 1 },
+      df: [null, { number: 5 }, { number: 4 }, { number: 6 }, null],
+      cdm: [{ number: 2 }, null, null, null, { number: 3 }],
+      cm: [{ number: 10 }, { number: 8 }],
+      cam: [{ number: 11 }, null, null, { number: 7 }],
+      fw: [{ number: 9 }]
+    }, style: { borderColor: "#333" }
+  }}
+/>
+
+## Estilo del equipo
+
+Personaliza la apariencia del equipo con la propiedad `style`:
+
+```tsx
+const team: Team = {
+  squad: {
+    gk: { number: 1, name: "Portero" },
+    df: [
+      { number: 2, name: "Defensa derecho" },
+      { number: 4, name: "Defensa" },
+      { number: 5, name: "Defensa" },
+      { number: 3, name: "Defensa izquierdo" }
+    ],
+    cm: [
+      { number: 6, name: "Mediocampista" },
+      { number: 8, name: "Mediocampista" },
+      { number: 10, name: "Mediocampista" }
+    ],
+    fw: [
+      { number: 9, name: "Delantero" },
+      { number: 11, name: "Delantero" },
+      { number: 7, name: "Delantero" }
+    ]
+  },
+  style: {
+    color: '#eed49f',
+    borderColor: '#333',
+    numberColor: '#333',
+    nameColor: '#333',
+    nameBackgroundColor: '#eed49fdd'
+  }
+};
+```
+
+<LiveDemo
+  client:visible
+  homeTeam={{
+    squad: {
+      gk: { number: 1, name: "Portero" },
+      df: [{ number: 2, name: "Defensa derecho" }, { number: 4, name: "Defensa" }, { number: 5, name: "Defensa" }, { number: 3, name: "Defensa izquierdo" }],
+      cm: [{ number: 6, name: "Mediocampista" }, { number: 8, name: "Mediocampista" }, { number: 10, name: "Mediocampista" }],
+      fw: [{ number: 9, name: "Delantero" }, { number: 11, name: "Delantero" }, { number: 7, name: "Delantero" }]
+    },
+    style: {
+      color: '#eed49f',
+      borderColor: '#333',
+      numberColor: '#333',
+      nameColor: '#333',
+      nameBackgroundColor: '#eed49fdd'
+    }
+  }}
+/>
+
+### Colores por defecto
+
+| Propiedad | Equipo Local | Equipo Visitante |
+|-----------|--------------|------------------|
+| `color` | `#ffffff` | `#333333` |
+| `borderColor` | `#ffffff` | `#333333` |
+| `numberColor` | `#333333` | `#ffffff` |
+| `nameColor` | `#333333` | `#ffffff` |
+| `nameBackgroundColor` | transparent | transparent |

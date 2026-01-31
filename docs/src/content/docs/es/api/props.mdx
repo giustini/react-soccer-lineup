@@ -1,0 +1,108 @@
+---
+title: Referencia de Props
+description: Documentación completa de props del componente SoccerLineUp
+---
+
+import LiveDemo from '../../../../components/LiveDemo';
+
+## Props del componente principal
+
+### color
+
+**Type:** `string`
+
+**Default:** `#588f58`
+
+El color de fondo del campo de fútbol.
+
+```tsx
+<SoccerLineUp color="#327d61" />
+```
+
+<LiveDemo client:visible color="#327d61" />
+
+### size
+
+**Type:** `"small" | "normal" | "big" | "responsive" | "fill"`
+
+**Default:** `"normal"`
+
+Controla las dimensiones del campo.
+
+| Valor | Ancho | Alto | Notas |
+|-------|-------|------|-------|
+| `"small"` | 600px | 350px | Dimensiones fijas |
+| `"normal"` | 900px | 525px | Dimensiones fijas |
+| `"big"` | 1200px | 700px | Dimensiones fijas |
+| `"responsive"` | 100% | Auto | Mantiene ratio 12:7 |
+| `"fill"` | 100% | 100% | Llena el contenedor |
+
+```tsx
+<SoccerLineUp size="responsive" />
+```
+<LiveDemo client:visible size="responsive" />
+
+### pattern
+
+**Type:** `"lines" | "squares" | "circles" | undefined`
+
+**Default:** `undefined`
+
+Añade un patrón visual al césped del campo.
+
+```tsx
+<SoccerLineUp pattern="lines" />
+```
+
+<LiveDemo client:visible pattern="lines" />
+
+### homeTeam
+
+**Tipo:** `Team | undefined`
+
+**Por defecto:** `undefined`
+
+Configuración para el equipo del lado izquierdo. Ver [Configuración de Equipos](/es/guides/teams) para más detalles.
+
+```tsx
+const homeTeam: Team = {
+  squad: {
+    gk: { number: 1 },
+    df: [{ number: 2 }, { number: 3 }, { number: 4 }, { number: 5 }],
+    cm: [{ number: 6 }, { number: 8 }, { number: 10 }],
+    fw: [{ number: 7 }, { number: 9 }, { number: 11 }]
+  },
+  style: {
+    color: '#ffffff',
+    borderColor: '#c8102e'
+  }
+};
+
+<SoccerLineUp homeTeam={homeTeam} />
+```
+
+### awayTeam
+
+**Tipo:** `Team | undefined`
+
+**Por defecto:** `undefined`
+
+Configuración para el equipo del lado derecho. Funciona igual que `homeTeam` pero posiciona los jugadores en el lado derecho del campo.
+
+```tsx
+const awayTeam: Team = {
+  squad: {
+    gk: { number: 1 },
+    df: [{ number: 2 }, { number: 3 }, { number: 4 }, { number: 5 }],
+    cm: [{ number: 6 }, { number: 8 }],
+    cam: [{ number: 10 }],
+    fw: [{ number: 9 }, { number: 11 }]
+  },
+  style: {
+    color: '#333333',
+    borderColor: '#ffffff'
+  }
+};
+
+<SoccerLineUp awayTeam={awayTeam} />
+```
