@@ -21,15 +21,44 @@ type Player = {
 
 ### Jugador básico
 
-Como mínimo, proporciona un número de camiseta:
+Para renderizar un jugador, como mínimo se necesita un objeto vacío:
 
 ```tsx
-const player: Player = { number: 10 };
+const player: Player = { };
+```
+
+<LiveDemo
+  client:visible
+  homeTeam={{
+    squad: {
+      gk: { },
+      df: [{ }, { }, { }, { }],
+      cdm: [{ }],
+      cm: [{ }, { }],
+      cam: [{ }, null, null, { }],
+      fw: [{ }]
+    },
+    style: {
+      color: "#84171d",
+      numberColor: '#ffd967',
+      borderColor: '#275534',
+      nameBackgroundColor: '#84171daa',
+      nameColor: '#ffd967'
+    }
+  }}
+/>
+
+### Jugador con número
+
+Opcionalmente, puedes especificar el número de la camiseta:
+
+```tsx
+const player: Player = { number: 7 };
 ```
 
 ### Jugador con nombre
 
-Añade un nombre para mostrar debajo del marcador:
+O añadir un nombre para mostrar debajo del jugador:
 
 ```tsx
 const player: Player = {

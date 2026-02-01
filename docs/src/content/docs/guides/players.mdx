@@ -21,7 +21,36 @@ type Player = {
 
 ### Basic Player
 
-At minimum, provide a jersey number:
+Providing an empty object displays just the player marker:
+
+```tsx
+const player: Player = { };
+```
+
+<LiveDemo
+  client:visible
+  homeTeam={{
+    squad: {
+      gk: { },
+      df: [{ }, { }, { }, { }],
+      cdm: [{ }],
+      cm: [{ }, { }],
+      cam: [{ }, null, null, { }],
+      fw: [{ }]
+    },
+    style: {
+      color: "#84171d",
+      numberColor: '#ffd967',
+      borderColor: '#275534',
+      nameBackgroundColor: '#84171daa',
+      nameColor: '#ffd967'
+    }
+  }}
+/>
+
+### Player with number
+
+Optionally, you can provide a jersey number:
 
 ```tsx
 const player: Player = { number: 7 };
@@ -29,7 +58,7 @@ const player: Player = { number: 7 };
 
 ### Player with name
 
-Optionally, provide a name to display below the player:
+Or a name to display below the player:
 
 ```tsx
 const player: Player = {
