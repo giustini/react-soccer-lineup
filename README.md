@@ -81,7 +81,7 @@ function App () {
 | Prop       | Type     | Required | Default value                                                      | Description                                                                             |
 |------------|----------|----------|--------------------------------------------------------------------|-----------------------------------------------------------------------------------------|
 | `color`    | `string` | No       | ![#588f58](https://placehold.co/15x15/588f58/588f58.png) `#588f58` | The pitch background color                                                              |
-| `size`     | `string` | No       | `"normal"`                                                         | Pitch dimensions. Supported values: `small`, `normal`, `big`, `responsive`, `fill`      |
+| `size`     | `string` | No       | `'normal'`                                                         | Pitch dimensions. Supported values: `small`, `normal`, `big`, `responsive`, `fill`      |
 | `pattern`  | `string` | No       | -                                                                  | The pattern applied to the pitch grass. Supported values: `lines`, `squares`, `circles` |
 | `homeTeam` | `Team`   | No       | -                                                                  | The left side team                                                                      |
 | `awayTeam` | `Team`   | No       | -                                                                  | The right side team                                                                     |
@@ -106,13 +106,16 @@ function App () {
 
 #### Style
 
-| Attribute             | Type     | Required | Default value                                                                                                                                         | Description                             |
-|-----------------------|----------|----------|-------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------|
-| `color`               | `string` | No       | ![#ffffff](https://placehold.co/15x15/ffffff/ffffff.png) `#ffffff` (home) / ![#333333](https://placehold.co/15x15/333333/333333.png) `#333333` (away) | The team color                          |
-| `borderColor`         | `string` | No       | ![#ffffff](https://placehold.co/15x15/ffffff/ffffff.png) `#ffffff` (home) / ![#333333](https://placehold.co/15x15/333333/333333.png) `#333333` (away) | The team border color                   |
-| `numberColor`         | `string` | No       | ![#333333](https://placehold.co/15x15/333333/333333.png) `#333333` (home) / ![#ffffff](https://placehold.co/15x15/ffffff/ffffff.png) `#ffffff` (away) | The team number color                   |
-| `nameColor`           | `string` | No       | ![#333333](https://placehold.co/15x15/333333/333333.png) `#333333` (home) / ![#ffffff](https://placehold.co/15x15/ffffff/ffffff.png) `#ffffff` (away) | The team players' name color            |
-| `nameBackgroundColor` | `string` | No       | -                                                                                                                                                     | The team players' name background color |
+| Attribute               | Type     | Required | Default value                                                                                                                                         | Description                             |
+|-------------------------|----------|----------|-------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------|
+| `color`                 | `string` | No       | ![#ffffff](https://placehold.co/15x15/ffffff/ffffff.png) `#ffffff` (home) / ![#333333](https://placehold.co/15x15/333333/333333.png) `#333333` (away) | The team color                          |
+| `borderColor`           | `string` | No       | ![#ffffff](https://placehold.co/15x15/ffffff/ffffff.png) `#ffffff` (home) / ![#333333](https://placehold.co/15x15/333333/333333.png) `#333333` (away) | The team border color                   |
+| `numberColor`           | `string` | No       | ![#333333](https://placehold.co/15x15/333333/333333.png) `#333333` (home) / ![#ffffff](https://placehold.co/15x15/ffffff/ffffff.png) `#ffffff` (away) | The team number color                   |
+| `numberBackgroundColor` | `string` | No       | -                                                                                                                                                     | The team number background color        |
+| `pattern`               | `string` | No       | `'none'`                                                                                                                                              | The team jersey pattern                 |
+| `patternColor`          | `string` | No       | -                                                                                                                                                     | The team jersey pattern color           |
+| `nameColor`             | `string` | No       | ![#333333](https://placehold.co/15x15/333333/333333.png) `#333333` (home) / ![#ffffff](https://placehold.co/15x15/ffffff/ffffff.png) `#ffffff` (away) | The team players' name color            |
+| `nameBackgroundColor`   | `string` | No       | -                                                                                                                                                     | The team players' name background color |
 
 #### Player
 

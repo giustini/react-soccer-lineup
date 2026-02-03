@@ -32,9 +32,46 @@ export type TeamStyle = {
   color?: string;
   borderColor?: string;
   numberColor?: string;
+  numberBackgroundColor?: string;
   nameColor?: string;
   nameBackgroundColor?: string;
+  pattern?: PlayerPattern;
+  patternColor?: string;
 };
+
+export type PlayerPattern =
+  | 'lines'
+  | 'thin-lines'
+  | 'thick-lines'
+  | 'stripes'
+  | 'thin-stripes'
+  | 'thick-stripes'
+  | 'line'
+  | 'thin-line'
+  | 'thick-line'
+  | 'stripe'
+  | 'thin-stripe'
+  | 'thick-stripe'
+  | 'bar'
+  | 'thin-bar'
+  | 'thick-bar'
+  | 'bars'
+  | 'thin-bars'
+  | 'thick-bars'
+  | 'left-half'
+  | 'right-half'
+  | 'top-half'
+  | 'bottom-half'
+  | 'left-slash'
+  | 'left-thin-slash'
+  | 'left-thick-slash'
+  | 'right-slash'
+  | 'right-thin-slash'
+  | 'right-thick-slash'
+  | 'cross'
+  | 'x'
+  | 'squares'
+  | 'none';
 
 export type PlayerOffset = {
   x?: number;

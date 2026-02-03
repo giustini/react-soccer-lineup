@@ -98,6 +98,107 @@ function App() {
 }
 ```
 
+## Croacia 2017 / 2018
+
+<LiveDemo
+  client:visible
+  color="#3b754c"
+  pattern="lines"
+  homeTeam={{
+    squad: {
+      gk: { number: 23, name: 'Subašić', style: {
+        color: '#91f5a7',
+        borderColor: '#0456a0',
+        numberColor: '#0456a0',
+        numberBackgroundColor: 'transparent',
+        pattern: 'none'
+      } },
+      df: [
+        { number: 2, name: 'Vrsaljko', offset: { x: 20 } },
+        { number: 6, name: 'Lovren' },
+        { number: 21, name: 'Vida' },
+        { number: 3, name: 'Strinić', offset: { x: 20 } }
+      ],
+      cdm: [
+        { number: 7, name: 'Rakitić' },
+        { number: 11, name: 'Brozović' }
+      ],
+      cm: [
+        { number: 18, name: 'Rebić', offset: { x: 20 } },
+        { number: 10, name: 'Modrić' },
+        { number: 4, name: 'Perišić', offset: { x: 20 } },
+      ],
+      fw: [
+        { number: 17, name: 'Mandžukić' }
+      ]
+    },
+    style: {
+      color: '#fff',
+      borderColor: '#fff',
+      numberColor: '#fff',
+      numberBackgroundColor: '#0456a0',
+      pattern: 'squares',
+      patternColor: '#ed1c24',
+      nameColor: '#fff',
+      nameBackgroundColor: '#1d32b566',
+    }
+  }}
+/>
+
+```tsx
+import SoccerLineUp, { type Team } from 'react-soccer-lineup';
+
+function App() {
+  const team: Team = {
+    squad: {
+      gk: { number: 23, name: 'Subašić', style: {
+        color: '#91f5a7',
+        borderColor: '#0456a0',
+        numberColor: '#0456a0',
+        numberBackgroundColor: 'transparent'
+        pattern: 'none',
+      } },
+      df: [
+        { number: 2, name: 'Vrsaljko', offset: { x: 20 } },
+        { number: 6, name: 'Lovren' },
+        { number: 21, name: 'Vida' },
+        { number: 3, name: 'Strinić', offset: { x: 20 } }
+      ],
+      cdm: [
+        { number: 7, name: 'Rakitić' },
+        { number: 11, name: 'Brozović' }
+      ],
+      cm: [
+        { number: 18, name: 'Rebić', offset: { x: 20 } },
+        { number: 10, name: 'Modrić' },
+        { number: 4, name: 'Perišić', offset: { x: 20 } },
+      ],
+      fw: [
+        { number: 17, name: 'Mandžukić' }
+      ]
+    },
+    style: {
+      color: '#fff',
+      borderColor: '#fff',
+      numberColor: '#fff',
+      numberBackgroundColor: '#0456a0',
+      pattern: 'squares',
+      patternColor: '#ed1c24',
+      nameColor: '#fff',
+      nameBackgroundColor: '#1d32b566',
+    }
+  };
+
+  return (
+    <SoccerLineUp
+      color="#327d61"
+      pattern="circles"
+      homeTeam={team}
+    />
+  );
+}
+```
+
 ## Real Madrid 2025 / 2026
 
 <LiveDemo

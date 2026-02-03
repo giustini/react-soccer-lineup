@@ -12,16 +12,17 @@ La librería exporta un componente por defecto y varios tipos de TypeScript:
 import SoccerLineUp from 'react-soccer-lineup';
 
 // Importación de tipos
-import type {
-  PitchViewProps,
-  PitchSize,
-  PitchPattern,
-  Team,
-  Squad,
-  Player,
-  PlayerStyle,
-  TeamStyle,
-  PlayerOffset
+import SoccerLineUp, {
+  type Team,
+  type TeamStyle,
+  type Squad,
+  type Player,
+  type PlayerStyle,
+  type PlayerPattern,
+  type PlayerOffset,
+  type PitchSize,
+  type PitchPattern,
+  type PitchViewProps
 } from 'react-soccer-lineup';
 ```
 
@@ -101,9 +102,48 @@ type TeamStyle = {
   color?: string;
   borderColor?: string;
   numberColor?: string;
+  numberBackgroundColor?: string;
   nameColor?: string;
   nameBackgroundColor?: string;
+  pattern?: PlayerPattern;
+  patternColor?: string;
 };
+```
+
+```typescript
+export type PlayerPattern =
+  | 'lines'
+  | 'thin-lines'
+  | 'thick-lines'
+  | 'stripes'
+  | 'thin-stripes'
+  | 'thick-stripes'
+  | 'line'
+  | 'thin-line'
+  | 'thick-line'
+  | 'stripe'
+  | 'thin-stripe'
+  | 'thick-stripe'
+  | 'bar'
+  | 'thin-bar'
+  | 'thick-bar'
+  | 'bars'
+  | 'thin-bars'
+  | 'thick-bars'
+  | 'left-half'
+  | 'right-half'
+  | 'top-half'
+  | 'bottom-half'
+  | 'left-slash'
+  | 'left-thin-slash'
+  | 'left-thick-slash'
+  | 'right-slash'
+  | 'right-thin-slash'
+  | 'right-thick-slash'
+  | 'cross'
+  | 'x'
+  | 'squares'
+  | 'none';
 ```
 
 ## Player
@@ -137,18 +177,23 @@ type PlayerStyle = {
   color?: string;
   borderColor?: string;
   numberColor?: string;
+  numberBackgroundColor?: string;
   nameColor?: string;
   nameBackgroundColor?: string;
+  pattern?: PlayerPattern;
+  patternColor?: string;
 };
 ```
 
 | Propiedad | Descripción | Por defecto Local | Por defecto Visitante |
 |-----------|-------------|-------------------|----------------------|
 | `color` | Color de relleno del marcador | `#ffffff` | `#333333` |
-| `borderColor` | Color del borde del marcador | `#ffffff` | `#333333` |
-| `numberColor` | Color del texto del número | `#333333` | `#ffffff` |
-| `nameColor` | Color del texto del nombre | `#333333` | `#ffffff` |
+| `borderColor` | Color del borde del jugador | `#ffffff` | `#333333` |
+| `numberColor` | Color del número del jugador | `#333333` | `#ffffff` |
+| `nameColor` | Color del nombre del jugador | `#333333` | `#ffffff` |
 | `nameBackgroundColor` | Fondo de la etiqueta del nombre | `transparent` | `transparent` |
+| `pattern` | Patrón del jugador | `none` | `none` |
+| `patternColor` | Color del patrón del jugador | `transparent` | `transparent` |
 
 ### PlayerOffset
 

@@ -141,6 +141,9 @@ const team: Team = {
     color: '#eed49f',
     borderColor: '#333',
     numberColor: '#333',
+    numberBackgroundColor: '#eed49f',
+    pattern: 'stripes',
+    patternColor: '#333',
     nameColor: '#333',
     nameBackgroundColor: '#eed49fdd'
   }
@@ -160,18 +163,28 @@ const team: Team = {
       color: '#eed49f',
       borderColor: '#333',
       numberColor: '#333',
+      numberBackgroundColor: '#eed49f',
+      pattern: 'stripes',
+      patternColor: '#333',
       nameColor: '#333',
       nameBackgroundColor: '#eed49fdd'
     }
   }}
 />
 
-### Colores por defecto
+### Valores válidos de patrón
+
+`lines`, `thin-lines`, `thick-lines`, `stripes`, `thin-stripes`, `thick-stripes`, `line`, `thin-line`, `thick-line`, `stripe`, `thin-stripe`, `thick-stripe`, `bar`, `thin-bar`, `thick-bar`, `bars`, `thin-bars`, `thick-bars`, `left-half`, `right-half`, `top-half`, `bottom-half`, `left-slash`, `left-thin-slash`, `left-thick-slash`, `right-slash`, `right-thin-slash`, `right-thick-slash`, `cross`, `x`, `squares`, `none`
+
+### Valores por defecto
 
 | Propiedad | Equipo Local | Equipo Visitante |
 |-----------|--------------|------------------|
 | `color` | `#ffffff` | `#333333` |
 | `borderColor` | `#ffffff` | `#333333` |
 | `numberColor` | `#333333` | `#ffffff` |
+| `numberBackgroundColor` | `'transparent'` | `'transparent'` |
 | `nameColor` | `#333333` | `#ffffff` |
-| `nameBackgroundColor` | transparent | transparent |
+| `nameBackgroundColor` | `'transparent'` | `'transparent'` |
+| `pattern` | 'none' | 'none' |
+| `patternColor` | `'transparent'` | `'transparent'` |

@@ -63,23 +63,29 @@ Cambia el color del césped con la prop `color`:
 
 ```typescript
 type TeamStyle = {
-  color?: string;               // Color de relleno del marcador
-  borderColor?: string;         // Color del borde del marcador
-  numberColor?: string;         // Color del número de camiseta
-  nameColor?: string;           // Color del texto del nombre
-  nameBackgroundColor?: string; // Fondo de la etiqueta del nombre
+  color?: string;
+  borderColor?: string;
+  numberColor?: string;
+  numberBackgroundColor?: string;
+  nameColor?: string;
+  nameBackgroundColor?: string;
+  pattern?: PlayerPattern;
+  patternColor?: string;
 };
 ```
 
-### Colores por defecto
+### Valores por defecto
 
 | Propiedad | Equipo Local | Equipo Visitante |
 |-----------|--------------|------------------|
 | `color` | `#ffffff` | `#333333` |
 | `borderColor` | `#ffffff` | `#333333` |
 | `numberColor` | `#333333` | `#ffffff` |
+| `numberBackgroundColor` | `'transparent'` | `'transparent'` |
 | `nameColor` | `#333333` | `#ffffff` |
-| `nameBackgroundColor` | transparente | transparente |
+| `nameBackgroundColor` | `'transparent'` | `'transparent'` |
+| `pattern` | 'none' | 'none' |
+| `patternColor` | `'transparent'` | `'transparent'` |
 
 ### Colores personalizados del equipo
 

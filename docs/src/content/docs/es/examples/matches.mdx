@@ -288,3 +288,154 @@ function App() {
   );
 }
 ```
+
+## Bayern Múnich - AC Milan 2010
+
+<LiveDemo
+  client:visible
+  pattern="squares"
+  homeTeam={{
+    squad: {
+      gk: { number: 22, name: 'Butt' },
+      df: [
+        { number: 21, name: 'Lahm', offset: { x: 30 } },
+        { number: 5, name: 'Van Buyten' },
+        { number: 6, name: 'Demichelis' },
+        { number: 28, name: 'Badstuber', offset: { x: 30 } },
+      ],
+      cm: [
+        { number: 10, name: 'Robben', offset: { x: 30 } },
+        { number: 17, name: 'Van Bommel' },
+        { number: 31, name: 'Schweinsteiger' },
+        { number: 8, name: 'Altintop', offset: { x: 30 } },
+      ],
+      fw: [
+        { number: 11, name: 'Olić' },
+        { number: 25, name: 'Müller' },
+      ],
+    },
+    style: {
+      color: '#fff',
+      borderColor: '#ed0037',
+      numberColor: '#ed0037',
+      numberBackgroundColor: '#fff',
+      pattern: 'stripes',
+      patternColor: '#ed0037',
+      nameColor: '#fff',
+      nameBackgroundColor: '#ed003755',
+    }
+  }}
+  awayTeam={{
+    squad: {
+      gk: { number: 12, name: 'Júlio César' },
+      df: [
+        { number: 13, name: 'Maicon', offset: { x: -20 } },
+        { number: 6, name: 'Lúcio' },
+        { number: 25, name: 'Samuel' },
+        { number: 26, name: 'Chivu', offset: { x: -20 } },
+      ],
+      cm: [
+        { number: 4, name: 'Zanetti' },
+        { number: 19, name: 'Cambiasso' },
+      ],
+      cam: [
+        { number: 10, name: 'Sneijder' },
+      ],
+      fw: [
+        { number: 9, name: 'Eto\'o' },
+        { number: 22, name: 'Milito' },
+        { number: 27, name: 'Pandev' },
+      ],
+    },
+    style: {
+      color: '#14499e',
+      borderColor: '#14499e',
+      numberColor: '#fff',
+      numberBackgroundColor: '#14499e',
+      pattern: 'stripes',
+      patternColor: '#231f20',
+      nameColor: '#fff',
+      nameBackgroundColor: '#231f2088',
+    }
+  }}
+/>
+
+```tsx
+import SoccerLineUp, { type Team } from 'react-soccer-lineup';
+
+function App() {
+  const homeTeam: Team = {
+    squad: {
+      gk: { number: 22, name: 'Butt' },
+      df: [
+        { number: 21, name: 'Lahm', offset: { x: 30 } },
+        { number: 5, name: 'Van Buyten' },
+        { number: 6, name: 'Demichelis' },
+        { number: 28, name: 'Badstuber', offset: { x: 30 } },
+      ],
+      cm: [
+        { number: 10, name: 'Robben', offset: { x: 30 } },
+        { number: 17, name: 'Van Bommel' },
+        { number: 31, name: 'Schweinsteiger' },
+        { number: 8, name: 'Altintop', offset: { x: 30 } },
+      ],
+      fw: [
+        { number: 11, name: 'Olić' },
+        { number: 25, name: 'Müller' },
+      ],
+    },
+    style: {
+      color: '#fff',
+      borderColor: '#ed0037',
+      numberColor: '#ed0037',
+      numberBackgroundColor: '#fff',
+      pattern: 'stripes',
+      patternColor: '#ed0037',
+      nameColor: '#fff',
+      nameBackgroundColor: '#ed003755',
+    }
+  };
+
+  const awayTeam: Team = {
+    squad: {
+      gk: { number: 12, name: 'Júlio César' },
+      df: [
+        { number: 13, name: 'Maicon', offset: { x: -20 } },
+        { number: 6, name: 'Lúcio' },
+        { number: 25, name: 'Samuel' },
+        { number: 26, name: 'Chivu', offset: { x: -20 } },
+      ],
+      cm: [
+        { number: 4, name: 'Zanetti' },
+        { number: 19, name: 'Cambiasso' },
+      ],
+      cam: [
+        { number: 10, name: 'Sneijder' },
+      ],
+      fw: [
+        { number: 9, name: 'Eto\'o' },
+        { number: 22, name: 'Milito' },
+        { number: 27, name: 'Pandev' },
+      ],
+    },
+    style: {
+      color: '#14499e',
+      borderColor: '#14499e',
+      numberColor: '#fff',
+      numberBackgroundColor: '#14499e',
+      pattern: 'stripes',
+      patternColor: '#231f20',
+      nameColor: '#fff',
+      nameBackgroundColor: '#231f2088',
+    }
+  };
+
+  return (
+    <SoccerLineUp
+      pattern="squares"
+      homeTeam={homeTeam}
+      awayTeam={awayTeam}
+    />
+  );
+}
+```

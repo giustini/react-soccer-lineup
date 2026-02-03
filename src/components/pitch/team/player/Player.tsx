@@ -17,11 +17,17 @@ const PlayerView: React.FC<PlayerViewProps> = ({ player, away, teamStyle }) => {
         <Player.Content
           color={style.color}
           colorBorder={style.borderColor}
+          pattern={style.pattern}
+          patternColor={style.patternColor}
           offset={offset}
           clickable={!!onClick}
           onClick={onClick}
         >
-          {number && <Player.Number color={style.numberColor}>{number}</Player.Number>}
+          {number && (
+            <Player.Number color={style.numberColor} backgroundColor={style.numberBackgroundColor}>
+              {number}
+            </Player.Number>
+          )}
           {name && (
             <Player.Name color={style.nameColor} backgroundColor={style.nameBackgroundColor}>
               {name}

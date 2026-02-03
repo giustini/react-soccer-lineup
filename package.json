@@ -1,11 +1,12 @@
 {
   "name": "react-soccer-lineup",
-  "version": "1.0.0-beta.7",
+  "version": "1.0.0-beta.8",
   "author": "giustini",
   "repository": {
     "type": "git",
     "url": "https://github.com/giustini/react-soccer-lineup.git"
   },
+  "homepage": "https://react-soccer-lineup.vercel.app",
   "description": "A soccer pitch representation component for React",
   "license": "MIT",
   "type": "module",

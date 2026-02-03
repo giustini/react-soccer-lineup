@@ -63,23 +63,29 @@ Customize the pitch background color with the `color` prop:
 
 ```typescript
 type TeamStyle = {
-  color?: string;               // Players fill color
-  borderColor?: string;         // Players border color
-  numberColor?: string;         // Jersey number text color
-  nameColor?: string;           // Player name text color
-  nameBackgroundColor?: string; // Name label background
+  color?: string;
+  borderColor?: string;
+  numberColor?: string;
+  numberBackgroundColor?: string;
+  nameColor?: string;
+  nameBackgroundColor?: string;
+  pattern?: PlayerPattern;
+  patternColor?: string;
 };
 ```
 
-### Default colors
+### Default values
 
 | Property | Home Team | Away Team |
 |----------|-----------|-----------|
 | `color` | `#ffffff` | `#333333` |
 | `borderColor` | `#ffffff` | `#333333` |
 | `numberColor` | `#333333` | `#ffffff` |
+| `numberBackgroundColor` | `'transparent'` | `'transparent'` |
 | `nameColor` | `#333333` | `#ffffff` |
-| `nameBackgroundColor` | transparent | transparent |
+| `nameBackgroundColor` | `'transparent'` | `'transparent'` |
+| `pattern` | 'none' | 'none' |
+| `patternColor` | `'transparent'` | `'transparent'` |
 
 ### Custom team colors
 
