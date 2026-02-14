@@ -293,14 +293,14 @@ function App() {
 
 <LiveDemo
   client:visible
-  pattern="squares"
+  pattern="circles"
   homeTeam={{
     squad: {
       gk: { number: 22, name: 'Butt' },
       df: [
         { number: 21, name: 'Lahm', offset: { x: 30 } },
-        { number: 5, name: 'Van Buyten' },
-        { number: 6, name: 'Demichelis' },
+        { number: 5, name: 'Van Buyten', offset: { x: -20 } },
+        { number: 6, name: 'Demichelis', offset: { x: -20 } },
         { number: 28, name: 'Badstuber', offset: { x: 30 } },
       ],
       cm: [
@@ -369,8 +369,8 @@ function App() {
       gk: { number: 22, name: 'Butt' },
       df: [
         { number: 21, name: 'Lahm', offset: { x: 30 } },
-        { number: 5, name: 'Van Buyten' },
-        { number: 6, name: 'Demichelis' },
+        { number: 5, name: 'Van Buyten', offset: { x: -20 } },
+        { number: 6, name: 'Demichelis', offset: { x: -20 } },
         { number: 28, name: 'Badstuber', offset: { x: 30 } },
       ],
       cm: [
@@ -425,6 +425,191 @@ function App() {
       numberBackgroundColor: '#14499e',
       pattern: 'stripes',
       patternColor: '#231f20',
+      nameColor: '#fff',
+      nameBackgroundColor: '#231f2088',
+    }
+  };
+
+  return (
+    <SoccerLineUp
+      pattern="squares"
+      homeTeam={homeTeam}
+      awayTeam={awayTeam}
+    />
+  );
+}
+```
+
+## River Plate - Boca Juniors 2018
+
+<LiveDemo
+  client:visible
+  pattern="squares"
+  homeTeam={{
+    squad: {
+      gk: { number: 1, name: 'Armani',
+        style: {
+          color: '#333333',
+          borderColor: '#fff',
+          numberColor: '#fff',
+          numberBackgroundColor: 'transparent',
+          pattern: 'none'
+        }
+      },
+      df: [
+        { number: 29, name: 'Montiel', offset: { x: 30 } },
+        { number: 2, name: 'Maidana' },
+        { number: 22, name: 'Pinola' },
+        { number: 20, name: 'Casco', offset: { x: 30 } },
+      ],
+      cdm: [
+        { number: 23, name: 'Ponzio' },
+      ],
+      cm: [
+        { number: 26, name: 'Fernández', offset: { x: 15 } },
+        { number: 24, name: 'Pérez' },
+        { number: 15, name: 'Palacios' },
+        { number: 10, name: 'Martínez', offset: { x: 15 } },
+      ],
+      fw: [
+        { number: 27, name: 'Pratto' },
+      ],
+    },
+    style: {
+      color: '#fff',
+      borderColor: '#ed0037',
+      numberColor: '#ed0037',
+      numberBackgroundColor: '#fff',
+      pattern: 'right-slash',
+      patternColor: '#ed192d',
+      nameColor: '#fff',
+      nameBackgroundColor: '#33333355',
+    }
+  }}
+  awayTeam={{
+    squad: {
+      gk: { number: 1, name: 'Andrada',
+        style: {
+          color: '#83de94',
+          borderColor: '#333',
+          numberColor: '#333',
+          numberBackgroundColor: 'transparent',
+          pattern: 'none'
+        }
+      },
+      df: [
+        { number: 24, name: 'Buffarini' },
+        { number: 21, name: 'Izquierdoz', offset: { x: 20 } },
+        { number: 6, name: 'Magallán', offset: { x: 20 } },
+        { number: 20, name: 'Olaza' },
+      ],
+      cm: [
+        null,
+        { number: 15, name: 'Nández', offset: { x: 20 } },
+        { number: 16, name: 'Barrios' },
+        { number: 8, name: 'Pérez', offset: { x: 20 } },
+        null
+      ],
+      fw: [
+        { number: 22, name: 'Villa', offset: { x: 20 } },
+        { number: 18, name: 'Benedetto' },
+        { number: 7, name: 'Pavón', offset: { x: 20 } },
+      ],
+    },
+    style: {
+      color: '#133b5b',
+      borderColor: '#133b5b',
+      numberColor: '#fff',
+      pattern: 'thick-line',
+      patternColor: '#fbcb5b',
+      nameColor: '#fff',
+      nameBackgroundColor: '#231f2088',
+    }
+  }}
+/>
+
+```tsx
+import SoccerLineUp, { type Team } from 'react-soccer-lineup';
+
+function App() {
+  const homeTeam: Team = {
+    squad: {
+      gk: { number: 1, name: 'Armani',
+        style: {
+          color: '#333333',
+          borderColor: '#fff',
+          numberColor: '#fff',
+          numberBackgroundColor: 'transparent',
+          pattern: 'none'
+        }
+      },
+      df: [
+        { number: 29, name: 'Montiel', offset: { x: 30 } },
+        { number: 2, name: 'Maidana' },
+        { number: 22, name: 'Pinola' },
+        { number: 20, name: 'Casco', offset: { x: 30 } },
+      ],
+      cdm: [
+        { number: 23, name: 'Ponzio' },
+      ],
+      cm: [
+        { number: 26, name: 'Fernández', offset: { x: 15 } },
+        { number: 24, name: 'Pérez' },
+        { number: 15, name: 'Palacios' },
+        { number: 10, name: 'Martínez', offset: { x: 15 } },
+      ],
+      fw: [
+        { number: 27, name: 'Pratto' },
+      ],
+    },
+    style: {
+      color: '#fff',
+      borderColor: '#ed0037',
+      numberColor: '#ed0037',
+      numberBackgroundColor: '#fff',
+      pattern: 'right-slash',
+      patternColor: '#ed192d',
+      nameColor: '#fff',
+      nameBackgroundColor: '#33333355',
+    }
+  };
+
+  const awayTeam: Team = {
+    squad: {
+      gk: { number: 1, name: 'Andrada',
+        style: {
+          color: '#83de94',
+          borderColor: '#333',
+          numberColor: '#333',
+          numberBackgroundColor: 'transparent',
+          pattern: 'none'
+        }
+      },
+      df: [
+        { number: 24, name: 'Buffarini' },
+        { number: 21, name: 'Izquierdoz', offset: { x: 20 } },
+        { number: 6, name: 'Magallán', offset: { x: 20 } },
+        { number: 20, name: 'Olaza' },
+      ],
+      cm: [
+        null,
+        { number: 15, name: 'Nández', offset: { x: 20 } },
+        { number: 16, name: 'Barrios' },
+        { number: 8, name: 'Pérez', offset: { x: 20 } },
+        null
+      ],
+      fw: [
+        { number: 22, name: 'Villa', offset: { x: 20 } },
+        { number: 18, name: 'Benedetto' },
+        { number: 7, name: 'Pavón', offset: { x: 20 } },
+      ],
+    },
+    style: {
+      color: '#133b5b',
+      borderColor: '#133b5b',
+      numberColor: '#fff',
+      pattern: 'thick-line',
+      patternColor: '#fbcb5b',
       nameColor: '#fff',
       nameBackgroundColor: '#231f2088',
     }

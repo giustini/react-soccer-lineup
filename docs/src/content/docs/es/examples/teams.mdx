@@ -526,3 +526,96 @@ function App() {
   );
 }
 ```
+
+## Sporting de Portugal 2002 / 2003
+
+<LiveDemo
+  client:visible
+  color='#567858'
+  pattern='lines'
+  homeTeam={{
+    squad: {
+      gk: { number: 1, name: 'Nélson' },
+      df: [
+        { number: 22, name: 'Beto', offset: { x: 20 } },
+        { number: 15, name: 'Contreras' },
+        { number: 4, name: 'Quiroga' },
+        { number: 23, name: 'Rui Jorge', offset: { x: 20 } }
+      ],
+      cdm: [
+        { number: 17, name: 'Bento' },
+      ],
+      cm: [
+        { number: 20, name: 'Quaresma', offset: { x: 20 } },
+        { number: 30, name: 'Toñito' },
+        { number: 28, name: 'Cristiano Ronaldo', offset: { x: 20 } }
+      ],
+      fw: [
+        null,
+        { number: 16, name: 'Jardel' },
+        { number: 9, name: 'Kutuzov' },
+        null
+      ],
+    },
+    style: {
+      color: '#ffffff',
+      borderColor: '#ffffff',
+      numberColor: '#333333',
+      numberBackgroundColor: '#ffffff',
+      pattern: 'lines',
+      patternColor: '#008057',
+      nameColor: '#ffffff',
+      nameBackgroundColor: '#33333388',
+    }
+  }}
+/>
+
+```tsx
+import SoccerLineUp, { type Team } from 'react-soccer-lineup';
+
+function App() {
+  const team: Team = {
+    squad: {
+      gk: { number: 1, name: 'Nélson' },
+      df: [
+        { number: 22, name: 'Beto', offset: { x: 20 } },
+        { number: 15, name: 'Contreras' },
+        { number: 4, name: 'Quiroga' },
+        { number: 23, name: 'Rui Jorge', offset: { x: 20 } }
+      ],
+      cdm: [
+        { number: 17, name: 'Bento' },
+      ],
+      cm: [
+        { number: 20, name: 'Quaresma', offset: { x: 20 } },
+        { number: 30, name: 'Toñito' },
+        { number: 28, name: 'Cristiano Ronaldo', offset: { x: 20 } }
+      ],
+      fw: [
+        null,
+        { number: 16, name: 'Jardel' },
+        { number: 9, name: 'Kutuzov' },
+        null
+      ],
+    },
+    style: {
+      color: '#ffffff',
+      borderColor: '#ffffff',
+      numberColor: '#333333',
+      numberBackgroundColor: '#ffffff',
+      pattern: 'lines',
+      patternColor: '#008057',
+      nameColor: '#ffffff',
+      nameBackgroundColor: '#33333388',
+    }
+  };
+
+  return (
+    <SoccerLineUp
+      color="#567858"
+      pattern="lines"
+      homeTeam={team}
+    />
+  );
+}
+```
