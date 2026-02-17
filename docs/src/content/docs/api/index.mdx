@@ -15,11 +15,12 @@ The component accepts props defined in `PitchViewProps`:
 
 | Prop       | Type           | Required | Default value | Description                            |
 | ---------- | -------------- | -------- | ------------- | -------------------------------------- |
-| `color`    | `string`       | No       | `#588f58`     | The pitch background color             |
-| `size`     | `PitchSize`    | No       | `"normal"`    | Pitch dimensions                       |
-| `pattern`  | `PitchPattern` | No       | -             | The pattern applied to the pitch grass |
-| `homeTeam` | `Team`         | No       | -             | The left side team                     |
-| `awayTeam` | `Team`         | No       | -             | The right side team                    |
+| `color`       | `string`            | No       | `#588f58`        | The pitch background color             |
+| `size`        | `PitchSize`         | No       | `"normal"`       | Pitch dimensions                       |
+| `pattern`     | `PitchPattern`      | No       | -                | The pattern applied to the pitch grass |
+| `orientation` | `PitchOrientation`  | No       | `"horizontal"`   | The pitch orientation                  |
+| `homeTeam`    | `Team`              | No       | -                | The home team                          |
+| `awayTeam`    | `Team`              | No       | -                | The away team                          |
 
 ### PitchSize
 
@@ -38,6 +39,13 @@ The component accepts props defined in `PitchViewProps`:
 | `"lines"`   | Horizontal line pattern     |
 | `"squares"` | Grid / checkerboard pattern |
 | `"circles"` | Circular dot pattern        |
+
+### PitchOrientation
+
+| Value          | Description                                                       |
+| -------------- | ----------------------------------------------------------------- |
+| `"horizontal"` | Landscape layout. Home team on the left, away team on the right   |
+| `"vertical"`   | Portrait layout. Home team at the bottom, away team at the top    |
 
 ### Team
 

@@ -381,7 +381,8 @@ const Content = styled.div<{
   --offset-x: ${(props) => (props.offset?.x ? props.offset.x + 'px' : 0)};
   --offset-y: ${(props) => (props.offset?.y ? props.offset.y + 'px' : 0)};
 
-  transform: translateX(var(--offset-x)) translateY(var(--offset-y));
+  transform: translateX(var(--offset-x)) translateY(var(--offset-y))
+    var(--rsl-counter-rotation, rotate(0deg));
 
   &:hover {
     cursor: ${(props) => (props.clickable ? 'pointer' : 'default')};

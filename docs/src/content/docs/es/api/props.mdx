@@ -56,13 +56,32 @@ Añade un patrón visual al césped del campo.
 
 <LiveDemo client:visible pattern="lines" />
 
+### orientation
+
+**Type:** `"horizontal" | "vertical"`
+
+**Default:** `"horizontal"`
+
+Controla la orientación del campo.
+
+| Valor | Descripción |
+|-------|-------------|
+| `"horizontal"` | Disposición horizontal (por defecto). Equipo local a la izquierda, visitante a la derecha |
+| `"vertical"` | Disposición vertical. Equipo local abajo, visitante arriba |
+
+```tsx
+<SoccerLineUp orientation="vertical" />
+```
+
+<LiveDemo client:visible orientation="vertical" />
+
 ### homeTeam
 
 **Tipo:** `Team | undefined`
 
 **Por defecto:** `undefined`
 
-Configuración para el equipo del lado izquierdo. Ver [Configuración de Equipos](/es/guides/teams) para más detalles.
+Configuración para el equipo local. Ver [Configuración de Equipos](/es/guides/teams) para más detalles.
 
 ```tsx
 const homeTeam: Team = {
@@ -87,7 +106,7 @@ const homeTeam: Team = {
 
 **Por defecto:** `undefined`
 
-Configuración para el equipo del lado derecho. Funciona igual que `homeTeam` pero posiciona los jugadores en el lado derecho del campo.
+Configuración para el equipo visitante. Funciona igual que `homeTeam` pero posiciona los jugadores en el lado opuesto del campo.
 
 ```tsx
 const awayTeam: Team = {

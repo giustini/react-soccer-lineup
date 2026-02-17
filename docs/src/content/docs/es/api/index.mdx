@@ -15,11 +15,12 @@ El componente acepta props definidos en `PitchViewProps`:
 
 | Prop       | Tipo           | Obligatorio | Valor por defecto | Descripción                            |
 | ---------- | -------------- | ----------- | ----------------- | -------------------------------------- |
-| `color`    | `string`       | No          | `#588f58`         | El color de fondo del campo            |
-| `size`     | `PitchSize`    | No          | `"normal"`        | Dimensiones del campo                  |
-| `pattern`  | `PitchPattern` | No          | -                 | El patrón aplicado al césped del campo |
-| `homeTeam` | `Team`         | No          | -                 | El equipo de la izquierda              |
-| `awayTeam` | `Team`         | No          | -                 | El equipo de la derecha                |
+| `color`       | `string`            | No          | `#588f58`        | El color de fondo del campo            |
+| `size`        | `PitchSize`         | No          | `"normal"`       | Dimensiones del campo                  |
+| `pattern`     | `PitchPattern`      | No          | -                | El patrón aplicado al césped del campo |
+| `orientation` | `PitchOrientation`  | No          | `"horizontal"`   | La orientación del campo               |
+| `homeTeam`    | `Team`              | No          | -                | El equipo local                        |
+| `awayTeam`    | `Team`              | No          | -                | El equipo visitante                    |
 
 ### PitchSize
 
@@ -38,6 +39,13 @@ El componente acepta props definidos en `PitchViewProps`:
 | `"lines"`   | Patrón de líneas horizontales   |
 | `"squares"` | Patrón de cuadros               |
 | `"circles"` | Patrón de círculos concéntricos |
+
+### PitchOrientation
+
+| Valor          | Descripción                                                                   |
+| -------------- | ----------------------------------------------------------------------------- |
+| `"horizontal"` | Disposición horizontal. Equipo local a la izquierda, visitante a la derecha   |
+| `"vertical"`   | Disposición vertical. Equipo local abajo, visitante arriba                    |
 
 ### Team
 

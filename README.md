@@ -83,8 +83,9 @@ function App () {
 | `color`    | `string` | No       | ![#588f58](https://placehold.co/15x15/588f58/588f58.png) `#588f58` | The pitch background color                                                              |
 | `size`     | `string` | No       | `'normal'`                                                         | Pitch dimensions. Supported values: `small`, `normal`, `big`, `responsive`, `fill`      |
 | `pattern`  | `string` | No       | -                                                                  | The pattern applied to the pitch grass. Supported values: `lines`, `squares`, `circles` |
-| `homeTeam` | `Team`   | No       | -                                                                  | The left side team                                                                      |
-| `awayTeam` | `Team`   | No       | -                                                                  | The right side team                                                                     |
+| `orientation` | `string` | No    | `'horizontal'`                                                     | The pitch orientation. Supported values: `horizontal`, `vertical`                       |
+| `homeTeam` | `Team`   | No       | -                                                                  | The home team                                                                           |
+| `awayTeam` | `Team`   | No       | -                                                                  | The away team                                                                           |
 
 #### Team
 

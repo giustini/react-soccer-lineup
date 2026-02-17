@@ -178,3 +178,35 @@ Customize the pitch background color with the `color` prop:
 ```tsx
 <SoccerLineUp color="#03a6A1" pattern="lines" />
 ```
+
+## Pitch orientation
+
+The `orientation` prop controls whether the pitch is displayed horizontally or vertically.
+
+### Horizontal
+
+The default orientation. Home team on the left, away team on the right:
+
+```tsx
+import SoccerLineUp from 'react-soccer-lineup';
+
+function App() {
+  return <SoccerLineUp orientation="horizontal" />;
+}
+```
+
+<LiveDemo client:visible orientation="horizontal" />
+
+### Vertical
+
+Portrait layout. Home team at the bottom, away team at the top:
+
+```tsx
+import SoccerLineUp from 'react-soccer-lineup';
+
+function App() {
+  return <SoccerLineUp orientation="vertical" />;
+}
+```
+
+<LiveDemo client:visible orientation="vertical" />

@@ -38,13 +38,27 @@ export const createTeamWithCallbacks = (team: Team, prefix: string): Team => {
   };
 };
 
+export const stripNumbers = (team: Team): Team => {
+  const strip = (player: NullablePlayer): NullablePlayer =>
+    player ? { ...player, number: undefined } : player;
+
+  return {
+    ...team,
+    squad: {
+      gk: strip(team.squad.gk),
+      df: team.squad.df?.map(strip),
+      cdm: team.squad.cdm?.map(strip),
+      cm: team.squad.cm?.map(strip),
+      cam: team.squad.cam?.map(strip),
+      fw: team.squad.fw?.map(strip),
+    },
+  };
+};
+
 export const applyTeamColors = (baseTeam: Team, colors: any): Team => {
   return {
     ...baseTeam,
-    squad: {
-      ...baseTeam.squad,
-      gk: { ...baseTeam.squad.gk, style: { color: colors.goalkeeperColor } },
-    },
+    squad: baseTeam.squad,
     style: {
       ...baseTeam.style,
       ...colors,

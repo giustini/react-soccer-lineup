@@ -56,13 +56,32 @@ Adds a visual pattern overlay on the pitch grass.
 
 <LiveDemo client:visible pattern="lines" />
 
+### orientation
+
+**Type:** `"horizontal" | "vertical"`
+
+**Default:** `"horizontal"`
+
+Controls the pitch orientation.
+
+| Value | Description |
+|-------|-------------|
+| `"horizontal"` | Landscape layout (default). Home team on the left, away team on the right |
+| `"vertical"` | Portrait layout. Home team at the bottom, away team at the top |
+
+```tsx
+<SoccerLineUp orientation="vertical" />
+```
+
+<LiveDemo client:visible orientation="vertical" />
+
 ### homeTeam
 
 **Type:** `Team | undefined`
 
 **Default:** `undefined`
 
-Configuration for the left side team. See [Team Configuration](/guides/teams) for details.
+Configuration for the home team. See [Team Configuration](/guides/teams) for details.
 
 ```tsx
 const homeTeam: Team = {
@@ -87,7 +106,7 @@ const homeTeam: Team = {
 
 **Default:** `undefined`
 
-Configuration for the right side team. Works identically to `homeTeam` but positions players on the right side of the pitch.
+Configuration for the away team. Works identically to `homeTeam` but positions players on the opposite side of the pitch.
 
 ```tsx
 const awayTeam: Team = {

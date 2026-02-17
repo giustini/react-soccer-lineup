@@ -22,6 +22,7 @@ import SoccerLineUp, {
   type PlayerOffset,
   type PitchSize,
   type PitchPattern,
+  type PitchOrientation,
   type PitchViewProps
 } from 'react-soccer-lineup';
 ```
@@ -35,6 +36,7 @@ interface PitchViewProps {
   color?: string;
   size?: PitchSize;
   pattern?: PitchPattern;
+  orientation?: PitchOrientation;
   homeTeam?: Team;
   awayTeam?: Team;
 }
@@ -54,6 +56,14 @@ Available grass patterns.
 
 ```typescript
 type PitchPattern = 'lines' | 'squares' | 'circles';
+```
+
+### PitchOrientation
+
+Pitch orientation options.
+
+```typescript
+type PitchOrientation = 'horizontal' | 'vertical';
 ```
 
 ## Team

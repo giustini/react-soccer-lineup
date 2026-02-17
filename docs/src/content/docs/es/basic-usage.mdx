@@ -178,3 +178,35 @@ Personaliza el color de fondo del campo con la prop `color`:
 ```tsx
 <SoccerLineUp color="#03a6A1" pattern="lines" />
 ```
+
+## Orientación del campo
+
+La prop `orientation` controla si el campo se muestra en horizontal o en vertical.
+
+### Horizontal
+
+La orientación por defecto. Equipo local a la izquierda, visitante a la derecha:
+
+```tsx
+import SoccerLineUp from 'react-soccer-lineup';
+
+function App() {
+  return <SoccerLineUp orientation="horizontal" />;
+}
+```
+
+<LiveDemo client:visible orientation="horizontal" />
+
+### Vertical
+
+Disposición vertical. Equipo local abajo, visitante arriba:
+
+```tsx
+import SoccerLineUp from 'react-soccer-lineup';
+
+function App() {
+  return <SoccerLineUp orientation="vertical" />;
+}
+```
+
+<LiveDemo client:visible orientation="vertical" />
