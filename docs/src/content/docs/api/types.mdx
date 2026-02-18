@@ -175,7 +175,7 @@ type Player = {
 | `name` | `string` | Player name displayed below the marker |
 | `number` | `number` | Jersey number displayed on the marker |
 | `style` | `PlayerStyle` | Individual player styling (overrides team style) |
-| `offset` | `PlayerOffset` | Position adjustment in pixels |
+| `offset` | `PlayerOffset` | Position adjustment |
 | `onClick` | `() => void` | Callback when player marker is clicked |
 
 ### PlayerStyle
@@ -218,8 +218,8 @@ type PlayerOffset = {
 
 | Property | Type | Default | Description |
 |----------|------|---------|-------------|
-| `x` | `number` | `0` | Horizontal offset in pixels (negative = left, positive = right) |
-| `y` | `number` | `0` | Vertical offset in pixels (negative = up, positive = down) |
+| `x` | `number` | `0` | Horizontal offset (negative = left, positive = right) |
+| `y` | `number` | `0` | Vertical offset (negative = up, positive = down) |
 
 ## Usage Example
 
@@ -228,8 +228,7 @@ import SoccerLineUp, {
   type Team,
   type Squad,
   type Player,
-  type TeamStyle,
-  type PlayerOffset
+  type TeamStyle
 } from 'react-soccer-lineup';
 
 function App() {
@@ -262,10 +261,11 @@ function App() {
 
   return (
     <SoccerLineUp
-        color="#327d61"
-        pattern="lines"
-        homeTeam={homeTeam}
-        awayTeam={awayTeam}
+      color="#327d61"
+      pattern="lines"
+      size="responsive"
+      orientation="horizontal"
+      homeTeam={team}
     />
   );
 }

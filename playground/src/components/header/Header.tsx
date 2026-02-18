@@ -44,7 +44,7 @@ const Header: React.FC<{ resolvedMode: ResolvedColorMode; toggleColorMode(): voi
         color={resolvedMode === 'dark' ? 'gray.300' : 'gray.600'}
         fontSize={{ base: 'sm', md: 'md' }}
       >
-        Playground with version: <Code>1.0.0-beta.9</Code>
+        Playground with version: <Code>1.0.0-beta.10</Code>
       </Text>
     </Box>
   );

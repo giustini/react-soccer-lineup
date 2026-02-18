@@ -132,16 +132,16 @@ const squad: Squad = {
   }}
 />
 
-To fine-tune the formations, an additional offset can be added using the player's [`offset`](/guides/players/#desplazamiento-de-posición) property.
+To fine-tune the formations, an additional offset can be added using the player's [`offset`](/guides/players/#position-offset) property.
 
 ```tsx
 const squad: Squad = {
   gk: { number: 1 },
-  df: [{ number: 2, offset: { x: 40 } }, { number: 4 }, { number: 5 }, null],
+  df: [{ number: 2, offset: { x: 8 } }, { number: 4 }, { number: 5 }, null],
   cdm: [null, null, null, null, { number: 3 }],
-  cm: [{ number: 6, offset: { x: 40 } }, { number: 8, offset: { x: -40 } }, { number: 10 }],
+  cm: [{ number: 6, offset: { x: 8 } }, { number: 8, offset: { x: -8 } }, { number: 10 }],
   cam: [null, null, { number: 11 }, null],
-  fw: [{ number: 9, offset: { x: 30, y: -60 } },  null, { number: 7 }]
+  fw: [{ number: 9, offset: { x: 6, y: -15 } },  null, { number: 7 }]
 };
 ```
 
@@ -150,11 +150,11 @@ const squad: Squad = {
   homeTeam={{
     squad: {
       gk: { number: 1 },
-      df: [{ number: 2, offset: { x: 40 } }, { number: 4 }, { number: 5 }, null],
+      df: [{ number: 2, offset: { x: 8 } }, { number: 4 }, { number: 5 }, null],
       cdm: [null, null, null, null, { number: 3 }],
-      cm: [{ number: 6, offset: { x: 40 } }, { number: 8, offset: { x: -40 } }, { number: 10 }],
+      cm: [{ number: 6, offset: { x: 8 } }, { number: 8, offset: { x: -8 } }, { number: 10 }],
       cam: [null, null, { number: 11 }, null],
-      fw: [{ number: 9, offset: { x: 30, y: -60 } },  null, { number: 7 }]
+      fw: [{ number: 9, offset: { x: 6, y: -15 } },  null, { number: 7 }]
     },
     style: { borderColor: '#333' }
   }}
@@ -169,11 +169,11 @@ Classic formation with 4 defenders, 4 midfielders, and 2 forwards.
 ```tsx
 const squad: Squad = {
   gk: { number: 1 },
-  df: [{ number: 2, offset: { x: 30 } }, { number: 4 }, { number: 5 }, { number: 3, offset: { x: 30 } }],
+  df: [{ number: 2, offset: { x: 5 } }, { number: 4 }, { number: 5 }, { number: 3, offset: { x: 5 } }],
   cdm: [],
-  cm: [{ number: 7, offset: { x: 30 } }, { number: 6 }, { number: 8 }, { number: 11, offset: { x: 30 } }],
+  cm: [{ number: 7, offset: { x: 5 } }, { number: 6 }, { number: 8 }, { number: 11, offset: { x: 5 } }],
   cam: [],
-  fw: [{ number: 9 }, { number: 10, offset: { x: -20 } }]
+  fw: [{ number: 9 }, { number: 10, offset: { x: -4 } }]
 };
 ```
 
@@ -182,11 +182,11 @@ const squad: Squad = {
   homeTeam={{
     squad: {
       gk: { number: 1 },
-      df: [{ number: 2, offset: { x: 30 } }, { number: 4 }, { number: 5 }, { number: 3, offset: { x: 30 } }],
+      df: [{ number: 2, offset: { x: 5 } }, { number: 4 }, { number: 5 }, { number: 3, offset: { x: 5 } }],
       cdm: [],
-      cm: [{ number: 7, offset: { x: 30 } }, { number: 6 }, { number: 8 }, { number: 11, offset: { x: 30 } }],
+      cm: [{ number: 7, offset: { x: 5 } }, { number: 6 }, { number: 8 }, { number: 11, offset: { x: 5 } }],
       cam: [],
-      fw: [{ number: 9 }, { number: 10, offset: { x: -20 } }]
+      fw: [{ number: 9 }, { number: 10, offset: { x: -4 } }]
     },
     style: { borderColor: '#333' }
   }}
@@ -199,7 +199,7 @@ Typical formation with 4 defenders, 3 midfielders and 3 forwards.
 ```tsx
 const squad: Squad = {
   gk: { number: 1 },
-  df: [{ number: 2 , offset: { x: 40 }}, { number: 4 }, { number: 5 }, { number: 3, offset: { x: 40 } }],
+  df: [{ number: 2 , offset: { x: 7.5 } }, { number: 4 }, { number: 5 }, { number: 3, offset: { x: 7.5 } }],
   cdm: [null, { number: 8 }, null],
   cm: [null, { number: 6 }, null, { number: 10 }, null],
   cam: [{ number: 7 }, null, { number: 11 }],
@@ -212,7 +212,7 @@ const squad: Squad = {
   homeTeam={{
     squad: {
       gk: { number: 1 },
-      df: [{ number: 2 , offset: { x: 40 }}, { number: 4 }, { number: 5 }, { number: 3, offset: { x: 40 } }],
+      df: [{ number: 2 , offset: { x: 7.5 } }, { number: 4 }, { number: 5 }, { number: 3, offset: { x: 7.5 } }],
       cdm: [null, { number: 8 }, null],
       cm: [null, { number: 6 }, null, { number: 10 }, null],
       cam: [{ number: 7 }, null, { number: 11 }],
@@ -257,7 +257,7 @@ Defensive formation with wing-backs.
 ```tsx
 const squad: Squad = {
   gk: { number: 1 },
-  df: [{ number: 2 }, { number: 4 }, { number: 5 }, { number: 6 }, { number: 3 }],
+  df: [{ number: 2 }, { number: 4, offset: { x: -5 } }, { number: 5, offset: { x: -5 } }, { number: 6, offset: { x: -5 } }, { number: 3 }],
   cm: [{ number: 8 }, { number: 10 }, { number: 7 }],
   fw: [{ number: 9 }, { number: 11 }]
 };
@@ -268,7 +268,7 @@ const squad: Squad = {
   homeTeam={{
     squad: {
       gk: { number: 1 },
-      df: [{ number: 2 }, { number: 4 }, { number: 5 }, { number: 6 }, { number: 3 }],
+      df: [{ number: 2 }, { number: 4, offset: { x: -5 } }, { number: 5, offset: { x: -5 } }, { number: 6, offset: { x: -5 } }, { number: 3 }],
       cm: [{ number: 8 }, { number: 10 }, { number: 7 }],
       fw: [{ number: 9 }, { number: 11 }]
     },

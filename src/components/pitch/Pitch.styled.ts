@@ -90,6 +90,7 @@ const Container = styled.div<{ size: PitchSize; vertical?: boolean }>`
     if (props.size !== 'responsive') return 'unset';
     return props.vertical ? '7/12' : '12/7';
   }};
+
   container-type: ${(props) => (props.size === 'fill' ? 'size' : 'normal')};
 `;
 

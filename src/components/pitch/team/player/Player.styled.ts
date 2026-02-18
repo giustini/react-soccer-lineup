@@ -378,8 +378,8 @@ const Content = styled.div<{
   background-position: ${(props) => (props.pattern === 'squares' ? '25% 25%' : 'auto')};
   border: ${(props) => `2px solid ${props.colorBorder}`};
 
-  --offset-x: ${(props) => (props.offset?.x ? props.offset.x + 'px' : 0)};
-  --offset-y: ${(props) => (props.offset?.y ? props.offset.y + 'px' : 0)};
+  --offset-x: ${(props) => (props.offset?.x ? props.offset.x + 'cqw' : 0)};
+  --offset-y: ${(props) => (props.offset?.y ? props.offset.y + 'cqh' : 0)};
 
   transform: translateX(var(--offset-x)) translateY(var(--offset-y))
     var(--rsl-counter-rotation, rotate(0deg));
@@ -407,14 +407,14 @@ const Number = styled.div<{ color: string; backgroundColor: string }>`
 const Name = styled.div<{ color: string; backgroundColor: string }>`
   position: absolute;
   bottom: -28px;
-  
+
   text-align: center;
   width: max-content;
   padding: 0 6px;
-  
+
   color: ${(props) => props.color};
   background-color: ${(props) => props.backgroundColor};
-  
+
   border-radius: 8px;
 `;
 

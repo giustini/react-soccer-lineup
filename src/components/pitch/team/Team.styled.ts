@@ -6,6 +6,8 @@ const Container = styled.div<{ away?: boolean }>`
   display: inline;
 
   margin-left: ${(props) => (props.away ? 'auto' : 'unset')};
+
+  container-type: size;
 `;
 
 const Squad = styled.div<{ away?: boolean }>`
