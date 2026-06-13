@@ -71,6 +71,7 @@ type TeamStyle = {
   nameBackgroundColor?: string;
   pattern?: PlayerPattern;
   patternColor?: string;
+  size?: PlayerSize;
 };
 ```
 
@@ -86,6 +87,7 @@ type TeamStyle = {
 | `nameBackgroundColor` | `'transparent'` | `'transparent'` |
 | `pattern` | 'none' | 'none' |
 | `patternColor` | `'transparent'` | `'transparent'` |
+| `size` | `'auto'` | `'auto'` |
 
 ### Colores personalizados del equipo
 
@@ -130,6 +132,64 @@ const team: Team = {
       numberColor: '#ffffff',
       nameColor: '#ffffff',
       nameBackgroundColor: '#333333cc'
+    }
+  }}
+/>
+
+### Tamaño de los jugadores
+
+Controla el diámetro del marcador de los jugadores con la propiedad `size`:
+
+| Valor | Diámetro |
+|-------|----------|
+| `'auto'` | Escala con el campo (por defecto) |
+| `'small'` | 24px |
+| `'medium'` | 32px |
+| `'big'` | 44px |
+| `number` | Diámetro personalizado en píxeles |
+
+Con tamaños explícitos (presets o un número), la fuente del dorsal y del nombre, la separación y los paddings de la etiqueta del nombre y el borde del marcador escalan proporcionalmente con el diámetro. Con `'auto'`, los marcadores mantienen el comportamiento clásico y escalan con el campo.
+
+```tsx
+const team: Team = {
+  squad: { /* ... */ },
+  style: {
+    color: '#a71f28',
+    borderColor: '#ffffff',
+    numberColor: '#ffffff',
+    size: 'big'
+  }
+};
+```
+
+<LiveDemo
+  client:visible
+  naturalFonts
+  homeTeam={{
+    squad: {
+      gk: { number: 1 },
+      df: [
+        { number: 12 },
+        { number: 5 },
+        { number: 4 },
+        { number: 26 },
+      ],
+      cdm: [{ number: 38 }],
+      cm: [
+        { number: 8 },
+        { number: 10 },
+      ],
+      fw: [
+        { number: 11 },
+        { number: 22 },
+        { number: 7 },
+      ],
+    },
+    style: {
+      color: '#a71f28',
+      borderColor: '#ffffff',
+      numberColor: '#ffffff',
+      size: 'big'
     }
   }}
 />

@@ -37,7 +37,12 @@ export type TeamStyle = {
   nameBackgroundColor?: string;
   pattern?: PlayerPattern;
   patternColor?: string;
+  size?: PlayerSize;
+  numberSize?: number;
+  nameSize?: number;
 };
+
+export type PlayerSize = 'small' | 'medium' | 'big' | 'auto' | number;
 
 export type PlayerPattern =
   | 'lines'

@@ -75,7 +75,9 @@
 .soccer-lineup-wrapper {
   border-radius: 8px;
   overflow: hidden;
+}
 
+.soccer-lineup-wrapper:not(.soccer-lineup-natural) {
   @media (max-width: 40rem) {
 
     * {

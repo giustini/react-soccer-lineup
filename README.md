@@ -24,8 +24,8 @@ npm install react-soccer-lineup
 ```tsx
 import SoccerLineUp from 'react-soccer-lineup';
 
-function App () {
-    return <SoccerLineUp />;
+function App() {
+  return <SoccerLineUp />;
 }
 ```
 
@@ -36,68 +36,67 @@ function App () {
 ```tsx
 import SoccerLineUp, { type Team } from 'react-soccer-lineup';
 
-function App () {
-    const homeTeam: Team = {
-      squad: {
-        gk: { number: 1 },
-        df: [{ number: 2 }, { number: 4 }, { number: 5 }, { number: 3 }],
-        cm: [{ number: 11 }, { number: 6 }, { number: 8 }, { number: 7 }],
-        fw: [{ number: 9 }, { number: 10 }]
-      },
-      style: {
-        borderColor: '#333333'
-      }
-    };
-    
-    const awayTeam: Team = {
-      squad: {
-        gk: { number: 1 },
-        df: [{ number: 2 }, { number: 4 }, { number: 5 }, { number: 3 }],
-        cm: [{ number: 6 }, { number: 8 }, { number: 10 }],
-        fw: [{ number: 11 }, { number: 9 }, { number: 7 }]
-      },
-      style: {
-        borderColor: '#ffffff'
-      }
-    };
-    
-    return (
-        <SoccerLineUp
-          size='responsive'
-          color='#327D61'
-          pattern='squares'
-          homeTeam={homeTeam}
-          awayTeam={awayTeam}
-        />
-    );
+function App() {
+  const homeTeam: Team = {
+    squad: {
+      gk: { number: 1 },
+      df: [{ number: 2 }, { number: 4 }, { number: 5 }, { number: 3 }],
+      cm: [{ number: 11 }, { number: 6 }, { number: 8 }, { number: 7 }],
+      fw: [{ number: 9 }, { number: 10 }],
+    },
+    style: {
+      borderColor: '#333333',
+    },
+  };
+
+  const awayTeam: Team = {
+    squad: {
+      gk: { number: 1 },
+      df: [{ number: 2 }, { number: 4 }, { number: 5 }, { number: 3 }],
+      cm: [{ number: 6 }, { number: 8 }, { number: 10 }],
+      fw: [{ number: 11 }, { number: 9 }, { number: 7 }],
+    },
+    style: {
+      borderColor: '#ffffff',
+    },
+  };
+
+  return (
+    <SoccerLineUp
+      size='responsive'
+      color='#327D61'
+      pattern='squares'
+      homeTeam={homeTeam}
+      awayTeam={awayTeam}
+    />
+  );
 }
 ```
 
 ![](docs/img/sample-2.png)
 
-
 ## API
 
-| Prop       | Type     | Required | Default value                                                      | Description                                                                             |
-|------------|----------|----------|--------------------------------------------------------------------|-----------------------------------------------------------------------------------------|
-| `color`    | `string` | No       | ![#588f58](https://placehold.co/15x15/588f58/588f58.png) `#588f58` | The pitch background color                                                              |
-| `size`     | `string` | No       | `'normal'`                                                         | Pitch dimensions. Supported values: `small`, `normal`, `big`, `responsive`, `fill`      |
-| `pattern`  | `string` | No       | -                                                                  | The pattern applied to the pitch grass. Supported values: `lines`, `squares`, `circles` |
-| `orientation` | `string` | No    | `'horizontal'`                                                     | The pitch orientation. Supported values: `horizontal`, `vertical`                       |
-| `homeTeam` | `Team`   | No       | -                                                                  | The home team                                                                           |
-| `awayTeam` | `Team`   | No       | -                                                                  | The away team                                                                           |
+| Prop          | Type     | Required | Default value                                                      | Description                                                                             |
+| ------------- | -------- | -------- | ------------------------------------------------------------------ | --------------------------------------------------------------------------------------- |
+| `color`       | `string` | No       | ![#588f58](https://placehold.co/15x15/588f58/588f58.png) `#588f58` | The pitch background color                                                              |
+| `size`        | `string` | No       | `'normal'`                                                         | Pitch dimensions. Supported values: `small`, `normal`, `big`, `responsive`, `fill`      |
+| `pattern`     | `string` | No       | -                                                                  | The pattern applied to the pitch grass. Supported values: `lines`, `squares`, `circles` |
+| `orientation` | `string` | No       | `'horizontal'`                                                     | The pitch orientation. Supported values: `horizontal`, `vertical`                       |
+| `homeTeam`    | `Team`   | No       | -                                                                  | The home team                                                                           |
+| `awayTeam`    | `Team`   | No       | -                                                                  | The away team                                                                           |
 
 #### Team
 
 | Attribute | Type    | Required | Default value | Description              |
-|-----------|---------|----------|---------------|--------------------------|
+| --------- | ------- | -------- | ------------- | ------------------------ |
 | `squad`   | `Squad` | Yes      | -             | The team players by role |
 | `style`   | `Style` | No       | -             | The team style           |
 
 #### Squad
 
 | Attribute | Type       | Required | Default value | Description                             |
-|-----------|------------|----------|---------------|-----------------------------------------|
+| --------- | ---------- | -------- | ------------- | --------------------------------------- |
 | `gk`      | `Player`   | No       | -             | The squad goalkeeper                    |
 | `df`      | `Player[]` | No       | -             | The squad defenders                     |
 | `cdm`     | `Player[]` | No       | -             | The squad central defensive midfielders |
@@ -107,21 +106,24 @@ function App () {
 
 #### Style
 
-| Attribute               | Type     | Required | Default value                                                                                                                                         | Description                             |
-|-------------------------|----------|----------|-------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------|
-| `color`                 | `string` | No       | ![#ffffff](https://placehold.co/15x15/ffffff/ffffff.png) `#ffffff` (home) / ![#333333](https://placehold.co/15x15/333333/333333.png) `#333333` (away) | The team color                          |
-| `borderColor`           | `string` | No       | ![#ffffff](https://placehold.co/15x15/ffffff/ffffff.png) `#ffffff` (home) / ![#333333](https://placehold.co/15x15/333333/333333.png) `#333333` (away) | The team border color                   |
-| `numberColor`           | `string` | No       | ![#333333](https://placehold.co/15x15/333333/333333.png) `#333333` (home) / ![#ffffff](https://placehold.co/15x15/ffffff/ffffff.png) `#ffffff` (away) | The team number color                   |
-| `numberBackgroundColor` | `string` | No       | -                                                                                                                                                     | The team number background color        |
-| `pattern`               | `string` | No       | `'none'`                                                                                                                                              | The team jersey pattern                 |
-| `patternColor`          | `string` | No       | -                                                                                                                                                     | The team jersey pattern color           |
-| `nameColor`             | `string` | No       | ![#333333](https://placehold.co/15x15/333333/333333.png) `#333333` (home) / ![#ffffff](https://placehold.co/15x15/ffffff/ffffff.png) `#ffffff` (away) | The team players' name color            |
-| `nameBackgroundColor`   | `string` | No       | -                                                                                                                                                     | The team players' name background color |
+| Attribute               | Type               | Required | Default value                                                                                                                                         | Description                                                                                                                                                                                                                            |
+| ----------------------- | ------------------ | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `color`                 | `string`           | No       | ![#ffffff](https://placehold.co/15x15/ffffff/ffffff.png) `#ffffff` (home) / ![#333333](https://placehold.co/15x15/333333/333333.png) `#333333` (away) | The team color                                                                                                                                                                                                                         |
+| `borderColor`           | `string`           | No       | ![#ffffff](https://placehold.co/15x15/ffffff/ffffff.png) `#ffffff` (home) / ![#333333](https://placehold.co/15x15/333333/333333.png) `#333333` (away) | The team border color                                                                                                                                                                                                                  |
+| `numberColor`           | `string`           | No       | ![#333333](https://placehold.co/15x15/333333/333333.png) `#333333` (home) / ![#ffffff](https://placehold.co/15x15/ffffff/ffffff.png) `#ffffff` (away) | The team number color                                                                                                                                                                                                                  |
+| `numberBackgroundColor` | `string`           | No       | -                                                                                                                                                     | The team number background color                                                                                                                                                                                                       |
+| `pattern`               | `string`           | No       | `'none'`                                                                                                                                              | The team jersey pattern                                                                                                                                                                                                                |
+| `patternColor`          | `string`           | No       | -                                                                                                                                                     | The team jersey pattern color                                                                                                                                                                                                          |
+| `nameColor`             | `string`           | No       | ![#333333](https://placehold.co/15x15/333333/333333.png) `#333333` (home) / ![#ffffff](https://placehold.co/15x15/ffffff/ffffff.png) `#ffffff` (away) | The team players' name color                                                                                                                                                                                                           |
+| `nameBackgroundColor`   | `string`           | No       | -                                                                                                                                                     | The team players' name background color                                                                                                                                                                                                |
+| `size`                  | `string \| number` | No       | `'auto'`                                                                                                                                              | The player circle diameter. `'auto'` scales with the pitch size; `'small'` = 24px, `'medium'` = 32px, `'big'` = 44px; any number sets the diameter in pixels. Fonts, name spacing and borders scale proportionally with explicit sizes |
+| `numberSize`            | `number`           | No       | -                                                                                                                                                     | The player number font size in pixels. Overrides the size derived from `size`                                                                                                                                                          |
+| `nameSize`              | `number`           | No       | -                                                                                                                                                     | The player name font size in pixels. Overrides the size derived from `size`                                                                                                                                                            |
 
 #### Player
 
 | Attribute | Type           | Required | Default value  | Description                                    |
-|-----------|----------------|----------|----------------|------------------------------------------------|
+| --------- | -------------- | -------- | -------------- | ---------------------------------------------- |
 | `name`    | `string`       | No       | -              | The displayed player name                      |
 | `number`  | `number`       | No       | -              | The displayed player number                    |
 | `style`   | `Style`        | No       | The team style | The player style                               |
@@ -131,7 +133,7 @@ function App () {
 #### PlayerOffset
 
 | Attribute | Type     | Required | Default value | Description           |
-|-----------|----------|----------|---------------|-----------------------|
+| --------- | -------- | -------- | ------------- | --------------------- |
 | `x`       | `number` | No       | 0             | The horizontal offset |
 | `y`       | `number` | No       | 0             | The vertical offset   |
 

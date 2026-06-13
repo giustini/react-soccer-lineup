@@ -1,6 +1,29 @@
 import { styled } from '@linaria/react';
 
-import type { PlayerOffset, PlayerPattern } from '../Team.types.ts';
+import type { PlayerOffset, PlayerPattern, PlayerSize } from '../Team.types.ts';
+
+const PLAYER_SIZES = {
+  small: 24,
+  medium: 32,
+  big: 44,
+};
+
+const getPlayerSizePx = (size: Exclude<PlayerSize, 'auto'>): number => {
+  return typeof size === 'number' ? size : PLAYER_SIZES[size];
+};
+
+const getPlayerSizeValue = (size: PlayerSize): string => {
+  return size === 'auto' ? '4.5%' : `${getPlayerSizePx(size)}px`;
+};
+
+const getPlayerFontSizeValue = (size: PlayerSize): string => {
+  return size === 'auto' ? '16px' : `${getPlayerSizePx(size) / 2}px`;
+};
+
+// Border is 0.125em of the marker font, expressed in px so the name gap can reuse it.
+const getPlayerBorderWidthValue = (size: PlayerSize): string => {
+  return size === 'auto' ? '2px' : `${getPlayerSizePx(size) / 16}px`;
+};
 
 const getPlayerBackground = (
   color: string,
@@ -359,6 +382,7 @@ const Content = styled.div<{
   colorBorder: string;
   pattern: PlayerPattern;
   patternColor: string;
+  playerSize: PlayerSize;
   offset?: PlayerOffset;
   clickable?: boolean;
 }>`
@@ -367,16 +391,19 @@ const Content = styled.div<{
 
   position: absolute;
   border-radius: 50%;
-  padding-top: 4.5%;
-  width: 4.5%;
+  padding-top: ${(props) => getPlayerSizeValue(props.playerSize)};
+  width: ${(props) => getPlayerSizeValue(props.playerSize)};
 
-  font-size: 16px;
+  font-size: ${(props) => getPlayerFontSizeValue(props.playerSize)};
+  line-height: 150%;
   font-weight: 600;
 
   background: ${(props) => getPlayerBackground(props.color, props.pattern, props.patternColor)};
   background-size: ${(props) => (props.pattern === 'squares' ? '50% 50%' : 'auto')};
   background-position: ${(props) => (props.pattern === 'squares' ? '25% 25%' : 'auto')};
-  border: ${(props) => `2px solid ${props.colorBorder}`};
+
+  --player-border-width: ${(props) => getPlayerBorderWidthValue(props.playerSize)};
+  border: ${(props) => `var(--player-border-width) solid ${props.colorBorder}`};
 
   --offset-x: ${(props) => (props.offset?.x ? props.offset.x + 'cqw' : 0)};
   --offset-y: ${(props) => (props.offset?.y ? props.offset.y + 'cqh' : 0)};
@@ -389,7 +416,12 @@ const Content = styled.div<{
   }
 `;
 
-const Number = styled.div<{ color: string; backgroundColor: string }>`
+const Number = styled.div<{
+  color: string;
+  backgroundColor: string;
+  playerSize: PlayerSize;
+  numberSize?: number;
+}>`
   position: absolute;
   left: 50%;
   top: 50%;
@@ -398,24 +430,36 @@ const Number = styled.div<{ color: string; backgroundColor: string }>`
   line-height: 1;
   padding: 4% 8%;
 
+  font-size: ${(props) =>
+    props.numberSize ? `${props.numberSize}px` : getPlayerFontSizeValue(props.playerSize)};
+
   color: ${(props) => props.color};
   background-color: ${(props) => props.backgroundColor};
 
-  border-radius: 4px;
+  border-radius: 0.25em;
 `;
 
-const Name = styled.div<{ color: string; backgroundColor: string }>`
+const Name = styled.div<{
+  color: string;
+  backgroundColor: string;
+  playerSize: PlayerSize;
+  nameSize?: number;
+}>`
   position: absolute;
-  bottom: -28px;
+  top: calc(100% + var(--player-border-width) + 2px);
 
   text-align: center;
   width: max-content;
-  padding: 0 6px;
+  padding: 0 0.375em;
+  line-height: 1.5;
+
+  font-size: ${(props) =>
+    props.nameSize ? `${props.nameSize}px` : getPlayerFontSizeValue(props.playerSize)};
 
   color: ${(props) => props.color};
   background-color: ${(props) => props.backgroundColor};
 
-  border-radius: 8px;
+  border-radius: 0.5em;
 `;
 
 export { Container, Content, Number, Name };

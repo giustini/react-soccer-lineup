@@ -65,6 +65,44 @@ Para layouts consistentes, usa tamaños fijos:
 <SoccerLineUp size="big" />
 ```
 
+## Tamaño de los jugadores
+
+Los marcadores de los jugadores escalan automáticamente con el campo (`size: 'auto'`, el valor por defecto). En contenedores pequeños — típicamente con campos `responsive` o `fill` — eso puede hacer que los jugadores queden demasiado pequeños para leerse. Define `style.size` en el equipo para desacoplar el tamaño de los jugadores del tamaño del campo:
+
+| Valor | Diámetro |
+|-------|----------|
+| `'auto'` | Escala con el campo (por defecto) |
+| `'small'` | 24px |
+| `'medium'` | 32px |
+| `'big'` | 44px |
+| `number` | Diámetro personalizado en píxeles |
+
+```tsx
+// Los jugadores mantienen un tamaño fijo legible, por pequeño que sea el campo
+<div style={{ width: '300px', height: '200px' }}>
+  <SoccerLineUp
+    size="fill"
+    homeTeam={{ squad, style: { size: 'small' } }}
+  />
+</div>
+```
+
+Con tamaños explícitos, la tipografía del dorsal y del nombre, la separación de la etiqueta del nombre y el borde del marcador escalan proporcionalmente con el diámetro. El atributo `size` también puede sobrescribirse por jugador — consulta la [Guía de estilos](/es/guides/styling).
+
+<LiveDemo
+  client:visible
+  naturalFonts
+  homeTeam={{
+    squad: {
+      gk: { number: 1 },
+      df: [{ number: 2 }, { number: 4 }, { number: 5 }, { number: 3 }],
+      cm: [{ number: 6 }, { number: 8 }, { number: 10 }],
+      fw: [{ number: 9 }, { number: 11 }, { number: 7 }]
+    },
+    style: { borderColor: '#333', size: 'medium' }
+  }}
+/>
+
 ## Buenas prácticas
 
 ### 1. Usa `responsive` para la mayoría de los casos
@@ -128,7 +166,7 @@ El componente usa `box-sizing: border-box` internamente. Al usar modos `fill` o 
 }
 ```
 
-Sobreescribe el tamaño/estilo de fuente libremente para que se ajuste al tamaño de tu campo y sea coherente con el estilo de tu aplicación:
+Sobreescribe la familia de fuente libremente para que sea coherente con el estilo de tu aplicación. Sobreescribir el tamaño de fuente es válido mientras uses el tamaño de jugador por defecto (`'auto'`):
 
 ```css
 .soccer-lineup-wrapper {
@@ -138,3 +176,5 @@ Sobreescribe el tamaño/estilo de fuente libremente para que se ajuste al tamañ
   }
 }
 ```
+
+Con tamaños de jugador explícitos (`style.size`), es preferible dejar que la librería derive la tipografía: un override global de `font-size` anularía el escalado proporcional.

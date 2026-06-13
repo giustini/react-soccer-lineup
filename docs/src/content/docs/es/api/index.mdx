@@ -77,6 +77,9 @@ El componente acepta props definidos en `PitchViewProps`:
 | `patternColor`          | `string` | No          | -                                   | El color del patrón del jugador   |
 | `nameColor`             | `string` | No          | `#333333` (home) / `#ffffff` (away) | El color del nombre               |
 | `nameBackgroundColor`   | `string` | No          | -                                   | El color de fondo del nombre      |
+| `size`                  | `string \| number` | No | `"auto"`                       | El diámetro del marcador del jugador: `"small"` (24px), `"medium"` (32px), `"big"` (44px), `"auto"` (escala con el campo) o un número de píxeles personalizado |
+| `numberSize`            | `number` | No          | -                                   | El tamaño de fuente del número en píxeles. Prevalece sobre el tamaño derivado de `size` |
+| `nameSize`              | `number` | No          | -                                   | El tamaño de fuente del nombre en píxeles. Prevalece sobre el tamaño derivado de `size` |
 
 ### Player
 

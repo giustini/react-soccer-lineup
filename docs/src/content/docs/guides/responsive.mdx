@@ -65,6 +65,44 @@ For consistent layouts, use fixed sizes:
 <SoccerLineUp size="big" />
 ```
 
+## Player size
+
+Player markers scale automatically with the pitch (`size: 'auto'`, the default). In small containers — typically with `responsive` or `fill` pitches — that can make the players too small to read. Set the team's `style.size` to decouple the player size from the pitch size:
+
+| Value | Diameter |
+|-------|----------|
+| `'auto'` | Scales with the pitch (default) |
+| `'small'` | 24px |
+| `'medium'` | 32px |
+| `'big'` | 44px |
+| `number` | Custom diameter in pixels |
+
+```tsx
+// Players keep a readable fixed size, no matter how small the pitch gets
+<div style={{ width: '300px', height: '200px' }}>
+  <SoccerLineUp
+    size="fill"
+    homeTeam={{ squad, style: { size: 'small' } }}
+  />
+</div>
+```
+
+With explicit sizes, the number and name typography, the name label spacing and the marker border scale proportionally with the diameter. The `size` attribute can also be overridden per player — see the [Styling guide](/guides/styling).
+
+<LiveDemo
+  client:visible
+  naturalFonts
+  homeTeam={{
+    squad: {
+      gk: { number: 1 },
+      df: [{ number: 2 }, { number: 4 }, { number: 5 }, { number: 3 }],
+      cm: [{ number: 6 }, { number: 8 }, { number: 10 }],
+      fw: [{ number: 9 }, { number: 11 }, { number: 7 }]
+    },
+    style: { borderColor: '#333', size: 'medium' }
+  }}
+/>
+
 ## Best Practices
 
 ### 1. Use `responsive` for most cases
@@ -128,7 +166,7 @@ The component uses `box-sizing: border-box` internally. When using `fill` or `re
 }
 ```
 
-Freely override the font size/style to fit your field size and be consistent with your application's style:
+Freely override the font family to be consistent with your application's style. Overriding the font size is fine while using the default `'auto'` player size:
 
 ```css
 .soccer-lineup-wrapper {
@@ -138,3 +176,5 @@ Freely override the font size/style to fit your field size and be consistent wit
   }
 }
 ```
+
+With explicit player sizes (`style.size`), prefer letting the library derive the typography: a global `font-size` override would cancel the proportional scaling.

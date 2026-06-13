@@ -6,7 +6,8 @@ export const buildStyle = (
   playerStyle?: PlayerStyle,
   away?: boolean,
   teamStyle?: TeamStyle
-): Required<PlayerStyle> => {
+): Required<Omit<PlayerStyle, 'numberSize' | 'nameSize'>> &
+  Pick<PlayerStyle, 'numberSize' | 'nameSize'> => {
   return {
     color: getPlayerColor(playerStyle, away, teamStyle),
     borderColor: getPlayerBorderColor(playerStyle, away, teamStyle),
@@ -16,6 +17,9 @@ export const buildStyle = (
     nameBackgroundColor: getPlayerNameBackgroundColor(playerStyle, teamStyle),
     pattern: getPlayerPattern(playerStyle, teamStyle),
     patternColor: getPlayerPatternColor(playerStyle, teamStyle),
+    size: getPlayerSize(playerStyle, teamStyle),
+    numberSize: getPlayerNumberSize(playerStyle, teamStyle),
+    nameSize: getPlayerNameSize(playerStyle, teamStyle),
   };
 };
 
@@ -73,4 +77,16 @@ const getPlayerPattern = (playerStyle?: PlayerStyle, style?: TeamStyle) => {
 
 const getPlayerPatternColor = (playerStyle?: PlayerStyle, style?: TeamStyle) => {
   return playerStyle?.patternColor || style?.patternColor || 'transparent';
+};
+
+const getPlayerSize = (playerStyle?: PlayerStyle, style?: TeamStyle) => {
+  return playerStyle?.size ?? style?.size ?? 'auto';
+};
+
+const getPlayerNumberSize = (playerStyle?: PlayerStyle, style?: TeamStyle) => {
+  return playerStyle?.numberSize ?? style?.numberSize;
+};
+
+const getPlayerNameSize = (playerStyle?: PlayerStyle, style?: TeamStyle) => {
+  return playerStyle?.nameSize ?? style?.nameSize;
 };

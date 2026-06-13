@@ -19,6 +19,7 @@ import SoccerLineUp, {
   type Player,
   type PlayerStyle,
   type PlayerPattern,
+  type PlayerSize,
   type PlayerOffset,
   type PitchSize,
   type PitchPattern,
@@ -117,6 +118,9 @@ type TeamStyle = {
   nameBackgroundColor?: string;
   pattern?: PlayerPattern;
   patternColor?: string;
+  size?: PlayerSize;
+  numberSize?: number;
+  nameSize?: number;
 };
 ```
 
@@ -156,6 +160,24 @@ export type PlayerPattern =
   | 'none';
 ```
 
+### PlayerSize
+
+Player marker diameter options.
+
+```typescript
+type PlayerSize = 'small' | 'medium' | 'big' | 'auto' | number;
+```
+
+| Value | Diameter |
+|-------|----------|
+| `'auto'` | Scales with the pitch (default) |
+| `'small'` | 24px |
+| `'medium'` | 32px |
+| `'big'` | 44px |
+| `number` | Custom diameter in pixels |
+
+With explicit sizes, the number and name fonts, the name label spacing and the marker border scale proportionally with the diameter.
+
 ## Player
 
 Individual player configuration.
@@ -192,6 +214,9 @@ type PlayerStyle = {
   nameBackgroundColor?: string;
   pattern?: PlayerPattern;
   patternColor?: string;
+  size?: PlayerSize;
+  numberSize?: number;
+  nameSize?: number;
 };
 ```
 
@@ -204,6 +229,9 @@ type PlayerStyle = {
 | `nameBackgroundColor` | Name label background | `transparent` | `transparent` |
 | `pattern` | Player pattern | `none` | `none` |
 | `patternColor` | Player pattern color | `transparent` | `transparent` |
+| `size` | Marker diameter | `'auto'` | `'auto'` |
+| `numberSize` | Number font size in px, overrides `size` | - | - |
+| `nameSize` | Name font size in px, overrides `size` | - | - |
 
 ### PlayerOffset
 

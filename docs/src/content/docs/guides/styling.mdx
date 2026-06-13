@@ -71,6 +71,7 @@ type TeamStyle = {
   nameBackgroundColor?: string;
   pattern?: PlayerPattern;
   patternColor?: string;
+  size?: PlayerSize;
 };
 ```
 
@@ -86,6 +87,7 @@ type TeamStyle = {
 | `nameBackgroundColor` | `'transparent'` | `'transparent'` |
 | `pattern` | 'none' | 'none' |
 | `patternColor` | `'transparent'` | `'transparent'` |
+| `size` | `'auto'` | `'auto'` |
 
 ### Custom team colors
 
@@ -130,6 +132,64 @@ const team: Team = {
       numberColor: '#ffffff',
       nameColor: '#ffffff',
       nameBackgroundColor: '#333333cc'
+    }
+  }}
+/>
+
+### Player size
+
+Control the diameter of the player markers with the `size` property:
+
+| Value | Diameter |
+|-------|----------|
+| `'auto'` | Scales with the pitch (default) |
+| `'small'` | 24px |
+| `'medium'` | 32px |
+| `'big'` | 44px |
+| `number` | Custom diameter in pixels |
+
+With explicit sizes (presets or a number), the number and name fonts, the name label spacing and paddings, and the marker border all scale proportionally with the diameter. With `'auto'`, the markers keep the classic behavior and scale with the pitch.
+
+```tsx
+const team: Team = {
+  squad: { /* ... */ },
+  style: {
+    color: '#a71f28',
+    borderColor: '#ffffff',
+    numberColor: '#ffffff',
+    size: 'big'
+  }
+};
+```
+
+<LiveDemo
+  client:visible
+  naturalFonts
+  homeTeam={{
+    squad: {
+      gk: { number: 1 },
+      df: [
+        { number: 12 },
+        { number: 5 },
+        { number: 4 },
+        { number: 26 },
+      ],
+      cdm: [{ number: 38 }],
+      cm: [
+        { number: 8 },
+        { number: 10 },
+      ],
+      fw: [
+        { number: 11 },
+        { number: 22 },
+        { number: 7 },
+      ],
+    },
+    style: {
+      color: '#a71f28',
+      borderColor: '#ffffff',
+      numberColor: '#ffffff',
+      size: 'big'
     }
   }}
 />

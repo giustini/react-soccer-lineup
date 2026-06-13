@@ -77,6 +77,9 @@ The component accepts props defined in `PitchViewProps`:
 | `patternColor`          | `string` | No       | -                                   | The team jersey pattern color           |
 | `nameColor`             | `string` | No       | `#333333` (home) / `#ffffff` (away) | The team players' name color            |
 | `nameBackgroundColor`   | `string` | No       | -                                   | The team players' name background color |
+| `size`                  | `string \| number` | No | `"auto"`                       | The player marker diameter: `"small"` (24px), `"medium"` (32px), `"big"` (44px), `"auto"` (scales with the pitch) or a custom number of pixels |
+| `numberSize`            | `number` | No       | -                                   | The player number font size in pixels. Overrides the size derived from `size` |
+| `nameSize`              | `number` | No       | -                                   | The player name font size in pixels. Overrides the size derived from `size`   |
 
 ### Player
 

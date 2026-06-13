@@ -10,6 +10,7 @@ interface LiveDemoProps {
   orientation?: PitchOrientation;
   homeTeam?: Team;
   awayTeam?: Team;
+  naturalFonts?: boolean;
 }
 
 export default function LiveDemo({
@@ -18,9 +19,10 @@ export default function LiveDemo({
   orientation,
   homeTeam,
   awayTeam,
+  naturalFonts,
 }: LiveDemoProps) {
   return (
-    <div className='soccer-lineup-wrapper'>
+    <div className={`soccer-lineup-wrapper${naturalFonts ? ' soccer-lineup-natural' : ''}`}>
       <SoccerLineUp
         size='responsive'
         color={color}
@@ -29,13 +31,15 @@ export default function LiveDemo({
         homeTeam={homeTeam}
         awayTeam={awayTeam}
       />
-      <style>{`
-        .soccer-lineup-wrapper {
-          * {
-            font-size: 14px;
+      {!naturalFonts && (
+        <style>{`
+          .soccer-lineup-wrapper:not(.soccer-lineup-natural) {
+            * {
+              font-size: 14px;
+            }
           }
-        }
-      `}</style>
+        `}</style>
+      )}
     </div>
   );
 }

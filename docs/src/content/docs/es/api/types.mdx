@@ -19,6 +19,7 @@ import SoccerLineUp, {
   type Player,
   type PlayerStyle,
   type PlayerPattern,
+  type PlayerSize,
   type PlayerOffset,
   type PitchSize,
   type PitchPattern,
@@ -117,6 +118,9 @@ type TeamStyle = {
   nameBackgroundColor?: string;
   pattern?: PlayerPattern;
   patternColor?: string;
+  size?: PlayerSize;
+  numberSize?: number;
+  nameSize?: number;
 };
 ```
 
@@ -156,6 +160,24 @@ export type PlayerPattern =
   | 'none';
 ```
 
+### PlayerSize
+
+Opciones de diámetro del marcador del jugador.
+
+```typescript
+type PlayerSize = 'small' | 'medium' | 'big' | 'auto' | number;
+```
+
+| Valor | Diámetro |
+|-------|----------|
+| `'auto'` | Escala con el campo (por defecto) |
+| `'small'` | 24px |
+| `'medium'` | 32px |
+| `'big'` | 44px |
+| `number` | Diámetro personalizado en píxeles |
+
+Con tamaños explícitos, la fuente del dorsal y del nombre, la separación de la etiqueta del nombre y el borde del marcador escalan proporcionalmente con el diámetro.
+
 ## Player
 
 Configuración individual del jugador.
@@ -192,6 +214,9 @@ type PlayerStyle = {
   nameBackgroundColor?: string;
   pattern?: PlayerPattern;
   patternColor?: string;
+  size?: PlayerSize;
+  numberSize?: number;
+  nameSize?: number;
 };
 ```
 
@@ -204,6 +229,9 @@ type PlayerStyle = {
 | `nameBackgroundColor` | Fondo de la etiqueta del nombre | `transparent` | `transparent` |
 | `pattern` | Patrón del jugador | `none` | `none` |
 | `patternColor` | Color del patrón del jugador | `transparent` | `transparent` |
+| `size` | Diámetro del marcador | `'auto'` | `'auto'` |
+| `numberSize` | Tamaño de fuente del número en px, prevalece sobre `size` | - | - |
+| `nameSize` | Tamaño de fuente del nombre en px, prevalece sobre `size` | - | - |
 
 ### PlayerOffset
 

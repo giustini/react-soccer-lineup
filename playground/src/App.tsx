@@ -25,6 +25,8 @@ import { createTeamWithCallbacks, applyTeamColors, stripNumbers } from './utils/
 import Examples from './components/examples';
 import Header from './components/header/Header.tsx';
 
+type PlayerSizeOption = 'auto' | 'small' | 'medium' | 'big' | number;
+
 function App() {
   const { resolvedMode, toggleColorMode } = useColorMode();
   const [selectedSize, setSelectedSize] = useState<PitchSize>('responsive');
@@ -45,6 +47,9 @@ function App() {
     numberBackgroundColor: '#ffffff',
     pattern: undefined as PlayerPattern | undefined,
     patternColor: '#333333',
+    size: 'auto' as PlayerSizeOption,
+    numberSize: undefined as number | undefined,
+    nameSize: undefined as number | undefined,
   });
 
   const [awayTeamColors, setAwayTeamColors] = useState({
@@ -54,6 +59,9 @@ function App() {
     numberBackgroundColor: '#333333',
     pattern: undefined as PlayerPattern | undefined,
     patternColor: '#ffffff',
+    size: 'auto' as PlayerSizeOption,
+    numberSize: undefined as number | undefined,
+    nameSize: undefined as number | undefined,
   });
 
   const mainHomeTeam = teams[1][selectedHomeFormation];
@@ -91,7 +99,11 @@ function App() {
                 borderColor={resolvedMode === 'dark' ? 'gray.700' : 'gray.200'}
                 overflow='auto'
               >
-                <Box display='flex' justifyContent='center'>
+                <Box
+                  display='flex'
+                  justifyContent='center'
+                  height={selectedSize === 'fill' ? '400px' : undefined}
+                >
                   <SoccerLineUp
                     size={selectedSize}
                     orientation={selectedOrientation}
@@ -122,6 +134,7 @@ function App() {
                         <option value='normal'>Normal</option>
                         <option value='big'>Big</option>
                         <option value='responsive'>Responsive</option>
+                        <option value='fill'>Fill</option>
                       </NativeSelect.Field>
                     </NativeSelect.Root>
                   </Box>
@@ -502,6 +515,117 @@ function App() {
                           <Code fontSize='xs'>{homeTeamColors.patternColor}</Code>
                         </HStack>
                       </Box>
+                      <Box>
+                        <Text fontSize='xs' mb={1}>
+                          Player size
+                        </Text>
+                        <HStack>
+                          <NativeSelect.Root>
+                            <NativeSelect.Field
+                              value={
+                                typeof homeTeamColors.size === 'number'
+                                  ? 'custom'
+                                  : homeTeamColors.size
+                              }
+                              onChange={(e) =>
+                                setHomeTeamColors({
+                                  ...homeTeamColors,
+                                  size:
+                                    e.target.value === 'custom'
+                                      ? 32
+                                      : (e.target.value as PlayerSizeOption),
+                                })
+                              }
+                            >
+                              <option value='auto'>Auto</option>
+                              <option value='small'>Small</option>
+                              <option value='medium'>Medium</option>
+                              <option value='big'>Big</option>
+                              <option value='custom'>Custom (px)</option>
+                            </NativeSelect.Field>
+                          </NativeSelect.Root>
+                          {typeof homeTeamColors.size === 'number' && (
+                            <input
+                              type='number'
+                              min={1}
+                              value={homeTeamColors.size}
+                              onChange={(e) =>
+                                setHomeTeamColors({
+                                  ...homeTeamColors,
+                                  size: Number(e.target.value) || 1,
+                                })
+                              }
+                              style={{
+                                width: '70px',
+                                height: '38px',
+                                borderRadius: '6px',
+                                border:
+                                  resolvedMode === 'dark'
+                                    ? '1px solid #4a5568'
+                                    : '1px solid #e2e8f0',
+                                padding: '0 8px',
+                                background: 'transparent',
+                                color: 'inherit',
+                              }}
+                            />
+                          )}
+                        </HStack>
+                      </Box>
+                      <Box>
+                        <Text fontSize='xs' mb={1}>
+                          Number size (px)
+                        </Text>
+                        <input
+                          type='number'
+                          min={1}
+                          placeholder='auto'
+                          value={homeTeamColors.numberSize ?? ''}
+                          onChange={(e) =>
+                            setHomeTeamColors({
+                              ...homeTeamColors,
+                              numberSize:
+                                e.target.value === '' ? undefined : Number(e.target.value),
+                            })
+                          }
+                          style={{
+                            width: '100%',
+                            height: '38px',
+                            borderRadius: '6px',
+                            border:
+                              resolvedMode === 'dark' ? '1px solid #4a5568' : '1px solid #e2e8f0',
+                            padding: '0 8px',
+                            background: 'transparent',
+                            color: 'inherit',
+                          }}
+                        />
+                      </Box>
+                      <Box>
+                        <Text fontSize='xs' mb={1}>
+                          Name size (px)
+                        </Text>
+                        <input
+                          type='number'
+                          min={1}
+                          placeholder='auto'
+                          value={homeTeamColors.nameSize ?? ''}
+                          onChange={(e) =>
+                            setHomeTeamColors({
+                              ...homeTeamColors,
+                              nameSize: e.target.value === '' ? undefined : Number(e.target.value),
+                            })
+                          }
+                          style={{
+                            width: '100%',
+                            height: '38px',
+                            borderRadius: '6px',
+                            border:
+                              resolvedMode === 'dark' ? '1px solid #4a5568' : '1px solid #e2e8f0',
+                            padding: '0 8px',
+                            background: 'transparent',
+                            color: 'inherit',
+                          }}
+                        />
+                      </Box>
                     </SimpleGrid>
                   </Box>
 
@@ -705,6 +829,117 @@ function App() {
                           />
                           <Code fontSize='xs'>{awayTeamColors.patternColor}</Code>
                         </HStack>
+                      </Box>
+                      <Box>
+                        <Text fontSize='xs' mb={1}>
+                          Player size
+                        </Text>
+                        <HStack>
+                          <NativeSelect.Root>
+                            <NativeSelect.Field
+                              value={
+                                typeof awayTeamColors.size === 'number'
+                                  ? 'custom'
+                                  : awayTeamColors.size
+                              }
+                              onChange={(e) =>
+                                setAwayTeamColors({
+                                  ...awayTeamColors,
+                                  size:
+                                    e.target.value === 'custom'
+                                      ? 32
+                                      : (e.target.value as PlayerSizeOption),
+                                })
+                              }
+                            >
+                              <option value='auto'>Auto</option>
+                              <option value='small'>Small</option>
+                              <option value='medium'>Medium</option>
+                              <option value='big'>Big</option>
+                              <option value='custom'>Custom (px)</option>
+                            </NativeSelect.Field>
+                          </NativeSelect.Root>
+                          {typeof awayTeamColors.size === 'number' && (
+                            <input
+                              type='number'
+                              min={1}
+                              value={awayTeamColors.size}
+                              onChange={(e) =>
+                                setAwayTeamColors({
+                                  ...awayTeamColors,
+                                  size: Number(e.target.value) || 1,
+                                })
+                              }
+                              style={{
+                                width: '70px',
+                                height: '38px',
+                                borderRadius: '6px',
+                                border:
+                                  resolvedMode === 'dark'
+                                    ? '1px solid #4a5568'
+                                    : '1px solid #e2e8f0',
+                                padding: '0 8px',
+                                background: 'transparent',
+                                color: 'inherit',
+                              }}
+                            />
+                          )}
+                        </HStack>
+                      </Box>
+                      <Box>
+                        <Text fontSize='xs' mb={1}>
+                          Number size (px)
+                        </Text>
+                        <input
+                          type='number'
+                          min={1}
+                          placeholder='auto'
+                          value={awayTeamColors.numberSize ?? ''}
+                          onChange={(e) =>
+                            setAwayTeamColors({
+                              ...awayTeamColors,
+                              numberSize:
+                                e.target.value === '' ? undefined : Number(e.target.value),
+                            })
+                          }
+                          style={{
+                            width: '100%',
+                            height: '38px',
+                            borderRadius: '6px',
+                            border:
+                              resolvedMode === 'dark' ? '1px solid #4a5568' : '1px solid #e2e8f0',
+                            padding: '0 8px',
+                            background: 'transparent',
+                            color: 'inherit',
+                          }}
+                        />
+                      </Box>
+                      <Box>
+                        <Text fontSize='xs' mb={1}>
+                          Name size (px)
+                        </Text>
+                        <input
+                          type='number'
+                          min={1}
+                          placeholder='auto'
+                          value={awayTeamColors.nameSize ?? ''}
+                          onChange={(e) =>
+                            setAwayTeamColors({
+                              ...awayTeamColors,
+                              nameSize: e.target.value === '' ? undefined : Number(e.target.value),
+                            })
+                          }
+                          style={{
+                            width: '100%',
+                            height: '38px',
+                            borderRadius: '6px',
+                            border:
+                              resolvedMode === 'dark' ? '1px solid #4a5568' : '1px solid #e2e8f0',
+                            padding: '0 8px',
+                            background: 'transparent',
+                            color: 'inherit',
+                          }}
+                        />
                       </Box>
                     </SimpleGrid>
                   </Box>
