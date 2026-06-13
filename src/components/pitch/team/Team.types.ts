@@ -40,9 +40,12 @@ export type TeamStyle = {
   size?: PlayerSize;
   numberSize?: number;
   nameSize?: number;
+  nameOverflow?: NameOverflow;
 };
 
 export type PlayerSize = 'small' | 'medium' | 'big' | 'auto' | number;
+
+export type NameOverflow = 'ellipsis' | 'hidden';
 
 export type PlayerPattern =
   | 'lines'

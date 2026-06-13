@@ -80,6 +80,7 @@ The component accepts props defined in `PitchViewProps`:
 | `size`                  | `string \| number` | No | `"auto"`                       | The player marker diameter: `"small"` (24px), `"medium"` (32px), `"big"` (44px), `"auto"` (scales with the pitch) or a custom number of pixels |
 | `numberSize`            | `number` | No       | -                                   | The player number font size in pixels. Overrides the size derived from `size` |
 | `nameSize`              | `number` | No       | -                                   | The player name font size in pixels. Overrides the size derived from `size`   |
+| `nameOverflow`          | `string` | No       | -                                   | Caps the player name to its column width so it never overlaps. `"ellipsis"` truncates with `…`, `"hidden"` clips without it. Unset leaves names at full width |
 
 ### Player
 

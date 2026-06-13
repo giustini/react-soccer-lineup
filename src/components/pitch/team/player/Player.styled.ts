@@ -1,6 +1,6 @@
 import { styled } from '@linaria/react';
 
-import type { PlayerOffset, PlayerPattern, PlayerSize } from '../Team.types.ts';
+import type { NameOverflow, PlayerOffset, PlayerPattern, PlayerSize } from '../Team.types.ts';
 
 const PLAYER_SIZES = {
   small: 24,
@@ -444,14 +444,24 @@ const Name = styled.div<{
   backgroundColor: string;
   playerSize: PlayerSize;
   nameSize?: number;
+  nameOverflow?: NameOverflow;
 }>`
   position: absolute;
   top: calc(100% + var(--player-border-width) + 2px);
 
-  text-align: center;
+  text-align: left;
   width: max-content;
   padding: 0 0.375em;
   line-height: 1.5;
+
+  /* Only when nameOverflow is set: cap to the player column width (minus the
+     0.75em horizontal padding) so the label never spills into a neighbouring
+     column. Otherwise the name renders at full width without truncation. */
+  max-width: ${(props) =>
+    props.nameOverflow ? 'calc(var(--rsl-name-max-width, 100cqw) - 0.75em)' : 'none'};
+  white-space: ${(props) => (props.nameOverflow ? 'nowrap' : 'normal')};
+  overflow: ${(props) => (props.nameOverflow ? 'hidden' : 'visible')};
+  text-overflow: ${(props) => (props.nameOverflow === 'hidden' ? 'clip' : 'ellipsis')};
 
   font-size: ${(props) =>
     props.nameSize ? `${props.nameSize}px` : getPlayerFontSizeValue(props.playerSize)};

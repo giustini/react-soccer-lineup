@@ -80,6 +80,7 @@ El componente acepta props definidos en `PitchViewProps`:
 | `size`                  | `string \| number` | No | `"auto"`                       | El diámetro del marcador del jugador: `"small"` (24px), `"medium"` (32px), `"big"` (44px), `"auto"` (escala con el campo) o un número de píxeles personalizado |
 | `numberSize`            | `number` | No          | -                                   | El tamaño de fuente del número en píxeles. Prevalece sobre el tamaño derivado de `size` |
 | `nameSize`              | `number` | No          | -                                   | El tamaño de fuente del nombre en píxeles. Prevalece sobre el tamaño derivado de `size` |
+| `nameOverflow`          | `string` | No          | -                                   | Limita el nombre al ancho de su columna para que nunca se solape. `"ellipsis"` recorta con `…`, `"hidden"` corta sin puntos. Sin definir, el nombre se muestra completo |
 
 ### Player
 

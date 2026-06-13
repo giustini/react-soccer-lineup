@@ -6,8 +6,8 @@ export const buildStyle = (
   playerStyle?: PlayerStyle,
   away?: boolean,
   teamStyle?: TeamStyle
-): Required<Omit<PlayerStyle, 'numberSize' | 'nameSize'>> &
-  Pick<PlayerStyle, 'numberSize' | 'nameSize'> => {
+): Required<Omit<PlayerStyle, 'numberSize' | 'nameSize' | 'nameOverflow'>> &
+  Pick<PlayerStyle, 'numberSize' | 'nameSize' | 'nameOverflow'> => {
   return {
     color: getPlayerColor(playerStyle, away, teamStyle),
     borderColor: getPlayerBorderColor(playerStyle, away, teamStyle),
@@ -20,6 +20,7 @@ export const buildStyle = (
     size: getPlayerSize(playerStyle, teamStyle),
     numberSize: getPlayerNumberSize(playerStyle, teamStyle),
     nameSize: getPlayerNameSize(playerStyle, teamStyle),
+    nameOverflow: getPlayerNameOverflow(playerStyle, teamStyle),
   };
 };
 
@@ -89,4 +90,8 @@ const getPlayerNumberSize = (playerStyle?: PlayerStyle, style?: TeamStyle) => {
 
 const getPlayerNameSize = (playerStyle?: PlayerStyle, style?: TeamStyle) => {
   return playerStyle?.nameSize ?? style?.nameSize;
+};
+
+const getPlayerNameOverflow = (playerStyle?: PlayerStyle, style?: TeamStyle) => {
+  return playerStyle?.nameOverflow ?? style?.nameOverflow;
 };

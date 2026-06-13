@@ -40,6 +40,7 @@ const PlayerView: React.FC<PlayerViewProps> = ({ player, away, teamStyle }) => {
               backgroundColor={style.nameBackgroundColor}
               playerSize={style.size}
               nameSize={style.nameSize}
+              nameOverflow={style.nameOverflow}
             >
               {name}
             </Player.Name>

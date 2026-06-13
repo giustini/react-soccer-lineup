@@ -20,6 +20,7 @@ import SoccerLineUp, {
   type PlayerStyle,
   type PlayerPattern,
   type PlayerSize,
+  type NameOverflow,
   type PlayerOffset,
   type PitchSize,
   type PitchPattern,
@@ -121,6 +122,7 @@ type TeamStyle = {
   size?: PlayerSize;
   numberSize?: number;
   nameSize?: number;
+  nameOverflow?: NameOverflow;
 };
 ```
 
@@ -178,6 +180,19 @@ type PlayerSize = 'small' | 'medium' | 'big' | 'auto' | number;
 
 Con tamaños explícitos, la fuente del dorsal y del nombre, la separación de la etiqueta del nombre y el borde del marcador escalan proporcionalmente con el diámetro.
 
+### NameOverflow
+
+Por defecto, los nombres se muestran a su ancho completo y no se recortan. Al definir `nameOverflow`, el nombre se limita al ancho de su columna —de modo que nunca se solape con jugadores vecinos— y se elige cómo se recorta lo que sobra.
+
+```typescript
+type NameOverflow = 'ellipsis' | 'hidden';
+```
+
+| Valor | Comportamiento |
+|-------|----------------|
+| `'ellipsis'` | Limita al ancho de columna, recortando con puntos suspensivos (`…`) |
+| `'hidden'` | Limita al ancho de columna, cortando el texto sin puntos suspensivos |
+
 ## Player
 
 Configuración individual del jugador.
@@ -217,6 +232,7 @@ type PlayerStyle = {
   size?: PlayerSize;
   numberSize?: number;
   nameSize?: number;
+  nameOverflow?: NameOverflow;
 };
 ```
 
@@ -232,6 +248,7 @@ type PlayerStyle = {
 | `size` | Diámetro del marcador | `'auto'` | `'auto'` |
 | `numberSize` | Tamaño de fuente del número en px, prevalece sobre `size` | - | - |
 | `nameSize` | Tamaño de fuente del nombre en px, prevalece sobre `size` | - | - |
+| `nameOverflow` | Recorte del nombre cuando se define; sin definir = sin recorte | - | - |
 
 ### PlayerOffset
 

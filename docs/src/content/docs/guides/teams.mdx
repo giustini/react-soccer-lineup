@@ -176,6 +176,50 @@ const team: Team = {
 
 `lines`, `thin-lines`, `thick-lines`, `stripes`, `thin-stripes`, `thick-stripes`, `line`, `thin-line`, `thick-line`, `stripe`, `thin-stripe`, `thick-stripe`, `bar`, `thin-bar`, `thick-bar`, `bars`, `thin-bars`, `thick-bars`, `left-half`, `right-half`, `top-half`, `bottom-half`, `left-slash`, `left-thin-slash`, `left-thick-slash`, `right-slash`, `right-thin-slash`, `right-thick-slash`, `cross`, `x`, `squares`, `none`
 
+### Name overflow
+
+You can limit the width of the names to avoid overlapping:
+
+```tsx
+const team: Team = {
+  squad: { /* ... */ },
+  style: {
+      color: '#eed49f',
+      borderColor: '#333',
+      numberColor: '#333',
+      numberBackgroundColor: '#eed49f',
+      pattern: 'stripes',
+      patternColor: '#333',
+      nameColor: '#333',
+      nameBackgroundColor: '#eed49fdd',
+      nameOverflow: 'ellipsis'
+    }
+};
+```
+
+<LiveDemo
+  client:visible
+  homeTeam={{
+    squad: {
+      gk: { number: 1, name: "Goalkeeper" },
+      df: [{ number: 2, name: "Right Defender" }, { number: 4, name: "Defender" }, { number: 5, name: "Defender" }, { number: 3, name: "Left Defender" }],
+      cm: [{ number: 6, name: "Right Midfielder" }, { number: 8, name: "Central Midfielder" }, { number: 10, name: "Left Midfielder" }],
+      fw: [{ number: 9, name: "Right Forward" }, { number: 11, name: "Forward" }, { number: 7, name: "Left Forward" }]
+    },
+    style: {
+      color: '#eed49f',
+      borderColor: '#333',
+      numberColor: '#333',
+      numberBackgroundColor: '#eed49f',
+      pattern: 'stripes',
+      patternColor: '#333',
+      nameColor: '#333',
+      nameBackgroundColor: '#eed49fdd',
+      nameOverflow: 'ellipsis'
+    }
+  }}
+/>
+
 ### Default values
 
 | Property | Home Team | Away Team |
@@ -188,3 +232,7 @@ const team: Team = {
 | `nameBackgroundColor` | `'transparent'` | `'transparent'` |
 | `pattern` | 'none' | 'none' |
 | `patternColor` | `'transparent'` | `'transparent'` |
+| `size` | `'medium'` | `'medium'` |
+| `numberSize` | `undefined` | `undefined` |
+| `nameSize` | `undefined` | `undefined` |
+| `nameOverflow` | `undefined` | `undefined` |

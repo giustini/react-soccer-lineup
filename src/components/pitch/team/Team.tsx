@@ -11,8 +11,10 @@ const TeamView: React.FC<TeamViewProps> = ({ team, away }) => {
     style,
   } = team;
 
+  const lineCount = [df, cdm, cm, cam, fw].filter(Boolean).length;
+
   return (
-    <Team.Container away={away}>
+    <Team.Container away={away} lineCount={lineCount}>
       <Team.Squad away={away}>
         <Team.Goalkeeper>
           <PlayerView player={gk} away={away} teamStyle={style} />
